@@ -1,8 +1,20 @@
 # max-wedding
 
 ## Project setup
+
+### Dependencies
+
 ```
 npm install
+```
+
+### .env.local
+
+You need a `.env.local` file to authenticate with the firebase API.
+
+```
+VUE_APP_FIREBASE_API_KEY=***
+VUE_APP_FIREBASE_APP_ID=***
 ```
 
 ### Compiles and hot-reloads for development
