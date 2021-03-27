@@ -1,5 +1,8 @@
 <template>
-  <p>confirmation</p>
+  <div>
+    <p>Confirmation Page</p>
+    <router-link to="/">Link back to detail</router-link>
+  </div>
 </template>
 
 <script>

@@ -12,34 +12,28 @@ const routes = [
     component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue'),
   },
   {
-    path: '',
-    component: () => import(/* webpackChunkName: "login" */ '../templates/LoggedIn.vue'),
-    children: [
-      {
-        path: '/',
-        name: 'Detail',
-        meta: {
-          authRequired: true,
-        },
-        component: () => import(/* webpackChunkName: "detail" */ '../views/Detail.vue'),
-      },
-      {
-        path: '/confirmation',
-        name: 'Confirmation',
-        meta: {
-          authRequired: true,
-        },
-        component: () => import(/* webpackChunkName: "confirmation" */ '../views/Confirmation.vue'),
-      },
-      {
-        path: '/registration',
-        name: 'Registration',
-        meta: {
-          authRequired: true,
-        },
-        component: () => import(/* webpackChunkName: "registration" */ '../views/Registration.vue'),
-      },
-    ],
+    path: '/',
+    name: 'Detail',
+    meta: {
+      authRequired: true,
+    },
+    component: () => import(/* webpackChunkName: "detail" */ '../views/Detail.vue'),
+  },
+  {
+    path: '/confirmation',
+    name: 'Confirmation',
+    meta: {
+      authRequired: true,
+    },
+    component: () => import(/* webpackChunkName: "confirmation" */ '../views/Confirmation.vue'),
+  },
+  {
+    path: '/registration',
+    name: 'Registration',
+    meta: {
+      authRequired: true,
+    },
+    component: () => import(/* webpackChunkName: "registration" */ '../views/Registration.vue'),
   },
 ];
 
