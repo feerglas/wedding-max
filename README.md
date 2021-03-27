@@ -1,5 +1,8 @@
 # max-wedding
 
+Deployed at:
+https://wedding-max.vercel.app/
+
 ## Project setup
 
 ### Dependencies
