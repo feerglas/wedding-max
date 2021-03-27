@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import auth from '@/firebase/';
 
 Vue.use(VueRouter);
 
@@ -56,16 +55,10 @@ const router = new VueRouter({
  * Make sure the user can not access protected routes
  */
 router.beforeEach((to, from, next) => {
-  const user = firebase.auth().currentUser;
+  const requiresAuth = to.matched.some((record) => record.meta.authRequired);
 
-  if (to.matched.some((record) => record.meta.authRequired)) {
-    if (!user) {
-      next({
-        path: '/login',
-      });
-    } else {
-      next();
-    }
+  if (requiresAuth && !auth.currentUser) {
+    next('/login');
   } else {
     next();
   }
