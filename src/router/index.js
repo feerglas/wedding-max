@@ -44,14 +44,6 @@ const router = new VueRouter({
 });
 
 /**
- * !! TODO !!
- * - Not ideal solution. We have a vuex state variable to determine if we are logged in.
- *   But if we would import store.js, we would have a cyclic dependency
- * - If user is logged in and is on e.g. detail page, and refreshes the page, he will be
- *   redirected to the login page, since firebase is not initialized at this point.
- */
-
-/**
  * Make sure the user can not access protected routes
  */
 router.beforeEach((to, from, next) => {
