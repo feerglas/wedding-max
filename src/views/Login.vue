@@ -55,11 +55,11 @@
 
     </div>
 
-    <button
-      class="button"
+    <Button
+      text="Anmelden"
       type="submit"
-      :disabled="isLoginPending"
-    >Anmelden</button>
+      :disable="isLoginPending"
+    />
 
     <p
       class="form-error"
@@ -78,11 +78,14 @@
 
 import { validationMixin } from 'vuelidate';
 import { required, minLength } from 'vuelidate/lib/validators';
+import Button from '@/components/Button.vue';
 
 export default {
   mixins: [validationMixin],
   name: 'Login',
-  components: {},
+  components: {
+    Button,
+  },
   computed: {
     isLoginPending() {
       return this.$store.getters.isLoginPending;
