@@ -6,10 +6,8 @@
           <h1 class="title-1" id="anreise">Anreise</h1>
           <p>Da Zermatt ein autofreies Bergdorf ist, endet die Anreise für Autofahrer
             in Täsch, 5km vor Zermatt. Von dort aus geht es weiter mit dem Zug-Shuttle.</p>
-          <footer>
-              <p>Parkhausreservierung Täsch sowie genaue Informationen zum Zugshuttle wie
-                Fahrplan und Fahrkartenreservierung</p>
-          </footer>
+          <InfoPanel text="Parkhausreservierung Täsch sowie genaue Informationen
+          zum Zugshuttle wie Fahrplan und Fahrkartenreservierung" />
       </article>
       <article>
          <h1 class="title-1" id="anreise">Übernachtung</h1>
@@ -17,49 +15,11 @@
             Dafür steht euch ein von uns reserviertes Kontingent an Zimmern verschiedener
             Kategorien zur Verfügung, welche ihr auf eigene Kosten direkt beim Hotel buchen
             könnt. Bitte gebt dazu bei eurer Reservierung «Hochzeit Pröckl &amp; Hammes» an.</p>
-          <figure>
-              <img alt="">
-              <figcaption>
-                  <p>
-                    <span class="title-2">CERVO Mountain Resort</span><br>
-                    Riedweg 156<br>
-                    CH-3920 Zermatt (Schweiz)<br>
-                    <a href="https://www.cervo.swiss" target="_blank">Website</a><br>
-                    <a href="mailto:info@cervo.swiss">info@cervo.swiss</a>
-                  </p>
-              </figcaption>
-          </figure>
+          <CervoTeaser/>
           <h2 class="title-2">Weitere Hotelvorschläge in der Nähe</h2>
-          <ul class="list">
-              <li>
-                  <img src="" alt="">
-                  <p>
-                    <span class="title-4">Hotel Alpenroyal</span><br>
-                    befindet sich direkt neben dem Cervo<br>
-                    <a href="https://www.alpenroyal.ch/" target="_blank" rel="external noopener nofollow">Website</a>
-                  </p>
-              </li>
-              <li>
-                  <img src="" alt="">
-                  <p>
-                    <span class="title-4">Hotel Carina Zermatt</span><br>
-                    <a href="https://carinazermatt.ch" target="_blank" rel="external noopener nofollow">Website</a>
-                  </p>
-              </li>
-              <li>
-                  <img src="" alt="">
-                  <p>
-                    <span class="title-4">Hotel Bella Vista Zermatt</span><br>
-                    <a href="https://bellavista-zermatt.ch" target="_blank" rel="external noopener nofollow">Website</a>
-                  </p>
-              </li>
-          </ul>
+          <HotelTeasers/>
           <h3 class="title-3">Ansonsten gibt es noch viele weitere Möglichkeiten:</h3>
-          <ul class="list">
-              <li><a href="https://www.airbnb.ch/" target="_blank">Airbnb</a></li>
-              <li><a href="https://www.booking.com/" target="_blank">Booking.com</a></li>
-              <li><a href="https://www.tripadvisor.ch/" target="_blank">Tripadvisor</a></li>
-          </ul>
+          <BookingTeasers/>
       </article>
       <article>
           <h2 class="title-1" id="geschenkideen">Geschenkideen</h2>
@@ -108,9 +68,7 @@
           <router-link to="/registration">
               <Button text="Anmelden" />
           </router-link>
-          <footer>
-              <p>Good to know: Wir bitten von Reden oder Spielen abzusehen.</p>
-          </footer>
+          <InfoPanel text="Good to know: Wir bitten von Reden oder Spielen abzusehen." />
       </article>
       <article>
           <h1 class="title-1" id="kontakt">Kontakt</h1>
@@ -155,12 +113,20 @@
 <script>
 import Nav from '@/components/Nav.vue';
 import Button from '@/components/Button.vue';
+import InfoPanel from '@/components/InfoPanel.vue';
+import CervoTeaser from '@/components/CervoTeaser.vue';
+import HotelTeasers from '@/components/HotelTeasers.vue';
+import BookingTeasers from '@/components/BookingTeasers.vue';
 
 export default {
   name: 'Detail',
   components: {
-    Button,
     Nav,
+    Button,
+    InfoPanel,
+    CervoTeaser,
+    HotelTeasers,
+    BookingTeasers,
   },
 };
 

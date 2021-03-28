@@ -89,6 +89,10 @@ a {
   color: $colorGroom;
 }
 
+img {
+  border-style: none;
+}
+
 p:not(:last-child),
 p:not(:only-child) {
   margin: 0 0 pxToRem($interElementSpacing) 0;
