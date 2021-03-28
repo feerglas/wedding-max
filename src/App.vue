@@ -19,13 +19,13 @@ export default {
 /* Webfonts */
 @font-face {
   font-family: 'GT Haptik Regular';
-  src: url('webfonts/GT-Haptik-Regular.woff2') format('woff2');
+  src: url('../public/webfonts/GT-Haptik-Regular.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'GT Haptik Bold';
-  src: url('webfonts/GT-Haptik-Bold.woff2') format('woff2');
+  src: url('../public/webfonts/GT-Haptik-Bold.woff2') format('woff2');
   font-display: swap;
 }
 

@@ -115,7 +115,7 @@
       <article>
           <h1 class="title-1" id="kontakt">Kontakt</h1>
           <h2 class="title-3">Trauzeugen</h2>
-          <ul class="list">
+          <ul class="list list--contact">
               <li>
                   <p>Lenna Friedrich<br>
                     <a href="tel:+41798194299">+41 79 819 42 99</a><br>
@@ -198,6 +198,10 @@ dd {
   article:not(:last-child),
   article:not(:only-child) {
     margin-bottom: pxToRem($interModuleSpacing);
+  }
+
+  .list--contact {
+    display: inline-block;
   }
 
 }
