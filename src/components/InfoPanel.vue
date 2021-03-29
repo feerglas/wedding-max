@@ -23,6 +23,10 @@ export default {
         padding-top: pxToRem($interElementSpacing);
     }
 
+    .info-panel:last-child {
+        margin-top: pxToRem($interElementSpacing);
+    }
+
     .info-panel p {
         margin: 0;
     }

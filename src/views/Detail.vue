@@ -30,103 +30,34 @@
             eine Riesenfreude bereiten. Zudem steht mit der Neueinrichtung unserer Wohnung
             ein weiteres grosses Projekt an, welches wir schon bald in Angriff nehmen möchten.</p>
       </article>
-      <article>
-          <h1 class="title-1" id="gettogether">Get together</h1>
-          <dl>
-              <dt>Datum</dt>
-              <dd>Freitag 20.08.2021, ab 1830</dd>
-              <dt>Adresse</dt>
-              <dd>Schali Lago by CERVO Zermatt<br>Schalisee<br>3929 Täsch (Schweiz)</dd>
-              <dt>Transfer Zermatt nach Täsch</dt>
-              <dd>Der Transfer zwischen Zermatt und Täsch wird ab dem Parkhaus Urania in
-                Zermatt von uns organisiert. Wir werden Nähere Informationen dazu später
-                via WhatsApp kommunizieren.</dd>
-              <dt>Dresscode</dt>
-              <dd>Sommerlich</dd>
-              <dt>Anmeldefrist</dt>
-              <dd>Bitte gebt uns bis zum 15.05.2021 Bescheid ob ihr kommen könnt.</dd>
-          </dl>
-          <router-link to="/registration">
-              <Button text="Anmelden" />
-          </router-link>
-      </article>
-      <article>
-          <h1 class="title-1" id="hochzeitsfeier">Hochzeitfeier</h1>
-          <dl>
-              <dt>Datum &amp; Ablauf</dt>
-              <dd>Samstag 21.08.20211500 Trauzeremonie auf der Ferdinand Terrasse<br>
-                  1600 Apéro auf der Terrasse<br>
-                  ca. 19h Abendessen<br>
-                  Anschliessende Party</dd>
-              <dt>Adresse</dt>
-              <dd>CERVO Mountain Resorts<br>Riedweg 156<br>3920 Zermatt (Schweiz)</dd>
-              <dt>Dresscode</dt>
-              <dd>Sommerlich festlich</dd>
-              <dt>Anmeldefrist</dt>
-              <dd>Bitte gebt uns bis zum 15.05.2021 Bescheid ob ihr kommen könnt.</dd>
-          </dl>
-          <router-link to="/registration">
-              <Button text="Anmelden" />
-          </router-link>
-          <InfoPanel text="Good to know: Wir bitten von Reden oder Spielen abzusehen." />
-      </article>
-      <article>
-          <h1 class="title-1" id="kontakt">Kontakt</h1>
-          <h2 class="title-3">Trauzeugen</h2>
-          <ul class="list list--contact">
-              <li>
-                  <p>Lenna Friedrich<br>
-                    <a href="tel:+41798194299">+41 79 819 42 99</a><br>
-                    <a href="mailto:">E-Mail</a>
-                  </p>
-              </li>
-              <li>
-                  <p>
-                    Niklas Bathke<br>
-                    <a href="tel:+4917666613678">+49 176 66613678</a><br>
-                    <a href="mailto:">E-Mail</a>
-                  </p>
-              </li>
-          </ul>
-          <h2 class="title-3">Brautpaar</h2>
-          <ul class="list">
-              <li>
-                  <p>
-                    Sarah Pröckl<br>
-                    <a href="tel:+41766117761">+41 76 611 77 61</a><br>
-                    <a href="mailto:">E-Mail</a>
-                  </p>
-              </li>
-              <li>
-                  <p>
-                    Maximilian Hammes<br>
-                    <a href="tel:+41766116114">+41 76 611 61 14</a><br>
-                    <a href="mailto:">E-Mail</a>
-                  </p>
-              </li>
-          </ul>
-      </article>
+      <GetTogether />
+      <Wedding />
+      <ContactItems />
   </main>
 </div>
 </template>
 
 <script>
 import Nav from '@/components/Nav.vue';
-import Button from '@/components/Button.vue';
 import InfoPanel from '@/components/InfoPanel.vue';
 import CervoTeaser from '@/components/CervoTeaser.vue';
 import HotelTeasers from '@/components/HotelTeasers.vue';
 import BookingTeasers from '@/components/BookingTeasers.vue';
+import ContactItems from '@/components/ContactItems.vue';
+import GetTogether from '@/components/GetTogether.vue';
+import Wedding from '@/components/Wedding.vue';
 
 export default {
   name: 'Detail',
   components: {
     Nav,
-    Button,
     InfoPanel,
     CervoTeaser,
     HotelTeasers,
     BookingTeasers,
+    ContactItems,
+    GetTogether,
+    Wedding,
   },
 };
 
@@ -140,14 +71,6 @@ export default {
 article:not(:last-child),
 article:not(:only-child) {
   margin-bottom: pxToRem($interModuleSpacingMobile);
-}
-
-dt {
-  @include title-3;
-}
-
-dd {
-  @include text-1;
 }
 
 @media (min-width: $desktopWidth) {
@@ -164,10 +87,6 @@ dd {
   article:not(:last-child),
   article:not(:only-child) {
     margin-bottom: pxToRem($interModuleSpacing);
-  }
-
-  .list--contact {
-    display: inline-block;
   }
 
 }
