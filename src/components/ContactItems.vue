@@ -99,6 +99,7 @@ export default {
         }
 
         .list--contact li:not(:first-child) {
+          margin-top: 0;
           margin-left: pxToRem(96);
         }
 
