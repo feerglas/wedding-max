@@ -1,77 +1,92 @@
 <template>
 
-  <form @submit.prevent="submit">
-
-    <!-- Form Group - Username -->
-    <div
-      class="form-group"
-      :class="{ 'form-group-error': $v.name.$error }"
-    >
-
-      <label class="label">Benutzername</label>
-
-      <input
-        class="input"
-        autocomplete="username"
-        name="username"
-        label="Benutzername"
-        type="text"
-        v-model.trim="$v.name.$model"
-      />
-
-      <div
-        class="input-error"
-        v-if="!$v.name.required && $v.name.$dirty"
-      >Eine E-Mail musst du schon angeben... sonst klappts nicht...</div>
-
-      <div
-        class="input-error"
-        v-if="!$v.name.minLength"
-      >Muss mindestens {{$v.name.$params.minLength.min}} Zeichen lang sein</div>
-
+  <div class="container_center container_center--login-screen">
+    <div class="visual-wrapper">
+      <div class="visual-placeholder"></div>
     </div>
+    <main>
+      <form @submit.prevent="submit">
 
-    <!-- Form Group - Password -->
-    <div
-      class="form-group"
-      :class="{ 'form-group-error': $v.password.$error }"
-    >
+        <!-- Form Group - Username -->
+        <div
+          class="form-group"
+          :class="{ 'form-group-error': $v.name.$error }"
+        >
 
-      <label class="label">Passwort</label>
+          <input
+            id="username"
+            class="input"
+            autocomplete="username"
+            name="username"
+            label="Benutzername"
+            type="text"
+            required
+            v-model.trim="$v.name.$model"
+          />
 
-      <input
-        class="input"
-        autocomplete="password"
-        name="password"
-        label="Passwort"
-        type="password"
-        v-model.trim="$v.password.$model"
-      />
+          <label for="username" class="label">Benutzername</label>
+          <div class="icon-placeholder">
+          </div>
 
-      <div
-        class="input-error"
-        v-if="!$v.password.required && $v.password.$dirty"
-      >Ohne Passwort kommste hier nicht rein...</div>
+          <div
+            class="input-error"
+            v-if="!$v.name.required && $v.name.$dirty"
+          >Eine E-Mail musst du schon angeben... sonst klappts nicht...</div>
 
-    </div>
+          <div
+            class="input-error"
+            v-if="!$v.name.minLength"
+          >Muss mindestens {{$v.name.$params.minLength.min}} Zeichen lang sein</div>
 
-    <Button
-      text="Anmelden"
-      type="submit"
-      :disable="isLoginPending"
-    />
+        </div>
 
-    <p
-      class="form-error"
-      v-if="isLoginError"
-    >Du solltest erst an der Hochzeit trinken! Bier weglegen und eine nochmals versuchen...</p>
+        <!-- Form Group - Password -->
+        <div
+          class="form-group"
+          :class="{ 'form-group-error': $v.password.$error }"
+        >
 
-    <p
-      class="form-error"
-      v-if="isLoginPending"
-    >Moment...</p>
+          <input
+            id="password"
+            class="input"
+            autocomplete="password"
+            name="password"
+            label="Passwort"
+            type="password"
+            required
+            v-model.trim="$v.password.$model"
+          />
 
-  </form>
+          <label for="password" class="label">Passwort</label>
+          <div class="icon-placeholder">
+          </div>
+
+          <div
+            class="input-error"
+            v-if="!$v.password.required && $v.password.$dirty"
+          >Ohne Passwort kommste hier nicht rein...</div>
+
+        </div>
+
+        <Button
+          text="Anmelden"
+          type="submit"
+          :disable="isLoginPending"
+        />
+
+        <p
+          class="form-error"
+          v-if="isLoginError"
+        >Du solltest erst an der Hochzeit trinken! Bier weglegen und eine nochmals versuchen...</p>
+
+        <p
+          class="form-error"
+          v-if="isLoginPending"
+        >Moment...</p>
+
+      </form>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -125,6 +140,51 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import '../scss/variables.scss';
+@import '../scss/functions.scss';
+@import '../scss/mixins.scss';
+
+  $maxViewWidth: 1440;
+
+  body {
+    background-color: #8fa9c5;
+  }
+
+  .container_center--login-screen {
+    display: flex;
+    flex-direction: row;
+    min-width: 90%;
+    max-width: pxToRem($maxViewWidth);
+    height: calc(100vh - #{pxToRem($interModuleSpacing)});
+  }
+
+  .visual-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 50%;
+    background-image: $gradient;
+  }
+
+  .visual-placeholder {
+    width: pxToRem(240);
+    height: pxToRem(334);
+    border: 1px solid pink;
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 50%;
+    height: 100%;
+    background: $colorBride;
+  }
+
+  form {
+    width: 48%;
+  }
 
 </style>

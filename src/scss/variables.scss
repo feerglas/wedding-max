@@ -8,7 +8,7 @@ $colorGroom: #1e436a;
 $colorGroomsMan: #5d7ea0;
 $colorPriest: #21578f;
 
-$gradient: linear-gradient(135deg, var(--groomsman), var(--groom));
+$gradient: linear-gradient(327.38deg, $colorGroom 0%, $colorGroomsMan 100%);
 
 /* Breakpoints */
 $desktopWidth: 64rem;
