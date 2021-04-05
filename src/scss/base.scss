@@ -46,7 +46,7 @@ img {
 .label,
 .input:focus + label {
   position: absolute;
-  top: 0;
+  top: pxToRem(5);
   left: pxToRem(36);
   height: pxToRem(20);
   line-height: 1;
@@ -76,7 +76,7 @@ img {
   @include text-2();
   width: 100%;
   height: pxToRem(26);
-  margin: pxToRem($interElementSpacing - 5) 0;
+  margin: pxToRem($interElementSpacing) 0;
   border: none;
   color: $colorGroom;
 }
@@ -101,7 +101,7 @@ img {
 
 .input-error {
   position: absolute;
-  bottom: 0;
+  bottom: pxToRem(4);
   @include text-4();
   color: $colorError;
 }
