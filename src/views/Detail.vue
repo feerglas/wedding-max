@@ -1,5 +1,6 @@
 <template>
 <div class="container_center">
+  <Logo />
   <Nav />
   <main>
       <article>
@@ -46,6 +47,7 @@ import BookingTeasers from '@/components/BookingTeasers.vue';
 import ContactItems from '@/components/ContactItems.vue';
 import GetTogether from '@/components/GetTogether.vue';
 import Wedding from '@/components/Wedding.vue';
+import Logo from '@/components/Logo.vue';
 
 export default {
   name: 'Detail',
@@ -58,6 +60,7 @@ export default {
     ContactItems,
     GetTogether,
     Wedding,
+    Logo,
   },
 };
 
@@ -68,20 +71,32 @@ export default {
 @import '../scss/functions.scss';
 @import '../scss/mixins.scss';
 
-article:not(:last-child),
-article:not(:only-child) {
-  margin-bottom: pxToRem($interModuleSpacingMobile);
+@media (max-width: $desktopWidth - 1) {
+  main {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0 pxToRem($offsetMobile);
+  }
+
+  article:not(:last-child),
+  article:not(:only-child) {
+    margin-bottom: pxToRem($interModuleSpacingMobile);
+  }
 }
 
 @media (min-width: $desktopWidth) {
   .container_center {
-    display: flex;
+    position: relative;
+    width: pxToRem(960);
+    margin: 0 auto;
+    padding: 0 pxToRem(250);
   }
 
   main {
     display: flex;
-    flex: 1 0 pxToRem(560);
+    flex: 0 1 pxToRem(560);
     flex-direction: column;
+    margin-top: pxToRem(192);
   }
 
   article:not(:last-child),

@@ -1,0 +1,44 @@
+html {
+  font-size: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $colorGroomsMan;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $colorBride;
+  text-align: center;
+  font-family: $fontRegular;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  color: $colorGroom;
+}
+
+img {
+  border-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+p:not(:last-child),
+p:not(:only-child) {
+  margin: 0 0 pxToRem($interElementSpacing) 0;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+}

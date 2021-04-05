@@ -30,18 +30,60 @@ export default {
 <style scoped lang="scss">
 @import '../scss/variables.scss';
 @import '../scss/functions.scss';
+@import '../scss/mixins.scss';
 
 ul {
-    list-style: none;
-    padding: 0;
+  @include list-reset();
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (max-width: $desktopWidth - 1) {
+  nav {
+    width: 100%;
+    overflow-x: scroll;
+    margin-bottom: pxToRem($interModuleSpacingMobile);
+  }
+
+  nav > a {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  li {
+    display: inline-flex;
+  }
+
+  li:first-child {
+    margin-left: pxToRem($offsetMobile);
+  }
+
+  li:not(:first-child) {
+    margin-left: pxToRem($interElementSpacing);
+  }
+
+  a {
+    white-space: nowrap;
+  }
+
 }
 
 @media (min-width: $desktopWidth) {
   nav {
+      position: fixed;
       display: flex;
       flex-direction: column;
-      flex-basis: pxToRem(250);
+      flex: 0 0 pxToRem(250);
       width: pxToRem(250);
+      margin-top: pxToRem(192);
+      margin-left: pxToRem(-275);
       padding-left: pxToRem(25);
   }
 
@@ -49,9 +91,6 @@ ul {
     margin-bottom: pxToRem(24);
   }
 
-  a {
-      text-decoration: none;
-  }
 }
 
 </style>

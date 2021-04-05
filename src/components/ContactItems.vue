@@ -53,61 +53,68 @@ export default {
     $listItemVerticalSpacing: $gutterHeight * 6;
 
     .list--contact {
-        display: flex;
-        flex-direction: column;
-        margin-top: pxToRem(-10);
-        margin-bottom: pxToRem($interElementSpacing);
-        @include text-1();
+      display: flex;
+      flex-direction: column;
+      margin-top: pxToRem(-10);
+      margin-bottom: pxToRem($interElementSpacing);
+      @include text-1();
     }
 
     .list--contact p {
-        margin: 0;
+      margin: 0;
     }
 
     .list--contact li:not(:first-child) {
-        position: relative;
-        margin-top: pxToRem(listItemVerticalSpacing);
+      position: relative;
+      margin-top: pxToRem($listItemVerticalSpacing);
     }
 
     .list--contact li:not(:first-child):before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        height: pxToRem(1);
-        width: pxToRem(56);
-        background: rgba($colorGroom, 0.2);
+      position: absolute;
+      top: pxToRem(-($listItemVerticalSpacing / 2 + 1));
+      left: 0;
+      content: '';
+      height: pxToRem(1);
+      width: pxToRem(56);
+      background: rgba($colorGroom, 0.2);
+    }
+
+    .list--contact li:not(:first-child):after {
+      position: absolute;
+      top: calc(-50% + #{pxToRem(14)});
+      transform: translateY(-50%);
+      left: pxToRem(16);
+      content: '&';
+      @include title-2;
+      padding: 0 pxToRem(6) 0 pxToRem(7);
+      color: rgba($colorGroom, .2);
+      background: $colorBride;
+      height: pxToRem(28);
+      line-height: pxToRem(28);
     }
 
     @media (min-width: $desktopWidth) {
         .list--contact {
-            flex-direction: row;
+          flex-direction: row;
         }
 
         .list--contact li:not(:first-child) {
-            margin-left: pxToRem(96);
+          margin-left: pxToRem(96);
         }
 
         .list--contact li:not(:first-child):before {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: pxToRem(-48);
-            height: pxToRem(48);
-            width: pxToRem(1);
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: pxToRem(-48);
+          height: pxToRem(48);
+          width: pxToRem(1);
         }
 
         .list--contact li:not(:first-child):after {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: pxToRem(-54);
-            content: '&';
-            @include title-2;
-            color: rgba($colorGroom, .2);
-            background: $colorBride;
-            height: pxToRem(28);
-            line-height: pxToRem(28);
+          top: 50%;
+          left: pxToRem(-54);
+          padding: 0;
         }
 
     }

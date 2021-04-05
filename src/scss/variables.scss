@@ -10,12 +10,12 @@ $colorPriest: #21578f;
 
 $gradient: linear-gradient(135deg, var(--groomsman), var(--groom));
 
-
 /* Breakpoints */
 $desktopWidth: 64rem;
 
 /* Spacings */
 $gutterHeight: 8;
+$offsetMobile: 32;
 $interElementSpacing: 24;
 $interModuleSpacingMobile: 48;
 $interModuleSpacing: 96;
