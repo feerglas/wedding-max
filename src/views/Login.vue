@@ -141,50 +141,47 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/variables.scss';
-@import '../scss/functions.scss';
-@import '../scss/mixins.scss';
 
-  $maxViewWidth: 1440;
+$maxViewWidth: 1440;
 
-  body {
-    background-color: #8fa9c5;
-  }
+body {
+  background-color: #8fa9c5;
+}
 
-  .container_center--login-screen {
-    display: flex;
-    flex-direction: row;
-    min-width: 90%;
-    max-width: pxToRem($maxViewWidth);
-    height: calc(100vh - #{pxToRem($interModuleSpacing)});
-  }
+.container_center--login-screen {
+  display: flex;
+  flex-direction: row;
+  min-width: 90%;
+  max-width: pxToRem($maxViewWidth);
+  height: calc(100vh - #{pxToRem($interModuleSpacing)});
+}
 
-  .visual-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 50%;
-    background-image: $gradient;
-  }
+.visual-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 50%;
+  background-image: $gradient;
+}
 
-  .visual-placeholder {
-    width: pxToRem(240);
-    height: pxToRem(334);
-    border: 1px solid pink;
-  }
+.visual-placeholder {
+  width: pxToRem(240);
+  height: pxToRem(334);
+  border: 1px solid pink;
+}
 
-  main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 50%;
-    height: 100%;
-    background: $colorBride;
-  }
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 50%;
+  height: 100%;
+  background: $colorBride;
+}
 
-  form {
-    width: 48%;
-  }
+form {
+  width: 48%;
+}
 
 </style>
