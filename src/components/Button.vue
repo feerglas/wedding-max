@@ -16,9 +16,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../scss/variables.scss';
+@import '../scss/functions.scss';
+@import '../scss/mixins.scss';
+
+$buttonHeight: 48;
 
 .button {
-  color: red;
+  display: flex;
+  padding: 0 pxToRem(20);
+  color: $colorBride;
+  background-color: $colorGroom;
+  border-radius: pxToRem(2);
+  height: pxToRem($buttonHeight);
+  line-height: pxToRem($buttonHeight - 4);
+  font-family: $fontBold;
+  font-size: pxToRem(16);
+  border: 0;
+}
+
+.button:focus,
+.button:hover {
+  background-color: $colorPriest;
 }
 
 .button:disabled {

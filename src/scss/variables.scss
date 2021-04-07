@@ -1,0 +1,26 @@
+$baseFontSize: 16;
+
+/* Colors */
+$colorBride: #fff;
+$colorBridesMaid: #e2ecf6;
+$colorError: #e50000;
+$colorGroom: #1e436a;
+$colorGroomsMan: #5d7ea0;
+$colorPriest: #21578f;
+
+$gradient: linear-gradient(327.38deg, $colorGroom 0%, $colorGroomsMan 100%);
+
+/* Breakpoints */
+$desktopWidth: 64rem;
+
+/* Spacings */
+$gutterHeight: 8;
+$offsetMobile: 32;
+$interElementSpacing: 24;
+$interModuleSpacingMobile: 48;
+$interModuleSpacing: 96;
+
+/* Webfont definitions */
+$fontFamilyBase: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fontRegular: 'GT Haptik Regular', $fontFamilyBase;
+$fontBold: 'GT Haptik Bold', $fontFamilyBase;
