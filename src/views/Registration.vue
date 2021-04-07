@@ -17,9 +17,30 @@ export default {
   methods: {
     async submit() {
       try {
+        // check if entry already exists
+        const nameToSubmit = 'Petra Muster 2';
+        let alreadyThere = false;
+        const data = await registrations.get();
+        this.registrations = data.docs.forEach((doc) => {
+          const item = doc.data();
+
+          if (item.person1.name === nameToSubmit) {
+            alreadyThere = true;
+          }
+
+          if (item.person2 && item.person2.name === nameToSubmit) {
+            alreadyThere = true;
+          }
+        });
+
+        if (alreadyThere) {
+          return;
+        }
+
+        // add the entry
         await registrations.add({
           person1: {
-            name: 'Hans Muster',
+            name: 'Hans Muster 2',
             food: 'Pasta',
             alergics: false,
             gettogether: true,
@@ -30,16 +51,6 @@ export default {
             food: 'Fries',
             alergics: 'Some of them, like Fish, Lactose',
             gettogether: false,
-            wedding: true,
-          },
-        });
-
-        await registrations.add({
-          person1: {
-            name: 'Foo Bar',
-            food: 'Pasta',
-            alergics: false,
-            gettogether: true,
             wedding: true,
           },
         });
