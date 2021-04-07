@@ -35,7 +35,7 @@ import TitleHochzeitsfeier from '../../public/img/svg/title_hochzeitsfeier.svg';
 import TitleInfos from '../../public/img/svg/title_infos.svg';
 import TitleSarahMaxi from '../../public/img/svg/title_sarah_maxi.svg';
 import UserMale from '../../public/img/svg/user_male.svg';
-import Use from '../../public/img/svg/user.svg';
+import User from '../../public/img/svg/user.svg';
 import Weblink from '../../public/img/svg/web_link.svg';
 import Wireframe from '../../public/img/svg/wireframe.svg';
 
@@ -77,7 +77,7 @@ export default {
     TitleInfos,
     TitleSarahMaxi,
     UserMale,
-    Use,
+    User,
     Weblink,
     Wireframe,
   },
