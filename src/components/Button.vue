@@ -30,6 +30,7 @@ $buttonHeight: 48;
   font-family: $fontBold;
   font-size: pxToRem(16);
   border: 0;
+  cursor: pointer;
 }
 
 .button:focus,
