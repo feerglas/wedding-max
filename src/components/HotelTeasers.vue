@@ -54,10 +54,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import '../scss/variables.scss';
-    @import '../scss/functions.scss';
-    @import '../scss/mixins.scss';
-
     .list--hotels p {
         margin: 0;
     }

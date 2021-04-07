@@ -34,10 +34,6 @@ export default {
 </script>
 
 <style lang="scss">
-    @import '../scss/variables.scss';
-    @import '../scss/functions.scss';
-    @import '../scss/mixins.scss';
-
     .event-info-list {
         margin-bottom: pxToRem($interElementSpacing);
     }

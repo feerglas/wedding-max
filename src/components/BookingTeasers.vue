@@ -14,10 +14,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    @import '../scss/variables.scss';
-    @import '../scss/functions.scss';
-    @import '../scss/mixins.scss';
-
     .list--booking-teasers li {
         position: relative;
         display: inline-block;

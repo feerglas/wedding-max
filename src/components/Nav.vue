@@ -28,9 +28,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../scss/variables.scss';
-@import '../scss/functions.scss';
-@import '../scss/mixins.scss';
 
 ul {
   @include list-reset();
