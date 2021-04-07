@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import router from '@/router';
-import auth from '@/firebase/';
+import { auth } from '@/firebase/';
 
 Vue.use(Vuex);
 
