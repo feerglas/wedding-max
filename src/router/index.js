@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import auth from '@/firebase/';
+import { auth } from '@/firebase/';
 
 Vue.use(VueRouter);
 
@@ -34,6 +34,14 @@ const routes = [
       authRequired: true,
     },
     component: () => import(/* webpackChunkName: "registration" */ '../views/Registration.vue'),
+  },
+  {
+    path: '/summary',
+    name: 'Summary',
+    meta: {
+      authRequired: true,
+    },
+    component: () => import(/* webpackChunkName: "registration" */ '../views/Summary.vue'),
   },
 ];
 
