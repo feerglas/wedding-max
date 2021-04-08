@@ -4,7 +4,11 @@
       <Logo />
     </router-link>
 
-    <Registration1 />
+    <Registration1
+      @submit="submitStep1"
+      @cancel="cancelStep1"
+    />
+
     <Registration2 />
 
     <button @click="submit">submit</button>
@@ -24,7 +28,19 @@ export default {
     Registration2,
     Logo,
   },
+  data() {
+    return {
+      finishedStep1: false,
+      canceledStep1: false,
+    };
+  },
   methods: {
+    submitStep1() {
+      console.log('step 1 go');
+    },
+    cancelStep1() {
+      console.log('step 1 cancel');
+    },
     async submit() {
       await addRegistration({
         person1: {
