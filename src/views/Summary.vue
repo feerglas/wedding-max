@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { registrations } from '@/firebase/';
+import { getRegistrations, registrationsSummary } from '@/firebase/registrations';
 
 export default {
   name: 'Summary',
@@ -57,25 +57,13 @@ export default {
     };
   },
   async created() {
-    try {
-      const data = await registrations.get();
-      this.registrations = data.docs.map((doc) => {
-        const item = doc.data();
+    this.registrations = await getRegistrations();
 
-        item.id = doc.id;
-
-        if (item.person2) {
-          this.registrationPeople += 2;
-        } else {
-          this.registrationPeople += 1;
-        }
-
-        return item;
-      });
-    } catch (e) {
+    if (this.registrations.length === 0) {
       this.error = true;
-      this.registrations = [];
     }
+
+    this.registrationPeople = await registrationsSummary();
   },
 };
 </script>
