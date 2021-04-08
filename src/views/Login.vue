@@ -7,66 +7,28 @@
     <main>
       <form @submit.prevent="submit">
 
-        <!-- Form Group - Username -->
-        <div
-          class="form-group"
-          :class="{ 'form-group-error': $v.name.$error }"
-        >
+        <Input
+          type="text"
+          icon="user"
+          :validation="$v.name"
+          id="username"
+          label="Benutzername"
+          autocomplete="username"
+          :required="true"
+          error-empty="Eine E-Mail musst du schon angeben... sonst klappts nicht..."
+          :error-wrong="`Mindestens ${$v.name.$params.minLength.min} Zeichen`"
+        />
 
-          <input
-            id="username"
-            class="input"
-            autocomplete="username"
-            name="username"
-            label="Benutzername"
-            type="text"
-            required
-            v-model.trim="$v.name.$model"
-          />
-
-          <label for="username" class="label">Benutzername</label>
-          <div class="icon-placeholder">
-          </div>
-
-          <div
-            class="input-error"
-            v-if="!$v.name.required && $v.name.$dirty"
-          >Eine E-Mail musst du schon angeben... sonst klappts nicht...</div>
-
-          <div
-            class="input-error"
-            v-if="!$v.name.minLength"
-          >Muss mindestens {{$v.name.$params.minLength.min}} Zeichen lang sein</div>
-
-        </div>
-
-        <!-- Form Group - Password -->
-        <div
-          class="form-group"
-          :class="{ 'form-group-error': $v.password.$error }"
-        >
-
-          <input
-            id="password"
-            class="input"
-            autocomplete="password"
-            name="password"
-            label="Passwort"
-            type="password"
-            required
-            v-model.trim="$v.password.$model"
-          />
-
-          <label for="password" class="label">Passwort</label>
-          <div class="icon-placeholder">
-          </div>
-
-          <div
-            class="input-error"
-            v-if="!$v.password.required && $v.password.$dirty"
-          >Ohne Passwort kommste hier nicht rein...</div>
-
-        </div>
+        <Input
+          type="password"
+          icon="key2"
+          :validation="$v.password"
+          id="password"
+          label="Passwort"
+          autocomplete="password"
+          :required="true"
+          error-empty="Ohne Passwort kommste hier nicht rein..."
+        />
 
         <Button
           text="Anmelden"
@@ -94,12 +56,14 @@
 import { validationMixin } from 'vuelidate';
 import { required, minLength } from 'vuelidate/lib/validators';
 import Button from '@/components/Button.vue';
+import Input from '@/components/Input.vue';
 
 export default {
   mixins: [validationMixin],
   name: 'Login',
   components: {
     Button,
+    Input,
   },
   computed: {
     isLoginPending() {
