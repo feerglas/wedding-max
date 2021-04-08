@@ -3,6 +3,7 @@
     class="button"
     :class="secondary ? 'secondary' : ''"
     :disabled="disable"
+    @click="buttonClicked"
   >{{ text }}</button>
 </template>
 
@@ -13,6 +14,11 @@ export default {
     text: String,
     disable: Boolean,
     secondary: Boolean,
+  },
+  methods: {
+    buttonClicked() {
+      this.$emit('click');
+    },
   },
 };
 </script>
