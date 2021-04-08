@@ -1,6 +1,7 @@
 <template>
   <button
     class="button"
+    :class="secondary ? 'secondary' : ''"
     :disabled="disable"
   >{{ text }}</button>
 </template>
@@ -11,6 +12,7 @@ export default {
   props: {
     text: String,
     disable: Boolean,
+    secondary: Boolean,
   },
 };
 </script>
@@ -40,6 +42,18 @@ $buttonHeight: 48;
 
 .button:disabled {
   opacity: .5;
+}
+
+.button.secondary {
+  color: $colorGroom;
+  background-color: transparent;
+  border: pxToRem(2) solid $colorGroom;
+}
+
+.button.secondary:focus,
+.button.secondary:hover {
+  border-color: $colorPriest;
+  color: $colorPriest;
 }
 
 </style>
