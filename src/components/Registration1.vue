@@ -22,10 +22,15 @@
       :error-wrong="`Mindestens ${$v.name.$params.minLength.min} Zeichen`"
     />
 
-    <Button text="Ich nehme gerne teil" />
+    <Button
+      text="Ich nehme gerne teil"
+      @click="submit"
+    />
+
     <Button
       text="Ich kann leider nicht teilnehmen"
       secondary
+      @click="cancel"
     />
   </div>
 
@@ -39,7 +44,6 @@ import Button from '@/components/Button.vue';
 
 export default {
   name: 'Registration1',
-  props: {},
   mixins: [validationMixin],
   components: {
     Input,
@@ -49,6 +53,14 @@ export default {
     name: {
       required,
       minLength: minLength(4),
+    },
+  },
+  methods: {
+    submit() {
+      this.$emit('submit');
+    },
+    cancel() {
+      this.$emit('cancel');
     },
   },
 };
