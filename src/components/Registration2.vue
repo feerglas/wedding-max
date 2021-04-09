@@ -22,16 +22,11 @@
           v-model="checkboxSelectionEventWedding"
         />
 
-        GETTOGETHER: {{checkboxSelectionEventGettogether}}
-        WEDDING: {{checkboxSelectionEventWedding}}
-
         <br><br>
         <Radiogroup
           :radios="radioData"
           v-model="radioSelectionWedding"
-          :selected="radioData.items[0].value"
         />
-        SELECTED: {{radioSelectionWedding}}
 
       </fieldset>
 
@@ -53,7 +48,7 @@ export default {
   props: {},
   data() {
     return {
-      radioSelectionWedding: '',
+      radioSelectionWedding: '1',
       checkboxSelectionEventGettogether: false,
       checkboxSelectionEventWedding: false,
       radioData: {
