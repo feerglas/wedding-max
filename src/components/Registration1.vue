@@ -10,28 +10,31 @@
       Familienmitglieder).
     </p>
 
-    <Input
-      type="text"
-      icon="user"
-      :validation="$v.name"
-      id="username"
-      label="Dein Vorname & Nachname"
-      autocomplete="username"
-      :required="true"
-      error-empty="Deinen Namen muss ich wissen..."
-      :error-wrong="`Mindestens ${$v.name.$params.minLength.min} Zeichen`"
-    />
+    <form>
+      <Input
+        type="text"
+        icon="user"
+        :validation="$v.name"
+        id="username"
+        label="Dein Vorname & Nachname"
+        autocomplete="username"
+        :required="true"
+        error-empty="Deinen Namen muss ich wissen..."
+        :error-wrong="`Mindestens ${$v.name.$params.minLength.min} Zeichen`"
+      />
 
-    <Button
-      text="Ich nehme gerne teil"
-      @click="submit"
-    />
+      <Button
+        text="Ich nehme gerne teil"
+        @click="submit"
+      />
 
-    <Button
-      text="Ich kann leider nicht teilnehmen"
-      secondary
-      @click="cancel"
-    />
+      <Button
+        text="Ich kann leider nicht teilnehmen"
+        secondary
+        @click="cancel"
+      />
+    </form>
+
   </div>
 
 </template>
