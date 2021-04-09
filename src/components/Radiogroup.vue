@@ -3,14 +3,12 @@
   <div>
 
     <label
-      :for="radio.id"
       v-for="radio in radios.items"
       :key="radio.id"
     >
 
       <input
         type="radio"
-        :id="radio.id"
         :name="radios.id"
         :checked="radio.value === selected"
         :value="radio.value"
