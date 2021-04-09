@@ -10,7 +10,7 @@
       <input
         type="radio"
         :name="radios.id"
-        :checked="radio.value === selected"
+        :checked="radio.value === modelValue"
         :value="radio.value"
         @change="updateValue(radio.value)"
       />
@@ -28,14 +28,16 @@ export default {
   name: 'Radiogroup',
   props: {
     radios: Object,
-    selected: String,
-    foo: String,
+    modelValue: {
+      default: '',
+    },
   },
   model: {
+    prop: 'modelValue',
     event: 'change',
   },
   created() {
-    this.$emit('change', this.selected);
+    this.$emit('change', this.modelValue);
   },
   methods: {
     updateValue(value) {
