@@ -44,7 +44,18 @@
           />
         </div>
 
-        <PersonDetails />
+        <div v-if="checkboxSelectionEventWedding">
+          <PersonDetails
+            title="Person 1"
+            :nameStore="{ getter: 'name1', setter: 'setName1'}"
+          />
+
+          <PersonDetails
+            v-if="radioSelectionWedding === '2'"
+            title="Person 2"
+            :nameStore="{ getter: 'name2', setter: 'setName2'}"
+          />
+        </div>
 
       </fieldset>
 
