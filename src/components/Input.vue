@@ -126,7 +126,6 @@ export default {
 .input-error {
   position: absolute;
   bottom: pxToRem(4);
-  @include text-4();
-  color: $colorError;
+  @include form-error;
 }
 </style>

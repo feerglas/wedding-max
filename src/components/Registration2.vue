@@ -238,8 +238,7 @@ export default {
 }
 
 .form-error {
-  @include text-4();
-  color: $colorError;
+  @include form-error;
   padding: pxToRem(10) 0 0;
 }
 </style>
