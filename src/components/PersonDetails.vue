@@ -35,7 +35,8 @@
       placeholder="Bitte beschreiben..."
       name="allergis"
       rows="5"
-      :value="allergics"
+      v-model="alergics"
+      @input="textareaChange"
     ></textarea>
 
   </div>
@@ -60,12 +61,13 @@ export default {
   data() {
     return {
       checkboxSelectionAllergics: false,
-      allergics: '',
+      alergics: '',
     };
   },
   props: {
     title: String,
     nameStore: Object,
+    index: Number,
   },
   computed: {
     name: {
@@ -84,7 +86,26 @@ export default {
   },
   methods: {
     selectChanged(value) {
-      console.log('change', value);
+      const currentState = this.$store.getters.reservation;
+
+      if (this.index === 0) {
+        currentState.wedding.food = value;
+      } else {
+        currentState.wedding.person2.food = value;
+      }
+
+      this.$store.commit('setReservation', currentState);
+    },
+    textareaChange() {
+      const currentState = this.$store.getters.reservation;
+
+      if (this.index === 0) {
+        currentState.wedding.alergics = this.alergics;
+      } else {
+        currentState.wedding.person2.alergics = this.alergics;
+      }
+
+      this.$store.commit('setReservation', currentState);
     },
   },
 };
