@@ -16,18 +16,20 @@
     />
 
     <Select
-      :options="['Wasser', 'Brot']"
-      :default="'Wasser'"
+      :options="['Essen wählen', 'Wasser', 'Brot']"
+      :placeholder="true"
       @input="selectChanged"
     />
 
     <Checkbox
+      class="single-checkbox"
       value="allergics"
       label="Allergien und Unverträglichkeiten"
       v-model="checkboxSelectionAllergics"
     />
 
     <textarea
+      class="textarea"
       v-if="checkboxSelectionAllergics"
       placeholder="Bitte beschreiben..."
       name="allergis"
@@ -84,4 +86,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.single-checkbox {
+  margin-top: pxToRem(16);
+}
+
+.textarea {
+  margin-top: pxToRem(16);
+  width: 100%;
+  padding: pxToRem(12) pxToRem(16) pxToRem(12) pxToRem(16);
+  font-family: $fontRegular;
+  font-size: pxToRem(16);
+  color: $colorGroomsMan;
+}
+
 </style>
