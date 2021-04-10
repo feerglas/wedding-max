@@ -2,7 +2,7 @@
 
   <div>
 
-    <h2>Person 1</h2>
+    <h2 class="title">{{title}}</h2>
 
     <Input
       type="text"
@@ -16,6 +16,7 @@
     />
 
     <Select
+      class="select-food"
       :options="['Essen wählen', 'Wasser', 'Brot']"
       :placeholder="true"
       @input="selectChanged"
@@ -62,13 +63,17 @@ export default {
       allergics: '',
     };
   },
+  props: {
+    title: String,
+    nameStore: Object,
+  },
   computed: {
     name: {
       get() {
-        return this.$store.getters.name1;
+        return this.$store.getters[this.nameStore.getter];
       },
       set(newValue) {
-        this.$store.commit('setName1', newValue);
+        this.$store.commit(this.nameStore.setter, newValue);
       },
     },
   },
@@ -86,6 +91,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.title {
+  font-size: pxToRem(18);
+  color: $colorGroom;
+  margin-bottom: pxToRem(6);
+}
+
+.select-food {
+  width: pxToRem(300);
+}
+
 .single-checkbox {
   margin-top: pxToRem(16);
 }
