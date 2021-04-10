@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     submitStep1() {
+      this.$store.commit('setReservationRequestError', '');
       this.finishedStep1 = true;
     },
     async cancelStep1() {
