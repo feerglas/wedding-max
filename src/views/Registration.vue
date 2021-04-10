@@ -9,9 +9,8 @@
       @cancel="cancelStep1"
     />
 
-    <Registration2 />
+    <Registration2 @submit="submitStep2"/>
 
-    <button @click="submit">submit</button>
   </div>
 </template>
 
@@ -41,7 +40,7 @@ export default {
     cancelStep1() {
       console.log('step 1 cancel');
     },
-    async submit() {
+    async submitStep2() {
       const state = this.$store.getters.reservation;
 
       // set names
