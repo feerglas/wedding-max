@@ -13,6 +13,24 @@ export default new Vuex.Store({
     },
     name1: '',
     name2: '',
+    reservation: {
+      name: '',
+      getTogether: {
+        join: false,
+        persons: '1',
+      },
+      wedding: {
+        join: false,
+        persons: '1',
+        food: '',
+        alergics: '',
+        person2: {
+          name: '',
+          food: '',
+          alergics: '',
+        },
+      },
+    },
   },
   getters: {
     isLoginPending(state) {
@@ -27,6 +45,9 @@ export default new Vuex.Store({
     name2(state) {
       return state.name2;
     },
+    reservation(state) {
+      return state.reservation;
+    },
   },
   mutations: {
     setLoginError(state, payload) {
@@ -40,6 +61,9 @@ export default new Vuex.Store({
     },
     setName2(state, payload) {
       state.name2 = payload;
+    },
+    setReservation(state, payload) {
+      state.reservation = payload;
     },
   },
   actions: {
