@@ -26,12 +26,12 @@
 
     <div
       class="input-error"
-      v-if="!validation.required && validation.$dirty"
+      v-if="!validation.required && validation.$dirty && errorEmpty"
     >{{errorEmpty}}</div>
 
     <div
       class="input-error"
-      v-if="!validation.minLength"
+      v-if="!validation.minLength && errorWrong"
     >{{errorWrong}}</div>
 
   </div>
@@ -46,6 +46,7 @@ export default {
     Icon,
   },
   props: {
+    value: String,
     type: String,
     icon: String,
     validation: Object,
@@ -56,7 +57,13 @@ export default {
     errorEmpty: String,
     errorWrong: String,
   },
+  created() {
+    if (this.validation && this.value) {
+      this.validation.$model = this.value;
+    }
+  },
 };
+
 </script>
 
 <style scoped lang="scss">
