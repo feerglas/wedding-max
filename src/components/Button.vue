@@ -16,8 +16,8 @@ export default {
     secondary: Boolean,
   },
   methods: {
-    buttonClicked() {
-      this.$emit('click');
+    buttonClicked(e) {
+      this.$emit('click', e);
     },
   },
 };
