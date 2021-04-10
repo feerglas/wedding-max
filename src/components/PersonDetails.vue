@@ -45,7 +45,6 @@
 
 <script>
 import { validationMixin } from 'vuelidate';
-import { required } from 'vuelidate/lib/validators';
 import Input from '@/components/Input.vue';
 import Select from '@/components/Select.vue';
 import Checkbox from '@/components/Checkbox.vue';
@@ -81,7 +80,7 @@ export default {
   },
   validations: {
     name: {
-      required,
+      required: false,
     },
   },
   methods: {
