@@ -15,7 +15,7 @@
 </template>
 
 <script>
-// import { addRegistration } from '@/firebase/registrations';
+import { addRegistration } from '@/firebase/registrations';
 import Registration1 from '@/components/Registration1.vue';
 import Registration2 from '@/components/Registration2.vue';
 import Logo from '@/components/Logo.vue';
@@ -47,26 +47,7 @@ export default {
       state.name = this.$store.getters.name1;
       state.wedding.person2.name = this.$store.getters.name2;
 
-      console.log(JSON.parse(JSON.stringify(state)));
-
-      /*
-      await addRegistration({
-        person1: {
-          name: 'Hans Muster 2',
-          food: 'Pasta',
-          alergics: false,
-          gettogether: true,
-          wedding: true,
-        },
-        person2: {
-          name: 'Petra Muster',
-          food: 'Fries',
-          alergics: 'Some of them, like Fish, Lactose',
-          gettogether: false,
-          wedding: true,
-        },
-      });
-      */
+      await addRegistration(state);
     },
   },
 };

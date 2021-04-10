@@ -34,45 +34,7 @@ const registrationsSummary = async () => {
 };
 
 const addRegistration = async (registration) => {
-  // check if entry already exists
-  const nameToSubmit = registration.person1.name;
-  let alreadyThere = false;
-
-  const data = await getRegistrations();
-  data.forEach((item) => {
-    if (item.person1.name === nameToSubmit) {
-      alreadyThere = true;
-    }
-
-    if (item.person2 && item.person2.name === nameToSubmit) {
-      alreadyThere = true;
-    }
-  });
-
-  if (alreadyThere) {
-    return;
-  }
-
   await registrations.add(registration);
-
-  /*
-  await registrations.add({
-    person1: {
-      name: 'Hans Muster 2',
-      food: 'Pasta',
-      alergics: false,
-      gettogether: true,
-      wedding: true,
-    },
-    person2: {
-      name: 'Petra Muster',
-      food: 'Fries',
-      alergics: 'Some of them, like Fish, Lactose',
-      gettogether: false,
-      wedding: true,
-    },
-  });
-  */
 };
 
 export {
