@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
-    <router-link to="/">
-      <Logo class="logo" />
+    <router-link
+      to="/"
+      class="logo"
+    >
+      <Logo />
     </router-link>
 
     <div class="header">
-      header
+      <Icon
+        class="header-icon"
+        name="Registration"
+      />
     </div>
 
     <div class="main">
@@ -37,6 +43,7 @@ import { addRegistration } from '@/firebase/registrations';
 import Registration1 from '@/components/Registration1.vue';
 import Registration2 from '@/components/Registration2.vue';
 import Logo from '@/components/Logo.vue';
+import Icon from '@/components/Icon.vue';
 
 export default {
   name: 'Registration',
@@ -44,6 +51,7 @@ export default {
     Registration1,
     Registration2,
     Logo,
+    Icon,
   },
   data() {
     return {
@@ -104,18 +112,51 @@ export default {
 
 <style scoped lang="scss">
 .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 
+  @include mq-desktop {
+    flex-wrap: nowrap;
+  }
 }
 
 .logo {
+  flex-basis: 100%;
+
+  @include mq-desktop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: pxToRem(290);
+    height: pxToRem(35);
+  }
 
 }
 
 .header {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+  background: $gradient;
 
+  @include mq-desktop {
+    flex: pxToRem(328) 0 0;
+    height: 100vh;
+  }
+}
+
+.header-icon {
+  height: pxToRem(125);
+  margin: pxToRem(30);
+
+  @include mq-desktop {
+    height: pxToRem(170);
+    margin: pxToRem(190) 0;
+  }
 }
 
 .main {
-
+  flex-basis: 100%;
 }
 </style>
