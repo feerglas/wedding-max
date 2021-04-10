@@ -20,7 +20,6 @@
         autocomplete="username"
         :required="true"
         error-empty="Deinen Namen muss ich wissen..."
-        :error-wrong="`Mindestens ${$v.name.$params.minLength.min} Zeichen`"
       />
 
       <Button
@@ -41,7 +40,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate';
-import { required, minLength } from 'vuelidate/lib/validators';
+import { required } from 'vuelidate/lib/validators';
 import Input from '@/components/Input.vue';
 import Button from '@/components/Button.vue';
 
@@ -52,15 +51,30 @@ export default {
     Input,
     Button,
   },
+  computed: {
+    name: {
+      get() {
+        return this.$store.getters.name1;
+      },
+      set(newValue) {
+        this.$store.commit('setName1', newValue);
+      },
+    },
+  },
   validations: {
     name: {
       required,
-      minLength: minLength(4),
     },
   },
   methods: {
-    submit() {
-      this.$emit('submit');
+    submit(e) {
+      e.preventDefault();
+
+      this.$v.$touch();
+
+      if (!this.$v.$invalid) {
+        this.$emit('submit');
+      }
     },
     cancel() {
       this.$emit('cancel');

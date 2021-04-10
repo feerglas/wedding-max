@@ -4,9 +4,9 @@
 
     <form>
 
+      <!-- Get together -->
       <fieldset>
 
-        <!-- Get together -->
         <Checkbox
           value="gettogether"
           label="Get together"
@@ -14,7 +14,18 @@
           v-model="checkboxSelectionEventGettogether"
         />
 
-        <!-- Wedding -->
+        <br>
+
+        <Radiogroup
+          :radios="radioDataGettogether"
+          v-model="radioSelectionGettogether"
+        />
+
+      </fieldset>
+
+      <!-- Wedding -->
+      <fieldset>
+
         <Checkbox
           value="wedding"
           label="Hochzeitsfeier"
@@ -22,11 +33,14 @@
           v-model="checkboxSelectionEventWedding"
         />
 
-        <br><br>
+        <br>
+
         <Radiogroup
-          :radios="radioData"
+          :radios="radioDataWedding"
           v-model="radioSelectionWedding"
         />
+
+        <PersonDetails />
 
       </fieldset>
 
@@ -38,34 +52,48 @@
 <script>
 import Checkbox from '@/components/Checkbox.vue';
 import Radiogroup from '@/components/Radiogroup.vue';
+import PersonDetails from '@/components/PersonDetails.vue';
+
+const radioData = {
+  items: [
+    {
+      value: '1',
+      id: '1person',
+      label: '1 Person',
+    },
+    {
+      value: '2',
+      id: '2person',
+      label: '2 Personen',
+    },
+  ],
+};
+
+const radioDataWedding = {
+  id: 'radiosWedding',
+  ...radioData,
+};
+
+const radioDataGettogether = {
+  id: 'radiosGettogether',
+  ...radioData,
+};
 
 export default {
   name: 'Registration2',
   components: {
     Checkbox,
     Radiogroup,
+    PersonDetails,
   },
-  props: {},
   data() {
     return {
+      radioSelectionGettogether: '1',
       radioSelectionWedding: '1',
       checkboxSelectionEventGettogether: false,
       checkboxSelectionEventWedding: false,
-      radioData: {
-        id: 'weddingPersons',
-        items: [
-          {
-            value: '1',
-            id: '1person',
-            label: '1 Person',
-          },
-          {
-            value: '2',
-            id: '2person',
-            label: '2 Personen',
-          },
-        ],
-      },
+      radioDataWedding,
+      radioDataGettogether,
     };
   },
 };
