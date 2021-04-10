@@ -67,6 +67,17 @@
 
       </fieldset>
 
+      <p
+        v-if="!this.formIsValid && this.formError.length > 0"
+        class="form-error"
+      >{{formError}}</p>
+
+      <Button
+        text="Absenden"
+        @click="submit"
+        :disable="formDisabled"
+      />
+
     </form>
 
   </div>
@@ -76,6 +87,7 @@
 import Checkbox from '@/components/Checkbox.vue';
 import Radiogroup from '@/components/Radiogroup.vue';
 import PersonDetails from '@/components/PersonDetails.vue';
+import Button from '@/components/Button.vue';
 
 const radioData = {
   items: [
@@ -108,6 +120,7 @@ export default {
     Checkbox,
     Radiogroup,
     PersonDetails,
+    Button,
   },
   data() {
     return {
@@ -117,6 +130,9 @@ export default {
       checkboxSelectionEventWedding: false,
       radioDataWedding,
       radioDataGettogether,
+      formIsValid: true,
+      formError: '',
+      formDisabled: false,
     };
   },
   methods: {
@@ -136,6 +152,58 @@ export default {
 
       this.$store.commit('setReservation', currentState);
     },
+    submit(e) {
+      e.preventDefault();
+
+      // make sure at least one checkbox is checked
+      if (!this.checkboxSelectionEventGettogether && !this.checkboxSelectionEventWedding) {
+        this.formIsValid = false;
+        this.formError = 'Du misst mindestens einen Event anwählen.';
+        return;
+      }
+
+      // Validations for checkbox wedding
+      const { reservation } = this.$store.getters;
+
+      if (this.checkboxSelectionEventWedding) {
+        // make sure name of person 1 is set
+        if (this.$store.getters.name1 < 1) {
+          this.formIsValid = false;
+          this.formError = 'Name bei Peson 1 fehlt';
+          return;
+        }
+
+        // make sure food of person 1 is set
+        if (reservation.wedding.food.length < 1) {
+          this.formIsValid = false;
+          this.formError = 'Person 1 muss ein Essen auswählen';
+          return;
+        }
+      }
+
+      // Validations for person 2
+      if (this.checkboxSelectionEventWedding && this.radioSelectionWedding === '2') {
+        // make sure name of person 2 is set
+        if (this.$store.getters.name2 < 1) {
+          this.formIsValid = false;
+          this.formError = 'Name bei Peson 2 fehlt';
+          return;
+        }
+
+        // make sure food of person 1 is set
+        if (reservation.wedding.person2.food.length < 1) {
+          this.formIsValid = false;
+          this.formError = 'Person 2 muss ein Essen auswählen';
+          return;
+        }
+      }
+
+      this.formIsValid = true;
+      this.formError = '';
+      this.formDisabled = true;
+
+      this.$emit('submit');
+    },
   },
 };
 </script>
@@ -154,5 +222,11 @@ export default {
 
 .person-details {
   margin-bottom: pxToRem(24);
+}
+
+.form-error {
+  @include text-4();
+  color: $colorError;
+  padding: pxToRem(10) 0 0;
 }
 </style>
