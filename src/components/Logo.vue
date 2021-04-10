@@ -1,11 +1,22 @@
 <template>
-  <div class="logo"></div>
+  <div class="logo-wrapper">
+    <Icon name="titleSarahMaxi" />
+    <Icon
+      class="heart"
+      name="heartOutline"
+    />
+  </div>
 </template>
 
 <script>
+import Icon from '@/components/Icon.vue';
+
 export default {
   name: 'Logo',
   props: {},
+  components: {
+    Icon,
+  },
 };
 </script>
 
@@ -15,22 +26,14 @@ $logoWidthMobile: 223;
 $logoHeightDesktop: 35;
 $logoWidthDesktop: 290;
 
-.logo {
+.logo-wrapper {
   display: flex;
-  border: 1px solid pink;
+  justify-content: center;
   width: 100%;
   height: pxToRem($logoHeightMobile);
-  margin-top: pxToRem($offsetMobile);
-  margin-bottom: pxToRem($interModuleSpacingMobile);
-}
+  margin: pxToRem($offsetMobile) 0;
 
-.logo img {
-  width: pxToRem($logoWidthMobile);
-  height: pxToRem($logoHeightMobile);
-}
-
-@media (min-width: $desktopWidth) {
-  .logo {
+  @include mq-desktop {
     position: sticky;
     top: pxToRem(46);
     left: 0;
@@ -38,12 +41,10 @@ $logoWidthDesktop: 290;
     height: pxToRem($logoHeightDesktop);
     margin-bottom: pxToRem(-$logoHeightDesktop);
   }
+}
 
-  .logo img {
-    width: pxToRem($logoWidthDesktop);
-    height: pxToRem($logoHeightDesktop);
-  }
-
+.heart {
+  margin: 0 pxToRem(24) 0 pxToRem(24);
 }
 
 </style>
