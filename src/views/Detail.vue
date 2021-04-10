@@ -66,7 +66,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 @media (max-width: $desktopWidth - 1) {
   main {

@@ -9,7 +9,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 $logoHeightMobile: 26;
 $logoWidthMobile: 223;
 $logoHeightDesktop: 35;

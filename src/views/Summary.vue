@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
 table {
   border-collapse: collapse;
   width: 100%;

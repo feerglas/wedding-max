@@ -1,26 +1,32 @@
 <template>
-  <div>
+  <div class="wrapper">
     <router-link to="/">
-      <Logo />
+      <Logo class="logo" />
     </router-link>
 
-    <Registration1
-      v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
-      @submit="submitStep1"
-      @cancel="cancelStep1"
-    />
-
-    <Registration2
-      v-if="finishedStep1 && !finishedStep2 && !canceledStep1"
-      @submit="submitStep2"
-    />
-
-    <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
-      finished, thx for registration
+    <div class="header">
+      header
     </div>
 
-    <div v-if="canceledStep1">
-      oh, what a pitty you can't join
+    <div class="main">
+      <Registration1
+        v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
+        @submit="submitStep1"
+        @cancel="cancelStep1"
+      />
+
+      <Registration2
+        v-if="finishedStep1 && !finishedStep2 && !canceledStep1"
+        @submit="submitStep2"
+      />
+
+      <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
+        finished, thx for registration
+      </div>
+
+      <div v-if="canceledStep1">
+        oh, what a pitty you can't join
+      </div>
     </div>
 
   </div>
@@ -95,3 +101,21 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.wrapper {
+
+}
+
+.logo {
+
+}
+
+.header {
+
+}
+
+.main {
+
+}
+</style>
