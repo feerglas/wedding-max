@@ -21,6 +21,20 @@
       @input="selectChanged"
     />
 
+    <Checkbox
+      value="allergics"
+      label="Allergien und Unverträglichkeiten"
+      v-model="checkboxSelectionAllergics"
+    />
+
+    <textarea
+      v-if="checkboxSelectionAllergics"
+      placeholder="Bitte beschreiben..."
+      name="allergis"
+      rows="5"
+      :value="allergics"
+    ></textarea>
+
   </div>
 
 </template>
@@ -30,6 +44,7 @@ import { validationMixin } from 'vuelidate';
 import { required } from 'vuelidate/lib/validators';
 import Input from '@/components/Input.vue';
 import Select from '@/components/Select.vue';
+import Checkbox from '@/components/Checkbox.vue';
 
 export default {
   name: 'PersonDetails',
@@ -37,6 +52,13 @@ export default {
   components: {
     Input,
     Select,
+    Checkbox,
+  },
+  data() {
+    return {
+      checkboxSelectionAllergics: false,
+      allergics: '',
+    };
   },
   computed: {
     name: {
