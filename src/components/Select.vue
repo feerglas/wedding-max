@@ -25,7 +25,8 @@
       <div
         v-for="(option, i) of options"
         :key="i"
-        @click="clickItem(option)"
+        @click="clickItem(option, i)"
+        :class="{ placeholder: i === 0 && placeholder }"
       >
         {{ option }}
       </div>
@@ -48,18 +49,10 @@ export default {
       type: Array,
       required: true,
     },
-    default: {
-      type: String,
-      required: false,
-      default: null,
-    },
+    placeholder: Boolean,
   },
   data() {
     const checkSelected = () => {
-      if (this.default) {
-        return this.default;
-      }
-
       if (this.options.length > 0) {
         return this.options[0];
       }
@@ -79,7 +72,11 @@ export default {
     clickElement() {
       this.open = !this.open;
     },
-    clickItem(option) {
+    clickItem(option, index) {
+      if (index === 0 && this.placeholder) {
+        return;
+      }
+
       this.selected = option;
       this.open = false;
       this.$emit('input', option);
@@ -151,7 +148,12 @@ $selectArrowHeight: 20;
   user-select: none;
 }
 
-.custom-select .items div:hover {
+.custom-select .items .placeholder {
+  opacity: .5;
+  cursor: default;
+}
+
+.custom-select .items div:not(.placeholder):hover {
   background-color: $colorGroom;
   color: $colorBride;
 }
