@@ -14,12 +14,14 @@
             label="Get together"
             sublabel="Freitag, 20.08.2021"
             v-model="checkboxSelectionEventGettogether"
+            @change="checkboxChange"
           />
 
           <Radiogroup
             v-if="checkboxSelectionEventGettogether"
             :radios="radioDataGettogether"
             v-model="radioSelectionGettogether"
+            @change="radioChange"
           />
         </div>
 
@@ -35,25 +37,31 @@
             label="Hochzeitsfeier"
             sublabel="Samstag, 20.08.2021"
             v-model="checkboxSelectionEventWedding"
+            @change="checkboxChange"
           />
 
           <Radiogroup
             v-if="checkboxSelectionEventWedding"
             :radios="radioDataWedding"
             v-model="radioSelectionWedding"
+            @change="radioChange"
           />
         </div>
 
         <div v-if="checkboxSelectionEventWedding">
           <PersonDetails
+            class="person-details"
             title="Person 1"
             :nameStore="{ getter: 'name1', setter: 'setName1'}"
+            :index="0"
           />
 
           <PersonDetails
+            class="person-details"
             v-if="radioSelectionWedding === '2'"
             title="Person 2"
             :nameStore="{ getter: 'name2', setter: 'setName2'}"
+            :index="1"
           />
         </div>
 
@@ -111,6 +119,24 @@ export default {
       radioDataGettogether,
     };
   },
+  methods: {
+    checkboxChange() {
+      const currentState = this.$store.getters.reservation;
+
+      currentState.getTogether.join = this.checkboxSelectionEventGettogether;
+      currentState.wedding.join = this.checkboxSelectionEventWedding;
+
+      this.$store.commit('setReservation', currentState);
+    },
+    radioChange() {
+      const currentState = this.$store.getters.reservation;
+
+      currentState.getTogether.persons = this.radioSelectionGettogether;
+      currentState.wedding.persons = this.radioSelectionWedding;
+
+      this.$store.commit('setReservation', currentState);
+    },
+  },
 };
 </script>
 
@@ -124,5 +150,9 @@ export default {
 
 .checkboxes {
   margin-right: pxToRem(12);
+}
+
+.person-details {
+  margin-bottom: pxToRem(24);
 }
 </style>
