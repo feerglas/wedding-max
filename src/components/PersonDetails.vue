@@ -133,6 +133,8 @@ export default {
   font-family: $fontRegular;
   font-size: pxToRem(16);
   color: $colorGroomsMan;
+  border: 1px solid $colorGroomsMan;
+  border-radius: pxToRem(2);
 }
 
 </style>
