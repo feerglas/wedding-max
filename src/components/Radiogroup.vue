@@ -61,6 +61,7 @@ $radioInnerWidth: 12;
 
 .wrapper {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .container {
@@ -68,8 +69,8 @@ $radioInnerWidth: 12;
   line-height: pxToRem($radioWidth);
 }
 
-.container:not(:first-child) {
-  margin-left: pxToRem(12);
+.container:not(:last-child) {
+  margin-right: pxToRem(12);
 }
 
 .radio-wrapper {
