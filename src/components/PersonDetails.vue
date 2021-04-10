@@ -15,6 +15,12 @@
       :validation="$v.name"
     />
 
+    <Select
+      :options="['Wasser', 'Brot']"
+      :default="'Wasser'"
+      @input="selectChanged"
+    />
+
   </div>
 
 </template>
@@ -23,12 +29,14 @@
 import { validationMixin } from 'vuelidate';
 import { required } from 'vuelidate/lib/validators';
 import Input from '@/components/Input.vue';
+import Select from '@/components/Select.vue';
 
 export default {
   name: 'PersonDetails',
   mixins: [validationMixin],
   components: {
     Input,
+    Select,
   },
   computed: {
     name: {
@@ -43,6 +51,11 @@ export default {
   validations: {
     name: {
       required,
+    },
+  },
+  methods: {
+    selectChanged(value) {
+      console.log('change', value);
     },
   },
 };
