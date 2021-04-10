@@ -7,38 +7,42 @@
       <!-- Get together -->
       <fieldset>
 
-        <Checkbox
-          value="gettogether"
-          label="Get together"
-          sublabel="Freitag, 20.08.2021"
-          v-model="checkboxSelectionEventGettogether"
-        />
+        <div class="radio-checkbox-wrapper">
+          <Checkbox
+            class="checkboxes"
+            value="gettogether"
+            label="Get together"
+            sublabel="Freitag, 20.08.2021"
+            v-model="checkboxSelectionEventGettogether"
+          />
 
-        <br>
-
-        <Radiogroup
-          :radios="radioDataGettogether"
-          v-model="radioSelectionGettogether"
-        />
+          <Radiogroup
+            v-if="checkboxSelectionEventGettogether"
+            :radios="radioDataGettogether"
+            v-model="radioSelectionGettogether"
+          />
+        </div>
 
       </fieldset>
 
       <!-- Wedding -->
       <fieldset>
 
-        <Checkbox
-          value="wedding"
-          label="Hochzeitsfeier"
-          sublabel="Samstag, 20.08.2021"
-          v-model="checkboxSelectionEventWedding"
-        />
+        <div class="radio-checkbox-wrapper">
+          <Checkbox
+            class="checkboxes"
+            value="wedding"
+            label="Hochzeitsfeier"
+            sublabel="Samstag, 20.08.2021"
+            v-model="checkboxSelectionEventWedding"
+          />
 
-        <br>
-
-        <Radiogroup
-          :radios="radioDataWedding"
-          v-model="radioSelectionWedding"
-        />
+          <Radiogroup
+            v-if="checkboxSelectionEventWedding"
+            :radios="radioDataWedding"
+            v-model="radioSelectionWedding"
+          />
+        </div>
 
         <PersonDetails />
 
@@ -100,5 +104,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.radio-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
+.checkboxes {
+  margin-right: pxToRem(12);
+}
 </style>
