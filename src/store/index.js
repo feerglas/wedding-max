@@ -5,35 +5,37 @@ import { auth } from '@/firebase/';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-    login: {
-      error: null,
-      pending: null,
+const defaultState = {
+  login: {
+    error: null,
+    pending: null,
+  },
+  name1: '',
+  name2: '',
+  reservation: {
+    name: '',
+    getTogether: {
+      join: false,
+      persons: '1',
     },
-    name1: '',
-    name2: '',
-    reservation: {
-      name: '',
-      getTogether: {
-        join: false,
-        persons: '1',
-      },
-      wedding: {
-        join: false,
-        persons: '1',
+    wedding: {
+      join: false,
+      persons: '1',
+      food: '',
+      alergics: '',
+      person2: {
+        name: '',
         food: '',
         alergics: '',
-        person2: {
-          name: '',
-          food: '',
-          alergics: '',
-        },
       },
     },
-    reservationRequestPending: false,
-    reservationRequestError: '',
   },
+  reservationRequestPending: false,
+  reservationRequestError: '',
+};
+
+export default new Vuex.Store({
+  state: defaultState,
   getters: {
     isLoginPending(state) {
       return state.login.pending;
@@ -81,6 +83,13 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    resetStore({ commit }) {
+      commit('setName1', '');
+      commit('setName2', '');
+      commit('setReservation', defaultState.reservation);
+      commit('setReservationRequestPending', false);
+      commit('setReservationRequestError', '');
+    },
     userLogin({ commit }, { email, password }) {
       commit('setLoginPending', true);
 
