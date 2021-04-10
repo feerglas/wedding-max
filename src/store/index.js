@@ -11,6 +11,8 @@ export default new Vuex.Store({
       error: null,
       pending: null,
     },
+    name1: '',
+    name2: '',
   },
   getters: {
     isLoginPending(state) {
@@ -19,6 +21,12 @@ export default new Vuex.Store({
     isLoginError(state) {
       return state.login.error;
     },
+    name1(state) {
+      return state.name1;
+    },
+    name2(state) {
+      return state.name2;
+    },
   },
   mutations: {
     setLoginError(state, payload) {
@@ -26,6 +34,12 @@ export default new Vuex.Store({
     },
     setLoginPending(state, payload) {
       state.login.pending = payload;
+    },
+    setName1(state, payload) {
+      state.name1 = payload;
+    },
+    setName2(state, payload) {
+      state.name2 = payload;
     },
   },
   actions: {
