@@ -31,6 +31,8 @@ export default new Vuex.Store({
         },
       },
     },
+    reservationRequestPending: false,
+    reservationRequestError: '',
   },
   getters: {
     isLoginPending(state) {
@@ -48,6 +50,12 @@ export default new Vuex.Store({
     reservation(state) {
       return state.reservation;
     },
+    reservationRequestPending(state) {
+      return state.reservationRequestPending;
+    },
+    reservationRequestError(state) {
+      return state.reservationRequestError;
+    },
   },
   mutations: {
     setLoginError(state, payload) {
@@ -64,6 +72,12 @@ export default new Vuex.Store({
     },
     setReservation(state, payload) {
       state.reservation = payload;
+    },
+    setReservationRequestPending(state, payload) {
+      state.reservationRequestPending = payload;
+    },
+    setReservationRequestError(state, payload) {
+      state.reservationRequestError = payload;
     },
   },
   actions: {

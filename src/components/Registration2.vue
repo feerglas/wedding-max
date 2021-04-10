@@ -72,10 +72,15 @@
         class="form-error"
       >{{formError}}</p>
 
+      <p
+        v-if="reservationRequestError.length > 0"
+        class="form-error"
+      >{{reservationRequestError}}</p>
+
       <Button
         text="Absenden"
         @click="submit"
-        :disable="formDisabled"
+        :disable="reservationRequestPending"
       />
 
     </form>
@@ -132,8 +137,15 @@ export default {
       radioDataGettogether,
       formIsValid: true,
       formError: '',
-      formDisabled: false,
     };
+  },
+  computed: {
+    reservationRequestPending() {
+      return this.$store.getters.reservationRequestPending;
+    },
+    reservationRequestError() {
+      return this.$store.getters.reservationRequestError;
+    },
   },
   methods: {
     checkboxChange() {
@@ -165,14 +177,14 @@ export default {
       // Validations for checkbox wedding
       const { reservation } = this.$store.getters;
 
-      if (this.checkboxSelectionEventWedding) {
-        // make sure name of person 1 is set
-        if (this.$store.getters.name1 < 1) {
-          this.formIsValid = false;
-          this.formError = 'Name bei Peson 1 fehlt';
-          return;
-        }
+      // make sure name of person 1 is set
+      if (this.$store.getters.name1 < 1) {
+        this.formIsValid = false;
+        this.formError = 'Name bei Peson 1 fehlt';
+        return;
+      }
 
+      if (this.checkboxSelectionEventWedding) {
         // make sure food of person 1 is set
         if (reservation.wedding.food.length < 1) {
           this.formIsValid = false;
@@ -200,8 +212,9 @@ export default {
 
       this.formIsValid = true;
       this.formError = '';
-      this.formDisabled = true;
 
+      this.$store.commit('setReservationRequestError', '');
+      this.$store.commit('setReservationRequestPending', true);
       this.$emit('submit');
     },
   },

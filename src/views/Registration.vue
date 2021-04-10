@@ -47,7 +47,16 @@ export default {
       state.name = this.$store.getters.name1;
       state.wedding.person2.name = this.$store.getters.name2;
 
-      await addRegistration(state);
+      const add = await addRegistration(state);
+
+      if (!add) {
+        this.$store.commit('setReservationRequestPending', false);
+        this.$store.commit('setReservationRequestError', 'Es gab einen Fehler beim Speichern. Bitte versuche es erneut.');
+
+        return;
+      }
+
+      this.$store.commit('setReservationRequestError', '');
     },
   },
 };

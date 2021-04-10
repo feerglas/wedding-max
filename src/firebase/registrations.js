@@ -34,7 +34,12 @@ const registrationsSummary = async () => {
 };
 
 const addRegistration = async (registration) => {
-  await registrations.add(registration);
+  try {
+    await registrations.add(registration);
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 export {
