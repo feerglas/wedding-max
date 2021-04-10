@@ -22,15 +22,22 @@
         error-empty="Deinen Namen muss ich wissen..."
       />
 
+      <p
+        v-if="reservationRequestError.length > 0"
+        class="form-error"
+      >{{reservationRequestError}}</p>
+
       <Button
         text="Ich nehme gerne teil"
         @click="submit"
+        :disable="reservationRequestPending"
       />
 
       <Button
         text="Ich kann leider nicht teilnehmen"
         secondary
         @click="cancel"
+        :disable="reservationRequestPending"
       />
     </form>
 
@@ -60,6 +67,12 @@ export default {
         this.$store.commit('setName1', newValue);
       },
     },
+    reservationRequestPending() {
+      return this.$store.getters.reservationRequestPending;
+    },
+    reservationRequestError() {
+      return this.$store.getters.reservationRequestError;
+    },
   },
   validations: {
     name: {
@@ -76,13 +89,23 @@ export default {
         this.$emit('submit');
       }
     },
-    cancel() {
-      this.$emit('cancel');
+    cancel(e) {
+      e.preventDefault();
+
+      this.$v.$touch();
+
+      if (!this.$v.$invalid) {
+        this.$emit('cancel');
+      }
     },
   },
 };
 </script>
 
 <style scoped lang="scss">
-
+.form-error {
+  @include text-4();
+  color: $colorError;
+  padding: pxToRem(10) 0 0;
+}
 </style>
