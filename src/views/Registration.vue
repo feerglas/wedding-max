@@ -5,11 +5,23 @@
     </router-link>
 
     <Registration1
+      v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
       @submit="submitStep1"
       @cancel="cancelStep1"
     />
 
-    <Registration2 @submit="submitStep2"/>
+    <Registration2
+      v-if="finishedStep1 && !finishedStep2 && !canceledStep1"
+      @submit="submitStep2"
+    />
+
+    <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
+      finished, thx for registration
+    </div>
+
+    <div v-if="canceledStep1">
+      oh, what a pitty you can't join
+    </div>
 
   </div>
 </template>
@@ -30,15 +42,33 @@ export default {
   data() {
     return {
       finishedStep1: false,
+      finishedStep2: false,
       canceledStep1: false,
     };
   },
   methods: {
     submitStep1() {
-      console.log('step 1 go');
+      this.finishedStep1 = true;
     },
-    cancelStep1() {
-      console.log('step 1 cancel');
+    async cancelStep1() {
+      const name = this.$store.getters.name1;
+      const { reservation } = this.$store.getters;
+
+      reservation.name = name;
+
+      this.$store.commit('setReservationRequestPending', true);
+
+      const add = await addRegistration(reservation);
+
+      if (!add) {
+        this.$store.commit('setReservationRequestPending', false);
+        this.$store.commit('setReservationRequestError', 'Es gab einen Fehler beim Speichern. Bitte versuche es erneut.');
+
+        return;
+      }
+
+      this.canceledStep1 = true;
+      this.$store.dispatch('resetStore');
     },
     async submitStep2() {
       const state = this.$store.getters.reservation;
@@ -56,7 +86,10 @@ export default {
         return;
       }
 
+      this.$store.dispatch('resetStore');
       this.$store.commit('setReservationRequestError', '');
+
+      this.finishedStep2 = true;
     },
   },
 };
