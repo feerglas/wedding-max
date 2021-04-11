@@ -99,7 +99,7 @@ export default {
 
 .input {
   @include text-2();
-  //width: 100%;
+  background: transparent;
   height: pxToRem(18);
   margin: pxToRem($interElementSpacing) 0;
   border: none;
