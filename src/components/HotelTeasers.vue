@@ -12,7 +12,10 @@
             <p>
                 <span class="title-4">Hotel Alpenroyal</span><br>
                 befindet sich direkt neben dem Cervo<br>
-                <a href="https://www.alpenroyal.ch/" target="_blank" rel="external noopener nofollow">Website</a>
+                <a href="https://www.alpenroyal.ch/" target="_blank" rel="external noopener nofollow">
+                    <Icon name="ExternalLink" />
+                    Website
+                </a>
             </p>
         </li>
         <li>
@@ -26,7 +29,10 @@
             >
             <p>
                 <span class="title-4">Hotel Carina Zermatt</span><br>
-                <a href="https://carinazermatt.ch" target="_blank" rel="external noopener nofollow">Website</a>
+                <a href="https://carinazermatt.ch" target="_blank" rel="external noopener nofollow">
+                    <Icon name="ExternalLink" />
+                    Website
+                </a>
             </p>
         </li>
         <li>
@@ -40,14 +46,22 @@
             >
             <p>
                 <span class="title-4">Hotel Bella Vista Zermatt</span><br>
-                <a href="https://bellavista-zermatt.ch" target="_blank" rel="external noopener nofollow">Website</a>
+                <a href="https://bellavista-zermatt.ch" target="_blank" rel="external noopener nofollow">
+                    <Icon name="ExternalLink" />
+                    Website
+                </a>
             </p>
         </li>
     </ul>
 </template>
 
 <script>
+import Icon from './Icon.vue';
+
 export default {
+  components: {
+    Icon,
+  },
   name: 'HotelTeasers',
   props: {},
 };

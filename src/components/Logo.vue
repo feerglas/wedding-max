@@ -1,10 +1,12 @@
 <template>
   <div class="logo-wrapper">
-    <Icon name="titleSarahMaxi" />
-    <Icon
-      class="heart"
-      name="heartOutline"
-    />
+    <button type="button">
+      <Icon name="titleSarahMaxi" />
+      <Icon
+        class="heart"
+        name="heartOutline"
+      />
+    </button>
   </div>
 </template>
 
@@ -43,8 +45,20 @@ $logoWidthDesktop: 290;
   }
 }
 
+.logo-wrapper button {
+  position: absolute;
+  right: pxToRem(-$logoWidthDesktop);
+  display: flex;
+  width: pxToRem($logoWidthDesktop);
+  height: pxToRem($logoHeightDesktop);
+  padding: 0;
+  background: $colorBride;
+  border: none;
+  color: $colorGroom;
+}
+
 .heart {
-  margin: 0 pxToRem(24) 0 pxToRem(24);
+  margin-left: pxToRem(24);
 }
 
 </style>

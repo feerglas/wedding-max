@@ -71,7 +71,7 @@
 
     @include mq-desktop {
       width: auto;
-      overflow-x: auto;
+      overflow-x: visible;
       padding: 0;
       display: flex;
       flex: 0 1 pxToRem(560);

@@ -54,6 +54,8 @@ export default {
 
     .list--booking-teasers li svg {
       height: 1.5rem;
+      width: auto;
+      margin: 0;
     }
 
 </style>
