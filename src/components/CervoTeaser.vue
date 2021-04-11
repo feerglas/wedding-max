@@ -4,7 +4,7 @@
       <img
         class="cervo-teaser__image"
         alt=""
-        src=""
+        src="/img/hotels/img_cervo_mountain_resort.jpg"
         width="752"
         height="432"
         loading="lazy"
@@ -49,7 +49,6 @@ export default {
     .cervo-teaser {
       position: relative;
       margin-bottom: pxToRem($interModuleSpacingMobile);
-      background: lime;
     }
 
     .cervo-teaser__image_wrapper {

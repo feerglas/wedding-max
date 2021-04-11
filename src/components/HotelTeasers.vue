@@ -3,7 +3,7 @@
         <li>
             <img
                 class="img--hotel-small"
-                src=""
+                src="/img/hotels/img_hotel_alpenroyal.jpg"
                 alt=""
                 width="102"
                 height="86"
@@ -21,7 +21,7 @@
         <li>
             <img
                 class="img--hotel-small"
-                src=""
+                src="/img/hotels/img_hotel_carina_zermatt.jpg"
                 alt=""
                 width="102"
                 height="86"
@@ -38,7 +38,7 @@
         <li>
             <img
                 class="img--hotel-small"
-                src=""
+                src="/img/hotels/img_hotel_bella_vista.jpg"
                 alt=""
                 width="102"
                 height="86"
@@ -78,6 +78,7 @@ export default {
     }
 
     .list--hotels img {
+        width: pxToRem(102);
         margin-right: pxToRem($interElementSpacing);
     }
 

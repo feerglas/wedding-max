@@ -56,7 +56,7 @@ $logoWidthDesktop: 290;
 
   @include mq-desktop {
     position: absolute;
-    right: pxToRem(-$logoWidthDesktop);
+    right: pxToRem(-426);
     width: pxToRem($logoWidthDesktop);
     height: pxToRem($logoHeightDesktop);
   }
