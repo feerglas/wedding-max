@@ -52,7 +52,7 @@
     margin: 0;
 }
 
-@mixin form-error() {
+@mixin form-error {
     @include text-4();
     color: $colorError;
 }
@@ -61,4 +61,20 @@
   @media (min-width: $desktopWidth) {
       @content;
   }
+}
+
+@mixin layout-column-main {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0 pxToRem($offsetMobile);
+
+    @include mq-desktop {
+      width: auto;
+      overflow-x: auto;
+      padding: 0;
+      display: flex;
+      flex: 0 1 pxToRem(560);
+      flex-direction: column;
+      margin-top: pxToRem(192);
+    }
 }
