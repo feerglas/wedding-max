@@ -27,13 +27,10 @@
           @submit="submitStep2"
         />
 
-        <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
-          <RegistrationFinished />
-        </div>
+        <RegistrationFinished v-if="finishedStep1 && finishedStep2 && !canceledStep1" />
 
-        <div v-if="canceledStep1">
-          <RegistrationCancel />
-        </div>
+        <RegistrationCancel v-if="canceledStep1" />
+
       </transition>
     </main>
 
@@ -68,6 +65,8 @@ export default {
   },
   methods: {
     beforeLeave(el) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
       el.setAttribute('style', 'height: 0; overflow: visible; margin-bottom: 0');
     },
     submitStep1() {
@@ -185,6 +184,8 @@ $animationEasing: ease-in-out;
   }
 }
 
+// State Transitions
+
 .fade-enter-active,
 .fade-leave-active {
   transition:
@@ -194,38 +195,22 @@ $animationEasing: ease-in-out;
 
 .fade-enter {
   opacity: 0;
-  transform: translateX(-500px);
-
-  @include mq-desktop {
-    transform: translateY(500px);
-  }
+  transform: translateY(500px);
 }
 
 .fade-enter-to {
   opacity: 1;
-  transform: translateX(0px);
-
-  @include mq-desktop {
-    transform: translateY(0px);
-  }
+  transform: translateY(0px);
 }
 
 .fade-leave {
   opacity: 1;
-  transform: translateX(0px);
-
-  @include mq-desktop {
-    transform: translateY(0px);
-  }
+  transform: translateY(0px);
 }
 
 .fade-leave-to {
   opacity: 0;
-  transform: translateX(300px);
-
-  @include mq-desktop {
-    transform: translateY(-300px);
-  }
+  transform: translateY(-300px);
 }
 
 </style>
