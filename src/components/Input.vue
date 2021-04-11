@@ -74,10 +74,11 @@ export default {
   top: pxToRem(5);
   left: pxToRem(36);
   height: pxToRem(20);
-  line-height: 1;
-  @include text-4();
+  line-height: 1.6;
   color: $colorGroom;
-  transition: top 100ms ease-in-out;
+  transition: top 100ms ease-in-out, transform 100ms ease-in-out;
+  transform: scale(0.8);
+  transform-origin: top left;
 }
 
 .form-group {
@@ -114,9 +115,9 @@ export default {
 
 .input:invalid:not(:focus) + .label {
   top: pxToRem($interElementSpacing);
-  font-size: pxToRem(16);
   color: $colorGroomsMan;
   pointer-events: none;
+  transform: scale(1);
 }
 
 .input:invalid:not(:focus) + * + .icon  {
