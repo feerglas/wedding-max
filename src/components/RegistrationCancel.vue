@@ -5,8 +5,6 @@
 
     <p>Schade, dass du nicht dabei sein kannst.</p>
 
-    <p>Melde dich bei uns, falls du es dir doch noch anders überlegst.</p>
-
     <ContactItems :items="contactItemsData" />
 
   </div>
