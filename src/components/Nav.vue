@@ -1,12 +1,12 @@
 <template>
 <nav>
     <ul class="reset-list">
-        <li><a class="text-1" href="#anreise">Anreise</a></li>
-        <li><a class="text-1" href="#uebernachtung">Übernachtung</a></li>
-        <li><a class="text-1" href="#geschenkideen">Geschenkideen</a></li>
-        <li><a class="text-1" href="#gettogether">Get Together</a></li>
-        <li><a class="text-1" href="#hochzeitsfeier">Hochzeitsfeier</a></li>
-        <li><a class="text-1" href="#kontakt">Kontakt</a></li>
+        <li><a href="#anreise">Anreise</a></li>
+        <li><a href="#uebernachtung">Übernachtung</a></li>
+        <li><a href="#geschenkideen">Geschenkideen</a></li>
+        <li><a href="#gettogether">Get Together</a></li>
+        <li><a ref="#hochzeitsfeier">Hochzeitsfeier</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
     </ul>
     <router-link to="/registration">
         <Button text="Anmelden" />
@@ -34,6 +34,9 @@ ul {
 }
 
 a {
+  @include text-1();
+  white-space: nowrap;
+  color: $colorGroom;
   text-decoration: none;
 }
 
@@ -81,6 +84,10 @@ a {
       margin-top: pxToRem(192);
       margin-left: pxToRem(-275);
       padding-left: pxToRem(25);
+  }
+
+  li {
+    margin-bottom: pxToRem($interElementSpacing);
   }
 
 }

@@ -6,15 +6,27 @@
             <li>
                 <p>
                     Lenna Friedrich<br>
-                    <a href="tel:+41798194299">+41 79 819 42 99</a><br>
-                    <a href="mailto:">E-Mail</a>
+                    <a href="tel:+41798194299">
+                      <Icon name="Smartphone" />
+                      +41 79 819 42 99
+                    </a><br>
+                    <a href="mailto:">
+                      <Icon name="Mail" />
+                      E-Mail
+                    </a>
                 </p>
             </li>
             <li>
                 <p>
                     Niklas Bathke<br>
-                    <a href="tel:+4917666613678">+49 176 66613678</a><br>
-                    <a href="mailto:">E-Mail</a>
+                    <a href="tel:+4917666613678">
+                      <Icon name="Smartphone" />
+                      +49 176 66613678
+                    </a><br>
+                    <a href="mailto:">
+                      <Icon name="Mail" />
+                      E-Mail
+                    </a>
                 </p>
             </li>
         </ul>
@@ -23,15 +35,28 @@
             <li>
                 <p>
                     Sarah Pröckl<br>
-                    <a href="tel:+41766117761">+41 76 611 77 61</a><br>
-                    <a href="mailto:">E-Mail</a>
+                    <a href="tel:+41766117761">
+                      <Icon name="Smartphone" />
+                      +41 76 611 77 61
+                    </a>
+                    <br>
+                    <a href="mailto:">
+                      <Icon name="Mail" />
+                      E-Mail
+                    </a>
                 </p>
             </li>
             <li>
                 <p>
                     Maximilian Hammes<br>
-                    <a href="tel:+41766116114">+41 76 611 61 14</a><br>
-                    <a href="mailto:">E-Mail</a>
+                    <a href="tel:+41766116114">
+                      <Icon name="Smartphone" />
+                      +41 76 611 61 14
+                    </a><br>
+                    <a href="mailto:">
+                      <Icon name="Mail" />
+                      E-Mail
+                    </a>
                 </p>
             </li>
         </ul>
@@ -39,8 +64,13 @@
 </template>
 
 <script>
+import Icon from '@/components/Icon.vue';
+
 export default {
   name: 'ContactItems',
+  components: {
+    Icon,
+  },
   props: {},
 };
 </script>
