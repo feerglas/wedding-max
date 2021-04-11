@@ -69,8 +69,21 @@ $radioInnerWidth: 12;
   line-height: pxToRem($radioWidth);
 }
 
+.container {
+  width: 100%;
+
+  @include mq-desktop {
+    width: auto;
+  }
+}
+
 .container:not(:last-child) {
-  margin-right: pxToRem(12);
+  margin-bottom: pxToRem(12);
+
+  @include mq-desktop {
+    margin-right: pxToRem(12);
+    margin-bottom: 0;
+  }
 }
 
 .radio-wrapper {

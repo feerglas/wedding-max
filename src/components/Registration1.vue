@@ -109,6 +109,10 @@ export default {
   margin-bottom: pxToRem(16);
 }
 
+.button:first-of-type {
+  margin-right: pxToRem(12);
+}
+
 .form-error {
   @include form-error;
   padding: pxToRem(10) 0 0;

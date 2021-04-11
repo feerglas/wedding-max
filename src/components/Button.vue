@@ -40,7 +40,7 @@ $buttonHeight: 48;
   border: 0;
   cursor: pointer;
 
-  @include mq-desktop {
+  @include mq-medium {
     width: auto;
   }
 }

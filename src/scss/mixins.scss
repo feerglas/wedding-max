@@ -57,6 +57,12 @@
     color: $colorError;
 }
 
+@mixin mq-medium {
+  @media (min-width: $mediumWidth) {
+      @content;
+  }
+}
+
 @mixin mq-desktop {
   @media (min-width: $desktopWidth) {
       @content;

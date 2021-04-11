@@ -99,11 +99,15 @@ export default {
 
 .input {
   @include text-2();
-  width: 100%;
-  height: pxToRem(26);
+  //width: 100%;
+  height: pxToRem(18);
   margin: pxToRem($interElementSpacing) 0;
   border: none;
   color: $colorGroom;
+
+  @include mq-medium {
+    width: auto;
+  }
 }
 
 .input:focus,
