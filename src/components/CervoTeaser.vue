@@ -4,7 +4,7 @@
       <img
         class="cervo-teaser__image"
         alt=""
-        src=""
+        src="/img/hotels/img_cervo_mountain_resort.jpg"
         width="752"
         height="432"
         loading="lazy"
@@ -16,15 +16,27 @@
         <span class="title-2">CERVO Mountain Resort</span><br>
         Riedweg 156<br>
         CH-3920 Zermatt (Schweiz)<br>
-        <a href="https://www.cervo.swiss" target="_blank">Website</a><br>
-        <a href="mailto:info@cervo.swiss">info@cervo.swiss</a>
+        <a href="https://www.cervo.swiss" target="_blank">
+          <Icon name="ExternalLink" />
+          Website
+        </a>
+        <br>
+        <a href="mailto:info@cervo.swiss">
+          <Icon name="Mail" />
+          info@cervo.swiss
+        </a>
       </p>
     </figcaption>
   </div>
 </template>
 
 <script>
+import Icon from './Icon.vue';
+
 export default {
+  components: {
+    Icon,
+  },
   name: 'CervoTeaser',
   props: {},
 };
@@ -37,7 +49,6 @@ export default {
     .cervo-teaser {
       position: relative;
       margin-bottom: pxToRem($interModuleSpacingMobile);
-      background: lime;
     }
 
     .cervo-teaser__image_wrapper {

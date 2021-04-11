@@ -21,7 +21,14 @@ body {
 }
 
 a {
-  color: $colorGroom;
+  color: $colorGroomsMan;
+}
+
+a svg {
+  float: left;
+  width: pxToRem(15);
+  margin: pxToRem(6) pxToRem(10) pxToRem(-1) 0;
+  fill: currentColor;
 }
 
 img {
@@ -38,9 +45,7 @@ p:not(:only-child) {
 }
 
 img {
-  width: 100px;
-  height: 100px;
-  border: 1px solid red;
+  width: 100%
 }
 
 input,
