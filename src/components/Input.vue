@@ -20,9 +20,10 @@
       class="label"
     >{{label}}</label>
 
-    <div class="icon-placeholder">
-      <Icon :name="icon" />
-    </div>
+    <Icon
+      :name="icon"
+       class="icon"
+    />
 
     <div
       class="input-error"
@@ -86,13 +87,12 @@ export default {
   border-bottom: pxToRem(1) solid $colorBridesMaid;
 }
 
-.form-group .icon-placeholder {
+.form-group .icon {
   position: absolute;
   top: pxToRem(16);
   left: 0;
   width: pxToRem(24);
   height: pxToRem(24);
-  background: lime;
   transition: top 100ms ease-in-out;
 }
 
@@ -119,7 +119,7 @@ export default {
   pointer-events: none;
 }
 
-.input:invalid:not(:focus) + * + .icon-placeholder  {
+.input:invalid:not(:focus) + * + .icon  {
   top: pxToRem(26);
 }
 
