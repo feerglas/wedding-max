@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Ich nehme gerne teil</h1>
+    <h1 class="title-1">Ich nehme gerne teil</h1>
 
     <form>
 
