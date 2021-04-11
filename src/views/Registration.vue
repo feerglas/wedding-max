@@ -120,9 +120,10 @@ export default {
   @include layout-column-main;
 
   margin-bottom: 0;
+  overflow: visible;
 
   @include mq-desktop {
-    margin-left: pxToRem(112);
+    margin-left: pxToRem(440);
   }
 }
 
@@ -160,6 +161,8 @@ export default {
   background: $gradient;
 
   @include mq-desktop {
+    position: fixed;
+    width: pxToRem(328);
     flex: pxToRem(328) 0 0;
     min-height: 100vh;
   }
