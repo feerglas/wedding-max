@@ -41,7 +41,6 @@ a {
   nav {
     width: 100%;
     overflow-x: scroll;
-    margin-bottom: pxToRem($interModuleSpacingMobile);
   }
 
   nav > a {
@@ -82,10 +81,6 @@ a {
       margin-top: pxToRem(192);
       margin-left: pxToRem(-275);
       padding-left: pxToRem(25);
-  }
-
-  li {
-    margin-bottom: pxToRem(24);
   }
 
 }

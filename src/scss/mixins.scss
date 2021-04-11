@@ -67,6 +67,7 @@
     width: 100%;
     overflow-x: hidden;
     padding: 0 pxToRem($offsetMobile);
+    margin: pxToRem($interModuleSpacingMobile) 0;
 
     @include mq-desktop {
       width: auto;
