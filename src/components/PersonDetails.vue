@@ -6,7 +6,7 @@
 
     <Input
       type="text"
-      icon="user"
+      icon="userMale"
       id="name1"
       label="Dein Vorname & Nachname"
       autocomplete="username"

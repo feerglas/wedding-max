@@ -9,7 +9,7 @@
 
         <Input
           type="text"
-          icon="user"
+          icon="userMale"
           :validation="$v.name"
           id="username"
           label="Benutzername"
