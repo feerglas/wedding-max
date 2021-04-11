@@ -14,7 +14,7 @@
       />
     </div>
 
-    <main>
+    <main class="conent-container">
       <Registration1
         v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
         @submit="submitStep1"
@@ -111,10 +111,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.conent-container {
+  @include layout-column-main;
+
+  margin-bottom: 0;
+
+  @include mq-desktop {
+    margin-left: pxToRem(112);
+  }
+}
+
 .wrapper {
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   position: relative;
+  background: rgba(30, 76, 106, .03);
 
   @include mq-desktop {
     flex-wrap: nowrap;
@@ -142,7 +157,7 @@ export default {
 
   @include mq-desktop {
     flex: pxToRem(328) 0 0;
-    height: 100vh;
+    min-height: 100vh;
   }
 }
 
@@ -156,8 +171,4 @@ export default {
   }
 }
 
-main {
-  // flex-basis: 100%;
-  @include layout-column-main;
-}
 </style>

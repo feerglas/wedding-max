@@ -2,78 +2,75 @@
   <div>
     <h1 class="title-1">Ich nehme gerne teil</h1>
 
-    <form>
+    <form class="form">
 
-      <div class="fields-wrapper">
+      <!-- Get together -->
+      <fieldset>
 
-        <!-- Get together -->
-        <fieldset>
+        <div class="radio-checkbox-wrapper">
+          <Checkbox
+            class="checkboxes"
+            value="gettogether"
+            label="Get together"
+            sublabel="Freitag, 20.08.2021"
+            v-model="checkboxSelectionEventGettogether"
+            @change="checkboxChange"
+          />
 
-          <div class="radio-checkbox-wrapper">
-            <Checkbox
-              class="checkboxes"
-              value="gettogether"
-              label="Get together"
-              sublabel="Freitag, 20.08.2021"
-              v-model="checkboxSelectionEventGettogether"
-              @change="checkboxChange"
-            />
+          <Radiogroup
+            class="radios"
+            v-if="checkboxSelectionEventGettogether"
+            :radios="radioDataGettogether"
+            v-model="radioSelectionGettogether"
+            @change="radioChange"
+          />
+        </div>
 
-            <Radiogroup
-              class="radios"
-              v-if="checkboxSelectionEventGettogether"
-              :radios="radioDataGettogether"
-              v-model="radioSelectionGettogether"
-              @change="radioChange"
-            />
-          </div>
+      </fieldset>
 
-        </fieldset>
+      <!-- Wedding -->
+      <fieldset>
 
-        <!-- Wedding -->
-        <fieldset>
+        <div class="radio-checkbox-wrapper">
+          <Checkbox
+            class="checkboxes"
+            value="wedding"
+            label="Hochzeitsfeier"
+            sublabel="Samstag, 20.08.2021"
+            v-model="checkboxSelectionEventWedding"
+            @change="checkboxChange"
+          />
 
-          <div class="radio-checkbox-wrapper">
-            <Checkbox
-              class="checkboxes"
-              value="wedding"
-              label="Hochzeitsfeier"
-              sublabel="Samstag, 20.08.2021"
-              v-model="checkboxSelectionEventWedding"
-              @change="checkboxChange"
-            />
-
-            <Radiogroup
-              class="radios"
-              v-if="checkboxSelectionEventWedding"
-              :radios="radioDataWedding"
-              v-model="radioSelectionWedding"
-              @change="radioChange"
-            />
-          </div>
-
-          <div
+          <Radiogroup
+            class="radios"
             v-if="checkboxSelectionEventWedding"
-            class="persons-wrapper"
-          >
-            <PersonDetails
-              class="person-details"
-              title="Person 1"
-              :nameStore="{ getter: 'name1', setter: 'setName1'}"
-              :index="0"
-            />
+            :radios="radioDataWedding"
+            v-model="radioSelectionWedding"
+            @change="radioChange"
+          />
+        </div>
 
-            <PersonDetails
-              class="person-details"
-              v-if="radioSelectionWedding === '2'"
-              title="Person 2"
-              :nameStore="{ getter: 'name2', setter: 'setName2'}"
-              :index="1"
-            />
-          </div>
+        <div
+          v-if="checkboxSelectionEventWedding"
+          class="persons-wrapper"
+        >
+          <PersonDetails
+            class="person-details"
+            title="Person 1"
+            :nameStore="{ getter: 'name1', setter: 'setName1'}"
+            :index="0"
+          />
 
-        </fieldset>
-      </div>
+          <PersonDetails
+            class="person-details"
+            v-if="radioSelectionWedding === '2'"
+            title="Person 2"
+            :nameStore="{ getter: 'name2', setter: 'setName2'}"
+            :index="1"
+          />
+        </div>
+
+      </fieldset>
 
       <p
         v-if="!this.formIsValid && this.formError.length > 0"
@@ -86,6 +83,7 @@
       >{{reservationRequestError}}</p>
 
       <Button
+        class="submit"
         v-if="checkboxSelectionEventGettogether || checkboxSelectionEventWedding"
         text="Absenden"
         @click="submit"
@@ -231,16 +229,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.fields-wrapper {
-  background: transparent;
-  background-color: transparent;
 
-  // box-shadow: 0px 4px 128px 0px rgba(30, 76, 106, 1.08);
+.form {
+  margin-top: pxToRem(48);
+  margin-bottom: pxToRem($interModuleSpacingMobile);
 }
 
 fieldset {
-  box-shadow: 0 0 pxToRem(50) rgba(0,0,0,0.2);
+  background-color: $colorBride;
   padding: pxToRem($interElementSpacing);
+}
+
+fieldset:first-child {
+  box-shadow: 0px pxToRem(80) pxToRem(200) 0px rgba(30, 76, 106, .1);
 }
 
 fieldset:not(:first-child) {
@@ -252,27 +253,49 @@ fieldset:not(:first-child) {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @include mq-medium {
+    flex-wrap: nowrap;
+  }
 }
 
 .checkboxes {
   margin-right: pxToRem(12);
+  width: 100%;
+
+  @include mq-medium {
+    width: auto;
+  }
 }
 
 .radios {
   margin-top: pxToRem($interElementSpacing);
+
+  @include mq-medium {
+    margin-top: 0;
+  }
 }
 
 .persons-wrapper {
   margin-top: pxToRem($offsetMobile);
   border-top: 1px dashed $colorBridesMaid;
+
+  @include mq-medium {
+    padding: 0 pxToRem($interModuleSpacing);
+  }
 }
 
 .person-details {
-  margin: pxToRem($offsetMobile) 0 pxToRem($interElementSpacing) 0;
+  margin: pxToRem($offsetMobile) 0 0;
 }
 
 .form-error {
   @include form-error;
   padding: pxToRem(10) 0 0;
 }
+
+.submit {
+  margin-top: pxToRem($offsetMobile);
+}
+
 </style>

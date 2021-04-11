@@ -72,7 +72,7 @@ $radioInnerWidth: 12;
 .container {
   width: 100%;
 
-  @include mq-desktop {
+  @include mq-medium {
     width: auto;
   }
 }
@@ -80,7 +80,7 @@ $radioInnerWidth: 12;
 .container:not(:last-child) {
   margin-bottom: pxToRem(12);
 
-  @include mq-desktop {
+  @include mq-medium {
     margin-right: pxToRem(12);
     margin-bottom: 0;
   }

@@ -115,11 +115,15 @@ export default {
 .title {
   font-size: pxToRem(18);
   color: $colorGroom;
-  margin-bottom: pxToRem(6);
+  margin-bottom: pxToRem(8);
 }
 
 .select-food {
-  width: pxToRem(300);
+  width: 100%;
+
+  @include mq-medium {
+    width: pxToRem(300);
+  }
 }
 
 .single-checkbox {

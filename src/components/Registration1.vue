@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="step1">
     <h1 class="title-1">Zur Feier anmelden</h1>
     <p>
       Wir möchten, dass ihr an unserem Hochzeitswochenende mindestens genauso ausgelassen feiern
@@ -105,6 +105,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.step1 {
+  margin-bottom: pxToRem($interModuleSpacingMobile);
+}
+
 .button {
   margin-bottom: pxToRem(16);
 }

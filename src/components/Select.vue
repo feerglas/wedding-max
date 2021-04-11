@@ -92,7 +92,7 @@ $selectArrowHeight: 20;
 
 .custom-select {
   position: relative;
-  width: 100%;
+  width: auto;
   text-align: left;
   outline: none;
   height: pxToRem($selectHeight);
