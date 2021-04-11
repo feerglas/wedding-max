@@ -15,24 +15,26 @@
     </div>
 
     <main class="conent-container">
-      <Registration1
-        v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
-        @submit="submitStep1"
-        @cancel="cancelStep1"
-      />
+      <transition name="fade" v-on:before-leave="beforeLeave">
+        <Registration1
+          v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
+          @submit="submitStep1"
+          @cancel="cancelStep1"
+        />
 
-      <Registration2
-        v-if="finishedStep1 && !finishedStep2 && !canceledStep1"
-        @submit="submitStep2"
-      />
+        <Registration2
+          v-if="finishedStep1 && !finishedStep2 && !canceledStep1"
+          @submit="submitStep2"
+        />
 
-      <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
-        <RegistrationFinished />
-      </div>
+        <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
+          <RegistrationFinished />
+        </div>
 
-      <div v-if="canceledStep1">
-        <RegistrationCancel />
-      </div>
+        <div v-if="canceledStep1">
+          <RegistrationCancel />
+        </div>
+      </transition>
     </main>
 
   </div>
@@ -65,6 +67,9 @@ export default {
     };
   },
   methods: {
+    beforeLeave(el) {
+      el.setAttribute('style', 'height: 0; overflow: visible; margin-bottom: 0');
+    },
     submitStep1() {
       this.$store.commit('setReservationRequestError', '');
       this.finishedStep1 = true;
@@ -86,8 +91,8 @@ export default {
         return;
       }
 
-      this.canceledStep1 = true;
       this.$store.dispatch('resetStore');
+      this.canceledStep1 = true;
     },
     async submitStep2() {
       const state = this.$store.getters.reservation;
@@ -115,6 +120,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$animationDuration: 500ms;
+$animationEasing: ease-in-out;
 
 .conent-container {
   @include layout-column-main;
@@ -175,6 +182,49 @@ export default {
   @include mq-desktop {
     height: pxToRem(170);
     margin: pxToRem(190) 0;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition:
+    transform $animationDuration $animationEasing,
+    opacity $animationDuration $animationEasing;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateX(-500px);
+
+  @include mq-desktop {
+    transform: translateY(500px);
+  }
+}
+
+.fade-enter-to {
+  opacity: 1;
+  transform: translateX(0px);
+
+  @include mq-desktop {
+    transform: translateY(0px);
+  }
+}
+
+.fade-leave {
+  opacity: 1;
+  transform: translateX(0px);
+
+  @include mq-desktop {
+    transform: translateY(0px);
+  }
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(300px);
+
+  @include mq-desktop {
+    transform: translateY(-300px);
   }
 }
 
