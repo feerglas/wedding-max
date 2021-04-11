@@ -23,8 +23,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$logoHeightMobile: 26;
-$logoWidthMobile: 223;
+$logoHeightMobile: 31;
+$logoWidthMobile: 260;
 $logoHeightDesktop: 35;
 $logoWidthDesktop: 290;
 
@@ -33,7 +33,7 @@ $logoWidthDesktop: 290;
   justify-content: center;
   width: 100%;
   height: pxToRem($logoHeightMobile);
-  margin: pxToRem($offsetMobile) 0;
+  margin: pxToRem($offsetMobile) 0 pxToRem($interModuleSpacingMobile);
 
   @include mq-desktop {
     position: sticky;
@@ -46,19 +46,31 @@ $logoWidthDesktop: 290;
 }
 
 .logo-wrapper button {
-  position: absolute;
-  right: pxToRem(-$logoWidthDesktop);
   display: flex;
-  width: pxToRem($logoWidthDesktop);
+  width: pxToRem($logoWidthMobile);
   height: pxToRem($logoHeightDesktop);
   padding: 0;
   background: $colorBride;
   border: none;
   color: $colorGroom;
+
+  @include mq-desktop {
+    position: absolute;
+    right: pxToRem(-$logoWidthDesktop);
+    width: pxToRem($logoWidthDesktop);
+    height: pxToRem($logoHeightDesktop);
+  }
 }
 
 .heart {
-  margin-left: pxToRem(24);
+  height: pxToRem(30);
+  margin-top: pxToRem(2);
+  margin-left: pxToRem(20);
+
+  @include mq-desktop {
+    margin-left: pxToRem(24);
+  }
+
 }
 
 </style>
