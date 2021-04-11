@@ -1,11 +1,21 @@
 <template>
 
-  <div class="container_center container_center--login-screen">
-    <div class="visual-wrapper">
-      <div class="visual-placeholder"></div>
+  <div class="wrapper">
+
+    <div class="header">
+      <Icon
+        class="header-icon"
+        name="Registration"
+      />
     </div>
-    <main>
+
+    <main class="content-container">
       <form @submit.prevent="submit">
+
+        <Logo
+          class=""
+          heart=false
+        />
 
         <Input
           type="text"
@@ -48,6 +58,7 @@
 
       </form>
     </main>
+
   </div>
 </template>
 
@@ -57,6 +68,8 @@ import { validationMixin } from 'vuelidate';
 import { required, minLength } from 'vuelidate/lib/validators';
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
+import Logo from '@/components/Logo.vue';
+import Icon from '@/components/Icon.vue';
 
 export default {
   mixins: [validationMixin],
@@ -64,6 +77,8 @@ export default {
   components: {
     Button,
     Input,
+    Logo,
+    Icon,
   },
   computed: {
     isLoginPending() {
@@ -106,46 +121,88 @@ export default {
 
 <style scoped lang="scss">
 
-$maxViewWidth: 1440;
-
-body {
-  background-color: #8fa9c5;
-}
-
-.container_center--login-screen {
-  display: flex;
-  flex-direction: row;
-  min-width: 90%;
-  max-width: pxToRem($maxViewWidth);
-  height: calc(100vh - #{pxToRem($interModuleSpacing)});
-}
-
-.visual-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 50%;
-  background-image: $gradient;
-}
-
-.visual-placeholder {
-  width: pxToRem(240);
-  height: pxToRem(334);
-  border: 1px solid pink;
-}
-
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 50%;
+.wrapper {
   height: 100%;
-  background: $colorBride;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: relative;
+  background: rgba(30, 76, 106, .03);
+
+  @include mq-desktop {
+    flex-wrap: nowrap;
+  }
+
 }
 
-form {
-  width: 48%;
+.content-container {
+  display: flex;
+  @include layout-column-main;
+  margin: 0;
+  margin-bottom: pxToRem($interModuleSpacingMobile * 2);
+  overflow: visible;
+  justify-content: center;
+
+  @include mq-desktop {
+    flex-direction: column;
+    flex: 0 0 50%;
+    align-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+}
+
+.content-container form {
+  max-width: pxToRem(350);
+}
+
+.logo {
+  flex-basis: 100%;
+
+  @include mq-desktop {
+    position: absolute;
+    top: pxToRem(46);
+    right: pxToRem(85);
+  }
+
+}
+
+.logo-wrapper {
+  @media (max-width: $desktopWidth - 1) {
+    width: 90%;
+    margin-bottom: pxToRem($interModuleSpacingMobile - 26);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+  background: $gradient;
+  margin-bottom: pxToRem($interModuleSpacingMobile);
+
+  @include mq-desktop {
+    flex-direction: column;
+    width: 50%;
+    flex: 0 0 50%;
+    min-height: 100vh;
+    margin-bottom: 0;
+  }
+
+}
+
+.header-icon {
+  height: pxToRem(174);
+  margin: pxToRem($interModuleSpacingMobile) auto;
+
+  @include mq-desktop {
+    height: pxToRem(344);
+    margin: 0;
+  }
+
 }
 
 </style>

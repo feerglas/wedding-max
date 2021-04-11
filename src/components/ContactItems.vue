@@ -67,6 +67,10 @@ export default {
       margin: 0;
     }
 
+    .list--contact svg {
+      @include link-icon();
+    }
+
     .list--contact li:not(:first-child) {
       position: relative;
       margin-top: pxToRem($listItemVerticalSpacing);

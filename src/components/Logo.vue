@@ -3,6 +3,7 @@
     <button type="button">
       <Icon name="titleSarahMaxi" />
       <Icon
+        v-if="heart !== 'false'"
         class="heart"
         name="heartOutline"
       />
@@ -15,7 +16,11 @@ import Icon from '@/components/Icon.vue';
 
 export default {
   name: 'Logo',
-  props: {},
+  props: {
+    heart: {
+      type: String,
+    },
+  },
   components: {
     Icon,
   },
@@ -23,15 +28,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$logoHeightMobile: 31;
-$logoWidthMobile: 260;
-$logoHeightDesktop: 35;
-$logoWidthDesktop: 290;
-
 .logo-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: pxToRem($interModuleSpacingMobile);
+
+  @include mq-desktop {
+    margin-bottom: pxToRem(interModuleSpacingDesktop);
+  }
+}
+
+.logo-wrapper button {
+  display: flex;
+  padding: 0;
+  background: none;
+  border: none;
+  color: $colorGroom;
+}
+
+.logo-wrapper--detail-page {
   height: pxToRem($logoHeightMobile);
   margin: pxToRem($offsetMobile) 0 pxToRem($interModuleSpacingMobile);
 
@@ -40,25 +56,19 @@ $logoWidthDesktop: 290;
     top: pxToRem(46);
     left: 0;
     right: 0;
+    width: pxToRem($logoWidthDesktop);
     height: pxToRem($logoHeightDesktop);
     margin-bottom: pxToRem(-$logoHeightDesktop);
   }
 }
 
-.logo-wrapper button {
-  display: flex;
+.logo-wrapper--detail-page button {
   width: pxToRem($logoWidthMobile);
-  height: pxToRem($logoHeightDesktop);
-  padding: 0;
-  background: $colorBride;
-  border: none;
-  color: $colorGroom;
+  height: pxToRem($logoHeightMobile);
 
   @include mq-desktop {
     position: absolute;
     right: pxToRem(-426);
-    width: pxToRem($logoWidthDesktop);
-    height: pxToRem($logoHeightDesktop);
   }
 }
 

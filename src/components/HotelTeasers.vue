@@ -72,6 +72,10 @@ export default {
         margin: 0;
     }
 
+    .list--hotels svg {
+      @include link-icon();
+    }
+
     .list--hotels li {
         display: flex;
         margin-bottom: pxToRem($interElementSpacing);

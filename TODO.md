@@ -1,2 +1,8 @@
 - after login, layout is broken
-- add favicon
+- add favicon/apple touch icons
+- easter egg
+- floating cta button on detail page
+- moving active state of nav on scoll
+- add full bleed class for certain buttons on mobile
+- add heart variant of illu to login page
+- eventually enlarge right column on login page

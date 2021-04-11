@@ -14,7 +14,7 @@
       />
     </div>
 
-    <main class="conent-container">
+    <main class="content-container">
       <Registration1
         v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
         @submit="submitStep1"
@@ -116,7 +116,7 @@ export default {
 
 <style scoped lang="scss">
 
-.conent-container {
+.content-container {
   @include layout-column-main;
 
   margin-bottom: 0;
@@ -146,10 +146,8 @@ export default {
 
   @include mq-desktop {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: pxToRem(290);
-    height: pxToRem(35);
+    top: pxToRem(46);
+    right: pxToRem(85);
   }
 
 }

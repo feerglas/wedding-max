@@ -28,7 +28,6 @@ export default {
 $buttonHeight: 48;
 
 .button {
-  width: 100%;
   padding: 0 pxToRem(20);
   color: $colorBride;
   background-color: $colorGroom;
@@ -39,10 +38,6 @@ $buttonHeight: 48;
   font-size: pxToRem(16);
   border: 0;
   cursor: pointer;
-
-  @include mq-medium {
-    width: auto;
-  }
 }
 
 .button:focus,
