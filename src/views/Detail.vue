@@ -33,7 +33,7 @@
       </article>
       <GetTogether />
       <Wedding />
-      <ContactItems />
+      <ContactItems :data="contactItemsData" />
   </main>
 </div>
 </template>
@@ -61,6 +61,45 @@ export default {
     GetTogether,
     Wedding,
     Logo,
+  },
+  data() {
+    return {
+      contactItemsData: {
+        title: 'Kontakt',
+        sections: [
+          {
+            title: 'Trauzeugen',
+            items: [
+              {
+                name: 'Lenna Friedrich',
+                phone: '+41 79 819 42 99',
+                eMail: '',
+              },
+              {
+                name: 'Niklas Bathke',
+                phone: '+49 176 66613678',
+                eMail: '',
+              },
+            ],
+          },
+          {
+            title: 'Brautpaar',
+            items: [
+              {
+                name: 'Sarah Pröckl',
+                phone: '+41 76 611 77 61',
+                eMail: '',
+              },
+              {
+                name: 'Maximilian Hammes',
+                phone: '+41 76 611 61 14',
+                eMail: '',
+              },
+            ],
+          },
+        ],
+      },
+    };
   },
 };
 
