@@ -10,6 +10,7 @@
         <div class="radio-checkbox-wrapper">
           <Checkbox
             class="checkboxes"
+            :class="{ checked : checkboxSelectionEventGettogether }"
             value="gettogether"
             label="Get together"
             sublabel="Freitag, 20.08.2021"
@@ -34,6 +35,7 @@
         <div class="radio-checkbox-wrapper">
           <Checkbox
             class="checkboxes"
+            :class="{ checked : checkboxSelectionEventWedding }"
             value="wedding"
             label="Hochzeitsfeier"
             sublabel="Samstag, 20.08.2021"
@@ -264,10 +266,15 @@ fieldset:not(:first-child) {
   width: 100%;
 
   @include mq-medium {
-    width: auto;
+    width: 100%;
   }
 }
 
+.checkboxes.checked {
+  @include mq-medium {
+    width: auto;
+  }
+}
 .radios {
   margin-top: pxToRem($interElementSpacing);
 
