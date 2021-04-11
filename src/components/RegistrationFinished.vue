@@ -1,16 +1,56 @@
 <template>
-  <div>
-      finished
+  <div class="step2">
+
+    <h1 class="title-1">Danke schön</h1>
+
+    <p>
+        Du bist somit angemeldet / Ihr seid somit angemeldet.
+        Wir freuen uns, dass du mit uns feierst / ihr mit uns feiert.
+    </p>
+
+    <h2 class="title-3">Hast du noch Fragen?</h2>
+
+    <ContactItems :items="contactItemsData" />
 
   </div>
 </template>
 
 <script>
+import ContactItems from '@/components/ContactItems.vue';
+import contactData from '@/data/contactItems';
+
 export default {
   name: 'RegistrationFinished',
+  components: {
+    ContactItems,
+  },
+  data() {
+    return {
+      contactItemsData: {
+        sections: [
+          {
+            title: 'Trauzeugen',
+            items: [
+              contactData.lenna,
+              contactData.niklas,
+            ],
+          },
+          {
+            title: 'Brautpaar',
+            items: [
+              contactData.sarah,
+              contactData.max,
+            ],
+          },
+        ],
+      },
+    };
+  },
 };
 </script>
 
 <style scoped lang="scss">
-
+.step1 {
+  margin-bottom: pxToRem($interModuleSpacingMobile);
+}
 </style>
