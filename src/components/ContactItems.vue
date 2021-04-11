@@ -1,65 +1,40 @@
 <template>
     <article>
-        <h1 class="title-1" id="kontakt">Kontakt</h1>
-        <h2 class="title-3">Trauzeugen</h2>
-        <ul class="list list--contact">
-            <li>
-                <p>
-                    Lenna Friedrich<br>
-                    <a href="tel:+41798194299">
+        <h1
+          v-if="items.title"
+          class="title-1"
+          id="kontakt"
+        >{{items.title}}</h1>
+
+        <div
+          v-for="(section, index) in items.sections"
+          :key="index"
+        >
+          <h2
+            class="title-3"
+            v-if="section.title"
+          >{{section.title}}</h2>
+
+          <ul class="list list--contact">
+              <li
+                v-for="(person, index2) in section.items"
+                :key="index2"
+              >
+                  <p>
+                    {{person.name}}<br>
+                    <a :href="`tel:${person.phone}`">
                       <Icon name="Smartphone" />
-                      +41 79 819 42 99
+                      {{person.phone}}
                     </a><br>
-                    <a href="mailto:">
+                    <a :href="`mailto:${person.mail}`">
                       <Icon name="Mail" />
                       E-Mail
                     </a>
                 </p>
             </li>
-            <li>
-                <p>
-                    Niklas Bathke<br>
-                    <a href="tel:+4917666613678">
-                      <Icon name="Smartphone" />
-                      +49 176 66613678
-                    </a><br>
-                    <a href="mailto:">
-                      <Icon name="Mail" />
-                      E-Mail
-                    </a>
-                </p>
-            </li>
-        </ul>
-        <h2 class="title-3">Brautpaar</h2>
-        <ul class="list list--contact">
-            <li>
-                <p>
-                    Sarah Pröckl<br>
-                    <a href="tel:+41766117761">
-                      <Icon name="Smartphone" />
-                      +41 76 611 77 61
-                    </a>
-                    <br>
-                    <a href="mailto:">
-                      <Icon name="Mail" />
-                      E-Mail
-                    </a>
-                </p>
-            </li>
-            <li>
-                <p>
-                    Maximilian Hammes<br>
-                    <a href="tel:+41766116114">
-                      <Icon name="Smartphone" />
-                      +41 76 611 61 14
-                    </a><br>
-                    <a href="mailto:">
-                      <Icon name="Mail" />
-                      E-Mail
-                    </a>
-                </p>
-            </li>
-        </ul>
+          </ul>
+        </div>
+
     </article>
 </template>
 
@@ -71,7 +46,9 @@ export default {
   components: {
     Icon,
   },
-  props: {},
+  props: {
+    items: Object,
+  },
 };
 </script>
 
