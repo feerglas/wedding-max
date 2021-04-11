@@ -33,7 +33,7 @@
       </article>
       <GetTogether />
       <Wedding />
-      <ContactItems :data="contactItemsData" />
+      <ContactItems :items="contactItemsData" />
   </main>
 </div>
 </template>
