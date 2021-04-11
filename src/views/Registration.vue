@@ -14,7 +14,7 @@
       />
     </div>
 
-    <div class="main">
+    <main>
       <Registration1
         v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
         @submit="submitStep1"
@@ -33,7 +33,7 @@
       <div v-if="canceledStep1">
         oh, what a pitty you can't join
       </div>
-    </div>
+    </main>
 
   </div>
 </template>
@@ -156,7 +156,8 @@ export default {
   }
 }
 
-.main {
-  flex-basis: 100%;
+main {
+  // flex-basis: 100%;
+  @include layout-column-main;
 }
 </style>
