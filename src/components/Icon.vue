@@ -1,5 +1,5 @@
 <template>
-    <component class="flag-icon" v-bind:is="name" />
+    <component v-bind:is="name" />
 </template>
 
 <script>
