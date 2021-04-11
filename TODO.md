@@ -1,1 +1,2 @@
 - after login, layout is broken
+- add favicon
