@@ -68,38 +68,28 @@ export default {
 
 <style scoped lang="scss">
 
-@media (max-width: $desktopWidth - 1) {
-  main {
-    width: 100%;
-    overflow-x: hidden;
-    padding: 0 pxToRem($offsetMobile);
+main {
+  @include layout-column-main;
+}
+
+article:not(:last-child),
+article:not(:only-child) {
+  @media (max-width: $desktopWidth - 1) {
+    margin-bottom: pxToRem($interModuleSpacingMobile);
   }
 
-  article:not(:last-child),
-  article:not(:only-child) {
-    margin-bottom: pxToRem($interModuleSpacingMobile);
+  @media (min-width: $desktopWidth) {
+    margin-bottom: pxToRem($interModuleSpacing);
   }
 }
 
-@media (min-width: $desktopWidth) {
-  .container_center {
+.container_center {
+  @media (min-width: $desktopWidth) {
     position: relative;
     width: pxToRem(960);
     margin: 0 auto;
     padding: 0 pxToRem(250);
   }
-
-  main {
-    display: flex;
-    flex: 0 1 pxToRem(560);
-    flex-direction: column;
-    margin-top: pxToRem(192);
-  }
-
-  article:not(:last-child),
-  article:not(:only-child) {
-    margin-bottom: pxToRem($interModuleSpacing);
-  }
-
 }
+
 </style>
