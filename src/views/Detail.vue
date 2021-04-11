@@ -48,6 +48,7 @@ import ContactItems from '@/components/ContactItems.vue';
 import GetTogether from '@/components/GetTogether.vue';
 import Wedding from '@/components/Wedding.vue';
 import Logo from '@/components/Logo.vue';
+import contactData from '@/data/contactItems';
 
 export default {
   name: 'Detail',
@@ -70,31 +71,15 @@ export default {
           {
             title: 'Trauzeugen',
             items: [
-              {
-                name: 'Lenna Friedrich',
-                phone: '+41 79 819 42 99',
-                eMail: '',
-              },
-              {
-                name: 'Niklas Bathke',
-                phone: '+49 176 66613678',
-                eMail: '',
-              },
+              contactData.lenna,
+              contactData.niklas,
             ],
           },
           {
             title: 'Brautpaar',
             items: [
-              {
-                name: 'Sarah Pröckl',
-                phone: '+41 76 611 77 61',
-                eMail: '',
-              },
-              {
-                name: 'Maximilian Hammes',
-                phone: '+41 76 611 61 14',
-                eMail: '',
-              },
+              contactData.sarah,
+              contactData.max,
             ],
           },
         ],
