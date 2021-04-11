@@ -8,14 +8,32 @@
     </router-link>
 
     <div class="header">
-      <Icon
-        class="header-icon"
-        name="Registration"
-      />
+      <transition-group name="icon" v-on:before-leave="beforeLeaveIcon">
+        <div v-if="!finishedStep2 && !canceledStep1" key="1">
+          <Icon
+          class="header-icon"
+          name="Registration"
+          />
+        </div>
+
+        <div v-if="finishedStep1 && finishedStep2 && !canceledStep1" key="2">
+          <Icon
+          class="header-icon"
+          name="RegistrationFinish"
+          />
+        </div>
+
+        <div v-if="canceledStep1" key="3">
+          <Icon
+          class="header-icon"
+          name="RegistrationCancel"
+          />
+        </div>
+      </transition-group>
     </div>
 
     <main class="conent-container">
-      <transition name="fade" v-on:before-leave="beforeLeave">
+      <transition name="content" v-on:before-leave="beforeLeave">
         <Registration1
           v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
           @submit="submitStep1"
@@ -67,6 +85,9 @@ export default {
     beforeLeave(el) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
+      el.setAttribute('style', 'height: 0; overflow: visible; margin-bottom: 0');
+    },
+    beforeLeaveIcon(el) {
       el.setAttribute('style', 'height: 0; overflow: visible; margin-bottom: 0');
     },
     submitStep1() {
@@ -186,31 +207,52 @@ $animationEasing: ease-in-out;
 
 // State Transitions
 
-.fade-enter-active,
-.fade-leave-active {
+.content-enter-active,
+.content-leave-active {
   transition:
     transform $animationDuration $animationEasing,
     opacity $animationDuration $animationEasing;
 }
 
-.fade-enter {
+.content-enter {
   opacity: 0;
   transform: translateY(500px);
 }
 
-.fade-enter-to {
+.content-enter-to {
   opacity: 1;
   transform: translateY(0px);
 }
 
-.fade-leave {
+.content-leave {
   opacity: 1;
   transform: translateY(0px);
 }
 
-.fade-leave-to {
+.content-leave-to {
   opacity: 0;
   transform: translateY(-300px);
+}
+
+.icon-enter-active,
+.icon-leave-active {
+  transition: opacity $animationDuration $animationEasing;
+}
+
+.icon-enter {
+  opacity: 0;
+}
+
+.icon-enter-to {
+  opacity: 1;
+}
+
+.icon-leave {
+  opacity: 1;
+}
+
+.icon-leave-to {
+  opacity: 0;
 }
 
 </style>
