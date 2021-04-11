@@ -27,11 +27,11 @@
       />
 
       <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
-        finished, thx for registration
+        <RegistrationFinished />
       </div>
 
       <div v-if="canceledStep1">
-        oh, what a pitty you can't join
+        <RegistrationCancel />
       </div>
     </main>
 
@@ -44,6 +44,8 @@ import Registration1 from '@/components/Registration1.vue';
 import Registration2 from '@/components/Registration2.vue';
 import Logo from '@/components/Logo.vue';
 import Icon from '@/components/Icon.vue';
+import RegistrationFinished from '@/components/RegistrationFinished.vue';
+import RegistrationCancel from '@/components/RegistrationCancel.vue';
 
 export default {
   name: 'Registration',
@@ -52,6 +54,8 @@ export default {
     Registration2,
     Logo,
     Icon,
+    RegistrationFinished,
+    RegistrationCancel,
   },
   data() {
     return {
