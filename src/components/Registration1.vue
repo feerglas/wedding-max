@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Zur Feier anmelden</h1>
+    <h1 class="title-1">Zur Feier anmelden</h1>
     <p>
       Wir möchten, dass ihr an unserem Hochzeitswochenende mindestens genauso ausgelassen feiern
       könnt wie wir. Wir sind ganz sicher, dass Ihr deswegen die Bitte, die wir an euch haben,
@@ -13,7 +13,7 @@
     <form>
       <Input
         type="text"
-        icon="user"
+        icon="userMale"
         :validation="$v.name"
         id="username"
         label="Dein Vorname & Nachname"
@@ -28,12 +28,14 @@
       >{{reservationRequestError}}</p>
 
       <Button
+        class="button"
         text="Ich nehme gerne teil"
         @click="submit"
         :disable="reservationRequestPending"
       />
 
       <Button
+        class="button"
         text="Ich kann leider nicht teilnehmen"
         secondary
         @click="cancel"
@@ -103,6 +105,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.button {
+  margin-bottom: pxToRem(16);
+}
+
 .form-error {
   @include form-error;
   padding: pxToRem(10) 0 0;
