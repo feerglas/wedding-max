@@ -8,9 +8,9 @@
         Wir freuen uns, dass du mit uns feierst / ihr mit uns feiert.
     </p>
 
-    <CalendarExports/>
+    <CalendarExports />
 
-    <h2 class="title-3">Hast du noch Fragen?</h2>
+    <h2 class="title-2">Hast du noch Fragen?</h2>
 
     <ContactItems :items="contactItemsData" />
 
