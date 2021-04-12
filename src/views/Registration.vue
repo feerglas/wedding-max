@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <Header class="logo" />
 
     <div class="header">
       <transition-group name="icon" v-on:before-leave="beforeLeaveIcon">
@@ -138,6 +138,11 @@ export default {
 <style scoped lang="scss">
 $animationDuration: 500ms;
 $animationEasing: ease-in-out;
+$bgColor: rgb(248, 249, 250);
+
+.logo {
+  color: $bgColor;
+}
 
 .content-container {
   @include layout-column-main;
@@ -157,7 +162,7 @@ $animationEasing: ease-in-out;
   flex-wrap: wrap;
   align-content: flex-start;
   position: relative;
-  background: rgba(30, 76, 106, .03);
+  background: $bgColor;
 
   @include mq-desktop {
     flex-wrap: nowrap;
