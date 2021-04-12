@@ -4,7 +4,7 @@
       to="/"
       class="logo"
     >
-      <Logo />
+      <Logo :heart="true" />
     </router-link>
 
     <div class="header">
@@ -32,7 +32,7 @@
       </transition-group>
     </div>
 
-    <main class="conent-container">
+    <main class="content-container">
       <transition name="content" v-on:before-leave="beforeLeave">
         <Registration1
           v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"

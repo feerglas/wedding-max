@@ -1,6 +1,9 @@
 <template>
 <div class="container_center">
-  <Logo class="logo-wrapper--detail-page"/>
+  <Logo
+    class="logo-wrapper--detail-page"
+    :heart="true"
+  />
   <Nav />
   <main>
       <article>

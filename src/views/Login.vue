@@ -14,7 +14,7 @@
 
         <Logo
           class=""
-          heart=false
+          :heart="false"
         />
 
         <Input
