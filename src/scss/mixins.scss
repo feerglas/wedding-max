@@ -88,6 +88,6 @@
       display: flex;
       flex: 0 1 pxToRem(560);
       flex-direction: column;
-      margin-top: pxToRem(192);
+      margin-top: calc(#{pxToRem(192)} - #{pxToRem($logoHeightDesktop)});
     }
 }

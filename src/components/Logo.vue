@@ -38,7 +38,8 @@ export default {
 }
 
 .heart {
-  height: pxToRem(30);
+  // height: pxToRem(30);
+  height: 100%;
   margin-top: pxToRem(2);
   margin-left: pxToRem(20);
 

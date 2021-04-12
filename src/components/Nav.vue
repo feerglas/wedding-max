@@ -85,7 +85,7 @@ a {
       flex-direction: column;
       flex: 0 0 pxToRem(250);
       width: pxToRem(250);
-      margin-top: pxToRem(192);
+      margin-top: pxToRem(0);
       margin-left: pxToRem(-275);
       padding-left: pxToRem(25);
   }

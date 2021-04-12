@@ -4,7 +4,10 @@
       to="/"
       class="logo"
     >
-      <Logo :heart="true" />
+      <Logo
+        :heart="true"
+        class="logo-icon"
+      />
     </router-link>
 
     <div class="header">
@@ -171,13 +174,29 @@ $animationEasing: ease-in-out;
 
 .logo {
   flex-basis: 100%;
+  height: pxToRem($logoHeightMobile);
+  margin: pxToRem(46) 0;
 
   @include mq-desktop {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: pxToRem($logoHeightDesktop);
     position: absolute;
-    top: pxToRem(46);
-    right: pxToRem(85);
+    top: 0;
+    right: 0;
   }
 
+}
+
+.logo-icon {
+  height: 100%;
+  margin: 0;
+
+  @include mq-desktop {
+    width: pxToRem(290);
+    margin-right: pxToRem(85);
+  }
 }
 
 .header {
