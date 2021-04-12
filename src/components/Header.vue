@@ -23,6 +23,7 @@ export default {
 
 <style scoped lang="scss">
 .header-logo {
+  z-index: 1;
   flex-basis: 100%;
   display: block;
   height: pxToRem($logoHeightMobile);
@@ -40,7 +41,19 @@ export default {
 
 }
 
+.header-logo-icon:before {
+  content: '';
+  position: absolute;
+  top: pxToRem(-$interElementSpacing);
+  right: pxToRem(-$interElementSpacing);
+  bottom: pxToRem(-$interElementSpacing);
+  left: pxToRem(-$interElementSpacing);
+  background: $colorBride;
+  z-index: -1;
+}
+
 .header-logo-icon {
+  position: relative;
   height: 100%;
   margin: 0;
 
