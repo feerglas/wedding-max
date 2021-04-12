@@ -1,4 +1,4 @@
-# max-wedding
+# Registration page for "Lappes Wedding"
 
 Deployed at:
 https://wedding-max.vercel.app/
