@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Header />
+  <Header class="header" />
   <div class="container_center">
     <Nav />
     <main>
@@ -95,6 +95,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.header {
+  cursor: default;
+}
 
 main {
   @include layout-column-main;
