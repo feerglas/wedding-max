@@ -97,6 +97,7 @@ export default {
 <style scoped lang="scss">
 .header {
   cursor: default;
+  color: $colorBride;
 }
 
 main {
