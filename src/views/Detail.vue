@@ -13,7 +13,7 @@
             zum Zugshuttle wie Fahrplan und Fahrkartenreservierung" />
         </article>
         <article>
-           <h1 class="title-1" id="anreise">Übernachtung</h1>
+           <h1 class="title-1" id="uebernachtung">Übernachtung</h1>
             <p class="text-1">
               Sehr gerne könnt ihr das Wochenende im Cervo Mountain Resort verbringen.
               Dafür steht euch ein von uns reserviertes Kontingent an Zimmern verschiedener

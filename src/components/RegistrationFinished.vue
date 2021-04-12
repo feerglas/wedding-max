@@ -8,6 +8,8 @@
         Wir freuen uns, dass du mit uns feierst / ihr mit uns feiert.
     </p>
 
+    <CalendarExports/>
+
     <h2 class="title-3">Hast du noch Fragen?</h2>
 
     <ContactItems :items="contactItemsData" />
@@ -16,12 +18,14 @@
 </template>
 
 <script>
+import CalendarExports from '@/components/CalendarExports.vue';
 import ContactItems from '@/components/ContactItems.vue';
 import contactData from '@/data/contactItems';
 
 export default {
   name: 'RegistrationFinished',
   components: {
+    CalendarExports,
     ContactItems,
   },
   data() {
