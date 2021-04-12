@@ -124,4 +124,20 @@ article:not(:only-child) {
   }
 }
 
+.logo-wrapper--detail-page {
+  width: pxToRem($logoWidthMobile);
+  height: pxToRem($logoHeightMobile);
+  margin: pxToRem($offsetMobile) 0 pxToRem($interModuleSpacingMobile);
+
+  @include mq-desktop {
+    position: sticky;
+    top: pxToRem(46);
+    left: 0;
+    margin-left: pxToRem(426);
+    width: pxToRem($logoWidthDesktop);
+    height: pxToRem($logoHeightDesktop);
+    margin-bottom: pxToRem(-$logoHeightDesktop);
+  }
+}
+
 </style>

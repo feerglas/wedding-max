@@ -37,22 +37,6 @@ export default {
   }
 }
 
-.logo-wrapper--detail-page {
-  width: pxToRem($logoWidthMobile);
-  height: pxToRem($logoHeightMobile);
-  margin: pxToRem($offsetMobile) 0 pxToRem($interModuleSpacingMobile);
-
-  @include mq-desktop {
-    position: sticky;
-    top: pxToRem(46);
-    left: 0;
-    margin-left: pxToRem(426);
-    width: pxToRem($logoWidthDesktop);
-    height: pxToRem($logoHeightDesktop);
-    margin-bottom: pxToRem(-$logoHeightDesktop);
-  }
-}
-
 .heart {
   height: pxToRem(30);
   margin-top: pxToRem(2);
@@ -61,7 +45,6 @@ export default {
   @include mq-desktop {
     margin-left: pxToRem(24);
   }
-
 }
 
 </style>
