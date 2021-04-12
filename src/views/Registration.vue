@@ -8,31 +8,49 @@
     </router-link>
 
     <div class="header">
-      <Icon
-        class="header-icon"
-        name="Registration"
-      />
+      <transition-group name="icon" v-on:before-leave="beforeLeaveIcon">
+        <div v-if="!finishedStep2 && !canceledStep1" key="1">
+          <Icon
+          class="header-icon"
+          name="Registration"
+          />
+        </div>
+
+        <div v-if="finishedStep1 && finishedStep2 && !canceledStep1" key="2">
+          <Icon
+          class="header-icon"
+          name="RegistrationFinish"
+          />
+        </div>
+
+        <div v-if="canceledStep1" key="3">
+          <Icon
+          class="header-icon"
+          name="RegistrationCancel"
+          />
+        </div>
+      </transition-group>
     </div>
 
-    <main class="content-container">
-      <Registration1
-        v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
-        @submit="submitStep1"
-        @cancel="cancelStep1"
-      />
+    <main class="conent-container">
+      <transition name="content" v-on:before-leave="beforeLeave">
+        <Registration1
+          v-if="!finishedStep1 && !finishedStep2 && !canceledStep1"
+          @submit="submitStep1"
+          @cancel="cancelStep1"
+        />
 
-      <Registration2
-        v-if="finishedStep1 && !finishedStep2 && !canceledStep1"
-        @submit="submitStep2"
-      />
+        <Registration2
+          v-if="finishedStep1 && !finishedStep2 && !canceledStep1"
+          @submit="submitStep2"
+        />
 
-      <div v-if="finishedStep1 && finishedStep2 && !canceledStep1">
-        <RegistrationFinished />
-      </div>
+        <RegistrationFinished v-if="finishedStep1 && finishedStep2 && !canceledStep1" />
 
-      <div v-if="canceledStep1">
-        <RegistrationCancel />
-      </div>
+        <RegistrationCancel v-if="canceledStep1" />
+
+      </transition>
+
     </main>
 
   </div>
@@ -65,6 +83,14 @@ export default {
     };
   },
   methods: {
+    beforeLeave(el) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      el.setAttribute('style', 'height: 0; overflow: visible; margin-bottom: 0');
+    },
+    beforeLeaveIcon(el) {
+      el.setAttribute('style', 'height: 0; overflow: visible; margin-bottom: 0');
+    },
     submitStep1() {
       this.$store.commit('setReservationRequestError', '');
       this.finishedStep1 = true;
@@ -86,8 +112,8 @@ export default {
         return;
       }
 
-      this.canceledStep1 = true;
       this.$store.dispatch('resetStore');
+      this.canceledStep1 = true;
     },
     async submitStep2() {
       const state = this.$store.getters.reservation;
@@ -115,6 +141,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$animationDuration: 500ms;
+$animationEasing: ease-in-out;
 
 .content-container {
   @include layout-column-main;
@@ -174,6 +202,56 @@ export default {
     height: pxToRem(170);
     margin: pxToRem(190) 0;
   }
+}
+
+// State Transitions
+
+.content-enter-active,
+.content-leave-active {
+  transition:
+    transform $animationDuration $animationEasing,
+    opacity $animationDuration $animationEasing;
+}
+
+.content-enter {
+  opacity: 0;
+  transform: translateY(500px);
+}
+
+.content-enter-to {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.content-leave {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.content-leave-to {
+  opacity: 0;
+  transform: translateY(-300px);
+}
+
+.icon-enter-active,
+.icon-leave-active {
+  transition: opacity $animationDuration $animationEasing;
+}
+
+.icon-enter {
+  opacity: 0;
+}
+
+.icon-enter-to {
+  opacity: 1;
+}
+
+.icon-leave {
+  opacity: 1;
+}
+
+.icon-leave-to {
+  opacity: 0;
 }
 
 </style>

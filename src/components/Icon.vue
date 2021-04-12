@@ -30,6 +30,8 @@ import MapMarker from '../../public/img/svg/map_marker.svg';
 import Navigation from '../../public/img/svg/navigation.svg';
 import Password from '../../public/img/svg/password.svg';
 import Registration from '../../public/img/svg/registration.svg';
+import RegistrationCancel from '../../public/img/svg/registrationCancel.svg';
+import RegistrationFinish from '../../public/img/svg/registrationFinish.svg';
 import Smartphone from '../../public/img/svg/smartphone.svg';
 import TitleGetTogether from '../../public/img/svg/title_get_together.svg';
 import TitleHochzeitsfeier from '../../public/img/svg/title_hochzeitsfeier.svg';
@@ -73,6 +75,8 @@ export default {
     Navigation,
     Password,
     Registration,
+    RegistrationCancel,
+    RegistrationFinish,
     Smartphone,
     TitleGetTogether,
     TitleHochzeitsfeier,

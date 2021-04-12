@@ -18,21 +18,6 @@ const getRegistrations = async () => {
   }
 };
 
-const registrationsSummary = async () => {
-  const items = await getRegistrations();
-  let registeredPeople = 0;
-
-  items.forEach((item) => {
-    if (item.person2) {
-      registeredPeople += 2;
-    } else {
-      registeredPeople += 1;
-    }
-  });
-
-  return registeredPeople;
-};
-
 const addRegistration = async (registration) => {
   try {
     await registrations.add(registration);
@@ -45,5 +30,4 @@ const addRegistration = async (registration) => {
 export {
   addRegistration,
   getRegistrations,
-  registrationsSummary,
 };
