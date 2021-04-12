@@ -1,5 +1,4 @@
 - after login, layout is broken
-- add favicon/apple touch icons
 - easter egg
 - floating cta button on detail page
 - moving active state of nav on scoll
