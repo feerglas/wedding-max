@@ -1,9 +1,6 @@
 <template>
 <div>
-  <Logo
-    class="logo"
-    :heart="true"
-  />
+  <Header />
   <div class="container_center">
     <Nav />
     <main>
@@ -54,7 +51,7 @@ import BookingTeasers from '@/components/BookingTeasers.vue';
 import ContactItems from '@/components/ContactItems.vue';
 import GetTogether from '@/components/GetTogether.vue';
 import Wedding from '@/components/Wedding.vue';
-import Logo from '@/components/Logo.vue';
+import Header from '@/components/Header.vue';
 import contactData from '@/data/contactItems';
 
 export default {
@@ -68,7 +65,7 @@ export default {
     ContactItems,
     GetTogether,
     Wedding,
-    Logo,
+    Header,
   },
   data() {
     return {
@@ -125,22 +122,6 @@ article:not(:only-child) {
     width: pxToRem(960);
     margin: 0 auto;
     padding: 0 pxToRem(250);
-  }
-}
-
-.logo {
-  width: 100%;
-  height: pxToRem($logoHeightMobile);
-  margin: pxToRem($offsetMobile) 0 pxToRem($interModuleSpacingMobile);
-
-  @include mq-desktop {
-    display: flex;
-    justify-content: flex-end;
-    position: sticky;
-    top: pxToRem(46);
-    height: pxToRem($logoHeightDesktop);
-    margin-bottom: 0;
-    padding-right: pxToRem(85);
   }
 }
 

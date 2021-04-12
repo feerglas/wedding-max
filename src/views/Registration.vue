@@ -1,14 +1,6 @@
 <template>
   <div class="wrapper">
-    <router-link
-      to="/"
-      class="logo"
-    >
-      <Logo
-        :heart="true"
-        class="logo-icon"
-      />
-    </router-link>
+    <Header />
 
     <div class="header">
       <transition-group name="icon" v-on:before-leave="beforeLeaveIcon">
@@ -63,8 +55,8 @@
 import { addRegistration } from '@/firebase/registrations';
 import Registration1 from '@/components/Registration1.vue';
 import Registration2 from '@/components/Registration2.vue';
-import Logo from '@/components/Logo.vue';
 import Icon from '@/components/Icon.vue';
+import Header from '@/components/Header.vue';
 import RegistrationFinished from '@/components/RegistrationFinished.vue';
 import RegistrationCancel from '@/components/RegistrationCancel.vue';
 
@@ -73,8 +65,8 @@ export default {
   components: {
     Registration1,
     Registration2,
-    Logo,
     Icon,
+    Header,
     RegistrationFinished,
     RegistrationCancel,
   },
@@ -169,33 +161,6 @@ $animationEasing: ease-in-out;
 
   @include mq-desktop {
     flex-wrap: nowrap;
-  }
-}
-
-.logo {
-  flex-basis: 100%;
-  height: pxToRem($logoHeightMobile);
-  margin: pxToRem(46) 0;
-
-  @include mq-desktop {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    height: pxToRem($logoHeightDesktop);
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-}
-
-.logo-icon {
-  height: 100%;
-  margin: 0;
-
-  @include mq-desktop {
-    width: pxToRem(290);
-    margin-right: pxToRem(85);
   }
 }
 
