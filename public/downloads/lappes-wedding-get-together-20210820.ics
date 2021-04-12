@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ical.marudot.com//iCal Event Maker
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+TZURL:http://tzurl.org/zoneinfo-outlook/Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20210412T152359Z
+UID:20210412T152359Z-1325221334@marudot.com
+DTSTART;TZID=Europe/Berlin:20210820T183000
+DTEND;TZID=Europe/Berlin:20210821T000000
+SUMMARY:Hochzeit Sarah & Maxi - Get together
+URL:http://www.lappeswedding.ch/
+DESCRIPTION:Da Zermatt ein autofreies Bergdorf ist\, endet die Anreise für Autofahrer in Täsch\, 5km vor Zermatt. Von dort aus geht es weiter mit dem Zug-Shuttle.\n\nTransfer Zermatt nach Täsch\nDer Transfer zwischen Zermatt und Täsch wird ab dem Parkhaus Urania in Zermatt von uns organisiert. Wir werden Nähere Informationen dazu später via WhatsApp kommunizieren.\n\nDresscode\nSommerlich
+LOCATION:Schali Lago by CERVO Zermatt Schalisee 3929 Täsch (Schweiz)
+TRANSP:OPAQUE
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Hochzeit Sarah & Maxi - Get together
+TRIGGER:-P1W
+END:VALARM
+END:VEVENT
+END:VCALENDAR
