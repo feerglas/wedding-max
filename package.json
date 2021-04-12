@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "pwaassets": "npx vue-pwa-asset-generator -a public/favicon.png -o public/img/favicons/ --no-manifest && mv public/img/favicons/favicon.ico public/favicon.ico"
+    "pwaassets": "npx vue-pwa-asset-generator -a public/favicon.png -o public/img/icons/ --no-manifest && mv public/img/icons/favicon.ico public/favicon.ico"
   },
   "dependencies": {
     "core-js": "^3.6.5",
