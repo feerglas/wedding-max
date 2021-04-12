@@ -93,8 +93,12 @@ export default new Vuex.Store({
     userLogin({ commit }, { email, password }) {
       commit('setLoginPending', true);
 
+      // since firebase needs email as  username,  but invitation for weddings are send
+      // without email as  username, we need to proxy it here.
+      const mailForAuth = email === 'sarahundmaxi' ? 'max@max.com' : 'foo@bar.baz';
+
       auth
-        .signInWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(mailForAuth, password)
         .then(() => {
           commit('setLoginError', false);
           commit('setLoginPending', false);
