@@ -12,10 +12,7 @@
     <main class="content-container">
       <form @submit.prevent="submit">
 
-        <Logo
-          class=""
-          :heart="false"
-        />
+        <Logo :heart="false" />
 
         <Input
           type="text"
@@ -157,24 +154,6 @@ export default {
 
 .content-container form {
   max-width: pxToRem(350);
-}
-
-.logo {
-  flex-basis: 100%;
-
-  @include mq-desktop {
-    position: absolute;
-    top: pxToRem(46);
-    right: pxToRem(85);
-  }
-
-}
-
-.logo-wrapper {
-  @media (max-width: $desktopWidth - 1) {
-    width: 90%;
-    margin-bottom: pxToRem($interModuleSpacingMobile - 26);
-  }
 }
 
 .header {
