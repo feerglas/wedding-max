@@ -5,8 +5,6 @@
 </template>
 
 <script>
-document.title = 'Lappes Wedding';
-
 export default {
   name: 'App',
 };
