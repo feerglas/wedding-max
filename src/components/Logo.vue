@@ -1,13 +1,11 @@
 <template>
   <div class="logo-wrapper">
-    <button type="button">
-      <Icon name="titleSarahMaxi" />
-      <Icon
-        v-if="heart !== 'false'"
-        class="heart"
-        name="heartOutline"
-      />
-    </button>
+    <Icon name="titleSarahMaxi" />
+    <Icon
+      v-if="heart"
+      class="heart"
+      name="heartOutline"
+    />
   </div>
 </template>
 
@@ -18,7 +16,7 @@ export default {
   name: 'Logo',
   props: {
     heart: {
-      type: String,
+      type: Boolean,
     },
   },
   components: {
@@ -33,21 +31,14 @@ export default {
   justify-content: center;
   width: 100%;
   margin-bottom: pxToRem($interModuleSpacingMobile);
-
+  color: $colorGroom;
   @include mq-desktop {
     margin-bottom: pxToRem(interModuleSpacingDesktop);
   }
 }
 
-.logo-wrapper button {
-  display: flex;
-  padding: 0;
-  background: none;
-  border: none;
-  color: $colorGroom;
-}
-
 .logo-wrapper--detail-page {
+  width: pxToRem($logoWidthMobile);
   height: pxToRem($logoHeightMobile);
   margin: pxToRem($offsetMobile) 0 pxToRem($interModuleSpacingMobile);
 
@@ -55,20 +46,10 @@ export default {
     position: sticky;
     top: pxToRem(46);
     left: 0;
-    right: 0;
+    margin-left: pxToRem(426);
     width: pxToRem($logoWidthDesktop);
     height: pxToRem($logoHeightDesktop);
     margin-bottom: pxToRem(-$logoHeightDesktop);
-  }
-}
-
-.logo-wrapper--detail-page button {
-  width: pxToRem($logoWidthMobile);
-  height: pxToRem($logoHeightMobile);
-
-  @include mq-desktop {
-    position: absolute;
-    right: pxToRem(-426);
   }
 }
 
