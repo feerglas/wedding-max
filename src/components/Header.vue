@@ -23,6 +23,7 @@ export default {
 
 <style scoped lang="scss">
 .header-logo {
+  position: relative;
   z-index: 1;
   flex-basis: 100%;
   display: block;
@@ -41,19 +42,20 @@ export default {
 
 }
 
-.header-logo-icon:before {
-  content: '';
-  position: absolute;
-  top: pxToRem(-$interElementSpacing);
-  right: pxToRem(-$interElementSpacing);
-  bottom: pxToRem(-$interElementSpacing);
-  left: pxToRem(-$interElementSpacing);
-  background: $colorBride;
-  z-index: -1;
+.header-logo:before {
+  @include mq-desktop {
+    content: '';
+    position: absolute;
+    top: pxToRem(-$interElementSpacing);
+    bottom: pxToRem(-$interElementSpacing);
+    right: 0;
+    width: calc(#{pxToRem(290 + 85)} + #{pxToRem($interElementSpacing)});
+    background: currentColor;
+    z-index: -1;
+  }
 }
 
 .header-logo-icon {
-  position: relative;
   height: 100%;
   margin: 0;
 
