@@ -1,6 +1,6 @@
 <template>
 <div class="container_center">
-  <Logo />
+  <Logo class="logo-wrapper--detail-page"/>
   <Nav />
   <main>
       <article>
@@ -94,6 +94,11 @@ export default {
 
 main {
   @include layout-column-main;
+
+  @include mq-desktop {
+    overflow-x: visible;
+  }
+
 }
 
 article:not(:last-child),

@@ -64,6 +64,10 @@ a {
     margin-left: pxToRem($offsetMobile);
   }
 
+  li:last-child {
+    padding-right: pxToRem($offsetMobile);
+  }
+
   li:not(:first-child) {
     margin-left: pxToRem($interElementSpacing);
   }
@@ -87,7 +91,7 @@ a {
   }
 
   li {
-    margin-bottom: pxToRem($interElementSpacing);
+    margin: 0 0 pxToRem($interElementSpacing) 0;
   }
 
 }

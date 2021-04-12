@@ -24,13 +24,6 @@ a {
   color: $colorGroomsMan;
 }
 
-a svg {
-  float: left;
-  width: pxToRem(15);
-  margin: pxToRem(6) pxToRem(10) pxToRem(-1) 0;
-  fill: currentColor;
-}
-
 img {
   border-style: none;
 }
@@ -51,6 +44,11 @@ img {
 input,
 button {
   font-size: pxToRem(16);
+}
+
+input {
+  width: 100%;
+  background: none;
 }
 
 fieldset {

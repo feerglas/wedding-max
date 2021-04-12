@@ -46,6 +46,13 @@
     line-height: 1.6;
 }
 
+@mixin link-icon() {
+    float: left;
+    width: pxToRem(15);
+    margin: pxToRem(6) pxToRem(10) pxToRem(-1) 0;
+    fill: currentColor;
+}
+
 @mixin list-reset() {
     list-style: none;
     padding: 0;

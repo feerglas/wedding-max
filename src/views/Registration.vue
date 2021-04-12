@@ -50,6 +50,7 @@
         <RegistrationCancel v-if="canceledStep1" />
 
       </transition>
+
     </main>
 
   </div>
@@ -143,7 +144,7 @@ export default {
 $animationDuration: 500ms;
 $animationEasing: ease-in-out;
 
-.conent-container {
+.content-container {
   @include layout-column-main;
 
   margin-bottom: 0;
@@ -173,10 +174,8 @@ $animationEasing: ease-in-out;
 
   @include mq-desktop {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: pxToRem(290);
-    height: pxToRem(35);
+    top: pxToRem(46);
+    right: pxToRem(85);
   }
 
 }

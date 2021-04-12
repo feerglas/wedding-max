@@ -51,11 +51,15 @@ export default {
       margin-bottom: pxToRem($interModuleSpacingMobile);
     }
 
+    .cervo-teaser svg {
+      @include link-icon();
+    }
+
     .cervo-teaser__image_wrapper {
       position: relative;
-      background: pink;
       margin: 0 pxToRem(-$breakoutValueMobile);
       margin-bottom: pxToRem($gutterHeight * 2);
+      overflow: hidden;
     }
 
     .cervo-teaser__image_wrapper:after {
@@ -63,13 +67,14 @@ export default {
       display: block;
       height: 0;
       width: 100%;
-      padding-bottom: 56.25%;
+      padding-bottom: 57.33%;
     }
 
     .cervo-teaser__image {
       position: absolute;
-      left: 0;
-      top: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
     }
 
     @media (min-width: $desktopWidth) {
@@ -80,6 +85,10 @@ export default {
 
       .cervo-teaser__image_wrapper {
         margin: 0;
+      }
+
+      .cervo-teaser__image_wrapper:after {
+        padding-bottom: 57.44%;
       }
 
       .cervo-teaser__caption {
