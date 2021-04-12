@@ -4,5 +4,9 @@
 - floating cta button on detail page
 - moving active state of nav on scoll
 - add full bleed class for certain buttons on mobile
-- add heart variant of illu to login page
 - eventually enlarge right column on login page
+- registration page transitions: set overflow hidden before transition to hide scrollbars during transition
+- ics file
+- integrate "Passwort vergessen"
+- login: style for "Moment" after click "Anmelden"
+- set login data. User: sarahundmaxi, Passwort: liebesnacht2021
