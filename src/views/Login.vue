@@ -12,7 +12,10 @@
     <main class="content-container">
       <form @submit.prevent="submit">
 
-        <Logo :heart="false" />
+        <Logo
+          class="logo"
+          :heart="false"
+        />
 
         <Input
           type="text"
@@ -182,6 +185,14 @@ export default {
     margin: 0;
   }
 
+}
+
+.logo {
+  width: pxToRem(264);
+
+  @include mq-desktop {
+    width: pxToRem(348);
+  }
 }
 
 </style>
