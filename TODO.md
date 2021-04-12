@@ -8,4 +8,3 @@
 - ics file
 - integrate "Passwort vergessen"
 - login: style for "Moment" after click "Anmelden"
-- set login data. User: sarahundmaxi, Passwort: liebesnacht2021
