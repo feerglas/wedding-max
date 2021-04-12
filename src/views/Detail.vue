@@ -1,7 +1,7 @@
 <template>
 <div class="container_center">
   <Logo
-    class="logo-wrapper--detail-page"
+    class="logo-wrapper"
     :heart="true"
   />
   <Nav />
@@ -124,8 +124,8 @@ article:not(:only-child) {
   }
 }
 
-.logo-wrapper--detail-page {
-  width: pxToRem($logoWidthMobile);
+.logo-wrapper {
+  width: 100%;
   height: pxToRem($logoHeightMobile);
   margin: pxToRem($offsetMobile) 0 pxToRem($interModuleSpacingMobile);
 
