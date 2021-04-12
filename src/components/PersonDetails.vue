@@ -17,7 +17,7 @@
 
     <Select
       class="select-food"
-      :options="['Essen wählen', 'Wasser', 'Brot']"
+      :options="['Essen wählen', 'Fleisch', 'Fisch', 'Vegetarisch']"
       :placeholder="true"
       @input="selectChanged"
     />
