@@ -3,10 +3,24 @@
   <div class="wrapper">
 
     <div class="header">
-      <Icon
-        class="header-icon"
-        name="Registration"
-      />
+
+      <div class="header-icon-wrapper">
+        <Icon
+          class="header-icon"
+          name="RegistrationWithoutHeart"
+        />
+
+        <Icon
+          class="heart"
+          name="HeartOutlineSolid"
+        />
+
+        <Icon
+          class="heart2"
+          name="HeartOutlineSolid"
+        />
+
+      </div>
     </div>
 
     <main class="content-container">
@@ -162,12 +176,12 @@ export default {
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-basis: 100%;
   background: $gradient;
   margin-bottom: pxToRem($interModuleSpacingMobile);
 
   @include mq-desktop {
-    flex-direction: column;
     width: 50%;
     flex: 0 0 50%;
     min-height: 100vh;
@@ -176,15 +190,43 @@ export default {
 
 }
 
-.header-icon {
-  height: pxToRem(174);
-  margin: pxToRem($interModuleSpacingMobile) auto;
+.header-icon-wrapper {
+  position: relative;
+  width: pxToRem(125);
+  height: pxToRem(173);
+  margin: pxToRem($interModuleSpacingMobile) 0;
 
   @include mq-desktop {
-    height: pxToRem(344);
+    width: pxToRem(240);
+    height: pxToRem(333);
     margin: 0;
   }
 
+}
+
+.heart,
+.heart2 {
+  position: absolute;
+  left: calc(50% - #{pxToRem(8)});
+  top: pxToRem(13);
+  width: pxToRem(16);
+
+  @include mq-desktop {
+    left: calc(50% - #{pxToRem(16)});
+    top: pxToRem(26);
+    width: unset;
+    width: pxToRem(28);
+  }
+}
+
+$animationDuration: 4s;
+
+.heart {
+  animation: pulse1 $animationDuration infinite;
+}
+
+.heart2 {
+  animation: pulse2 $animationDuration infinite;
 }
 
 .logo {
@@ -192,6 +234,50 @@ export default {
 
   @include mq-desktop {
     width: pxToRem(348);
+  }
+}
+
+@keyframes pulse1 {
+  2% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  20% {
+    transform: scale(5);
+    opacity: 0;
+  }
+
+  90% {
+    transform: scale(5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    transform: scale(1);
+  }
+
+  2% {
+    transform: scale(.9);
+  }
+
+  10% {
+    transform: scale(1.2);
+  }
+
+  20% {
+    transform: scale(1);
   }
 }
 
