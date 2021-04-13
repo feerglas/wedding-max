@@ -52,13 +52,13 @@
 </template>
 
 <script>
-import { addRegistration } from '@/firebase/registrations';
 import Registration1 from '@/components/Registration1.vue';
 import Registration2 from '@/components/Registration2.vue';
 import Icon from '@/components/Icon.vue';
 import Header from '@/components/Header.vue';
 import RegistrationFinished from '@/components/RegistrationFinished.vue';
 import RegistrationCancel from '@/components/RegistrationCancel.vue';
+import { registrations } from '@/firebase/';
 
 export default {
   name: 'Registration',
@@ -98,7 +98,13 @@ export default {
 
       this.$store.commit('setReservationRequestPending', true);
 
-      const add = await addRegistration(reservation);
+      let add;
+      try {
+        await registrations.add(reservation);
+        add = true;
+      } catch {
+        add = false;
+      }
 
       if (!add) {
         this.$store.commit('setReservationRequestPending', false);
@@ -117,7 +123,13 @@ export default {
       state.name = this.$store.getters.name1;
       state.wedding.person2.name = this.$store.getters.name2;
 
-      const add = await addRegistration(state);
+      let add;
+      try {
+        await registrations.add(state);
+        add = true;
+      } catch {
+        add = false;
+      }
 
       if (!add) {
         this.$store.commit('setReservationRequestPending', false);
@@ -197,50 +209,50 @@ $bgColor: rgb(248, 249, 250);
 
 .content-enter-active,
 .content-leave-active {
-  transition:
-    transform $animationDuration $animationEasing,
-    opacity $animationDuration $animationEasing;
+  // transition:
+    // transform $animationDuration $animationEasing,
+    // opacity $animationDuration $animationEasing;
 }
 
 .content-enter {
-  opacity: 0;
-  transform: translateY(500px);
+  // opacity: 0;
+  //transform: translateY(500px);
 }
 
 .content-enter-to {
-  opacity: 1;
-  transform: translateY(0px);
+  // opacity: 1;
+  //transform: translateY(0px);
 }
 
 .content-leave {
-  opacity: 1;
-  transform: translateY(0px);
+  // opacity: 1;
+  //transform: translateY(0px);
 }
 
 .content-leave-to {
-  opacity: 0;
-  transform: translateY(-300px);
+  // opacity: 0;
+  //transform: translateY(-300px);
 }
 
 .icon-enter-active,
 .icon-leave-active {
-  transition: opacity $animationDuration $animationEasing;
+  // transition: opacity $animationDuration $animationEasing;
 }
 
 .icon-enter {
-  opacity: 0;
+  // opacity: 0;
 }
 
 .icon-enter-to {
-  opacity: 1;
+  // opacity: 1;
 }
 
 .icon-leave {
-  opacity: 1;
+  // opacity: 1;
 }
 
 .icon-leave-to {
-  opacity: 0;
+  // opacity: 0;
 }
 
 </style>

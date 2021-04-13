@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { getRegistrations } from '@/firebase/registrations';
+import { registrations } from '@/firebase/';
 
 export default {
   name: 'Summary',
@@ -55,10 +55,20 @@ export default {
       registrations: [],
     };
   },
-  async created() {
-    this.registrations = await getRegistrations();
+  created() {
+    try {
+      registrations.onSnapshot((data) => {
+        const items = data.docs.map((doc) => {
+          const item = doc.data();
 
-    if (this.registrations.length === 0) {
+          item.id = doc.id;
+
+          return item;
+        });
+
+        this.registrations = items;
+      });
+    } catch {
       this.error = true;
     }
   },
