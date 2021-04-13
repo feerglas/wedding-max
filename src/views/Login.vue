@@ -252,9 +252,11 @@ export default {
 
 .logo {
   width: pxToRem(264);
+  height: pxToRem(40);
 
   @include mq-desktop {
     width: pxToRem(348);
+    height: pxToRem(52);
   }
 }
 
