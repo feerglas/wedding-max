@@ -1,6 +1,9 @@
 <template>
   <div class="logo-wrapper">
-    <Icon name="titleSarahMaxi" />
+    <Icon
+      name="titleSarahMaxi"
+      class="text-icon"
+    />
     <Icon
       v-if="heart"
       class="heart"
@@ -37,8 +40,11 @@ export default {
   }
 }
 
+.text-icon {
+  height: 100%;
+}
+
 .heart {
-  // height: pxToRem(30);
   height: 100%;
   margin-top: pxToRem(2);
   margin-left: pxToRem(20);
