@@ -8,3 +8,6 @@
 - ics file
 - integrate "Passwort vergessen"
 - login: style for "Moment" after click "Anmelden"
+- login cover animation not working in safari (animation on flex-basis not supported)
+- safari seems to invert the favicon in dark theme?
+- inputs on iphone are verticall cut (text input not visible)
