@@ -70,6 +70,12 @@
   }
 }
 
+@mixin mq-until-desktop {
+  @media (max-width: $desktopWidth) {
+      @content;
+  }
+}
+
 @mixin mq-desktop {
   @media (min-width: $desktopWidth) {
       @content;
