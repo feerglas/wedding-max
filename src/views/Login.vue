@@ -20,6 +20,11 @@
           name="HeartOutlineSolid"
         />
 
+        <Icon
+          class="heart3"
+          name="HeartOutlineSolid"
+        />
+
       </div>
     </div>
 
@@ -205,7 +210,8 @@ export default {
 }
 
 .heart,
-.heart2 {
+.heart2,
+.heart3 {
   position: absolute;
   left: calc(50% - #{pxToRem(8)});
   top: pxToRem(13);
@@ -229,6 +235,11 @@ $animationDuration: 4s;
   animation: pulse2 $animationDuration infinite;
 }
 
+.heart3 {
+  animation: pulse2 $animationDuration infinite;
+  animation-delay: .9s;
+}
+
 .logo {
   width: pxToRem(264);
 
@@ -238,32 +249,6 @@ $animationDuration: 4s;
 }
 
 @keyframes pulse1 {
-  2% {
-    transform: scale(1);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 0.5;
-  }
-
-  20% {
-    transform: scale(5);
-    opacity: 0;
-  }
-
-  90% {
-    transform: scale(5);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-
-@keyframes pulse2 {
   0% {
     transform: scale(1);
   }
@@ -278,6 +263,48 @@ $animationDuration: 4s;
 
   20% {
     transform: scale(1);
+  }
+
+  22% {
+    transform: scale(.9);
+  }
+
+  30% {
+    transform: scale(1.2);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse2 {
+  2% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+    filter: blur(0px);
+    filter: blur(1px);
+  }
+
+  20% {
+    transform: scale(5);
+    opacity: 0;
+    filter: blur(2px);
+  }
+
+  90% {
+    transform: scale(5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+    filter: blur(0px);
   }
 }
 
