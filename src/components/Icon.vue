@@ -16,6 +16,7 @@ import Edit from '../../public/img/svg/edit.svg';
 import ExternalLink from '../../public/img/svg/external_link.svg';
 import HeartFull from '../../public/img/svg/heart_full.svg';
 import HeartOutline from '../../public/img/svg/heart_outline.svg';
+import HeartOutlineSolid from '../../public/img/svg/heart_outline_solid.svg';
 import InfoHelp from '../../public/img/svg/info_help.svg';
 import Key from '../../public/img/svg/key.svg';
 import Key2 from '../../public/img/svg/key_2.svg';
@@ -32,6 +33,7 @@ import Password from '../../public/img/svg/password.svg';
 import Registration from '../../public/img/svg/registration.svg';
 import RegistrationCancel from '../../public/img/svg/registrationCancel.svg';
 import RegistrationFinish from '../../public/img/svg/registrationFinish.svg';
+import RegistrationWithoutHeart from '../../public/img/svg/registration_without_heart.svg';
 import Smartphone from '../../public/img/svg/smartphone.svg';
 import TitleGetTogether from '../../public/img/svg/title_get_together.svg';
 import TitleHochzeitsfeier from '../../public/img/svg/title_hochzeitsfeier.svg';
@@ -61,6 +63,7 @@ export default {
     ExternalLink,
     HeartFull,
     HeartOutline,
+    HeartOutlineSolid,
     InfoHelp,
     Key,
     Key2,
@@ -77,6 +80,7 @@ export default {
     Registration,
     RegistrationCancel,
     RegistrationFinish,
+    RegistrationWithoutHeart,
     Smartphone,
     TitleGetTogether,
     TitleHochzeitsfeier,
