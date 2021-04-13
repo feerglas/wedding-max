@@ -129,6 +129,7 @@ export default {
 }
 
 .input-error {
+  pointer-events: none;
   position: absolute;
   bottom: pxToRem(4);
   @include form-error;

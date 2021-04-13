@@ -225,18 +225,16 @@ export default {
   }
 }
 
-$animationDuration: 4s;
-
 .heart {
-  animation: pulse1 $animationDuration infinite;
+  animation: pulse1 4s infinite;
 }
 
 .heart2 {
-  animation: pulse2 $animationDuration infinite;
+  animation: pulse2 4s infinite;
 }
 
 .heart3 {
-  animation: pulse2 $animationDuration infinite;
+  animation: pulse2 4s infinite;
   animation-delay: .9s;
 }
 

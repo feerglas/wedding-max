@@ -29,6 +29,7 @@ export default {
   display: block;
   height: pxToRem($logoHeightMobile);
   margin: pxToRem(32) 0;
+  pointer-events: none;
 
   @include mq-desktop {
     display: flex;
@@ -58,6 +59,7 @@ export default {
 .header-logo-icon {
   height: 100%;
   margin: 0;
+  pointer-events: all;
 
   @include mq-desktop {
     width: pxToRem(290);
