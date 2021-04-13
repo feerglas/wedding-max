@@ -186,11 +186,20 @@ export default {
   background: $gradient;
   margin-bottom: pxToRem($interModuleSpacingMobile);
 
+  @include mq-until-desktop {
+    height: 100vh;
+    animation: introanimationMobile 1s forwards;
+    animation-delay: 3s;
+    animation-timing-function: ease-in-out;
+  }
+
   @include mq-desktop {
-    width: 50%;
-    flex: 0 0 50%;
     min-height: 100vh;
+    flex: 0 0 100%;
     margin-bottom: 0;
+    animation: introanimationDesktop 1s forwards;
+    animation-delay: 3s;
+    animation-timing-function: ease-in-out;
   }
 
 }
@@ -227,15 +236,18 @@ export default {
 
 .heart {
   animation: pulse1 4s infinite;
+  animation-timing-function: ease-in-out;
 }
 
 .heart2 {
   animation: pulse2 4s infinite;
+  animation-timing-function: ease-in-out;
 }
 
 .heart3 {
   animation: pulse2 4s infinite;
   animation-delay: .9s;
+  animation-timing-function: ease-in-out;
 }
 
 .logo {
@@ -243,6 +255,26 @@ export default {
 
   @include mq-desktop {
     width: pxToRem(348);
+  }
+}
+
+@keyframes introanimationMobile {
+  0% {
+    height: 100vh;
+  }
+
+  100% {
+    height: pxToRem(269);
+  }
+}
+
+@keyframes introanimationDesktop {
+  0% {
+    flex-basis: 100%;
+  }
+
+  100% {
+    flex-basis: 50%;
   }
 }
 
