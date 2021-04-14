@@ -5,7 +5,6 @@
 - add full bleed class for certain buttons on mobile
 - eventually enlarge right column on login page
 - registration page transitions: set overflow hidden before transition to hide scrollbars during transition
-- ics file
 - integrate "Passwort vergessen"
 - login: style for "Moment" after click "Anmelden"
 - login cover animation not working in safari (animation on flex-basis not supported)
