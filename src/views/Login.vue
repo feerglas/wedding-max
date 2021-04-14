@@ -143,29 +143,28 @@ export default {
 .wrapper {
   height: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  position: relative;
   background: rgba(30, 76, 106, .03);
-
-  @include mq-desktop {
-    flex-wrap: nowrap;
-  }
-
 }
 
 .content-container {
   display: flex;
-  @include layout-column-main;
   margin: 0;
   margin-bottom: pxToRem($interModuleSpacingMobile * 2);
   overflow: visible;
   justify-content: center;
 
   @include mq-desktop {
+    float: left;
+    width: 0%;
+    opacity: 0;
     flex-direction: column;
-    flex: 0 0 50%;
+    min-height: 100vh;
+    flex: unset;
+
+    animation: introanimationDesktopContent 1s forwards;
+    animation-delay: 3s;
+    animation-timing-function: ease-in-out;
+
     align-content: center;
     align-items: center;
     margin-top: 0;
@@ -182,7 +181,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-basis: 100%;
   background: $gradient;
   margin-bottom: pxToRem($interModuleSpacingMobile);
 
@@ -194,8 +192,11 @@ export default {
   }
 
   @include mq-desktop {
+    float: left;
+    width: 100%;
+    overflow: auto;
+
     min-height: 100vh;
-    flex: 0 0 100%;
     margin-bottom: 0;
     animation: introanimationDesktop 1s forwards;
     animation-delay: 3s;
@@ -260,6 +261,22 @@ export default {
   }
 }
 
+@keyframes introanimationDesktopContent {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
 @keyframes introanimationMobile {
   0% {
     height: 100vh;
@@ -272,11 +289,11 @@ export default {
 
 @keyframes introanimationDesktop {
   0% {
-    flex-basis: 100%;
+    width: 100%;
   }
 
   100% {
-    flex-basis: 50%;
+    width: 50%;
   }
 }
 
