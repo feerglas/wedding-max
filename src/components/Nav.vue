@@ -5,7 +5,7 @@
         <li><a href="#uebernachtung">Übernachtung</a></li>
         <li><a href="#geschenkideen">Geschenkideen</a></li>
         <li><a href="#gettogether">Get Together</a></li>
-        <li><a ref="#hochzeitsfeier">Hochzeitsfeier</a></li>
+        <li><a href="#hochzeitsfeier">Hochzeitsfeier</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
     </ul>
     <router-link to="/registration">
