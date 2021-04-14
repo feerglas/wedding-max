@@ -25,6 +25,8 @@ a {
 }
 
 img {
+  width: 100%;
+  height: auto;
   border-style: none;
 }
 
@@ -35,10 +37,6 @@ p {
 p:not(:last-child),
 p:not(:only-child) {
   margin: 0 0 pxToRem($interElementSpacing) 0;
-}
-
-img {
-  width: 100%
 }
 
 input,
