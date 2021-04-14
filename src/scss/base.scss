@@ -4,6 +4,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $colorGroomsMan;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -50,6 +51,48 @@ input {
 }
 
 fieldset {
-    margin: 0;
-    border: none;
+  margin: 0;
+  border: none;
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+  -webkit-appearance:button
+}
+
+.button {
+  display: inline-block;
+  padding: 0 pxToRem(20);
+  color: $colorBride;
+  background-color: $colorGroom;
+  border-radius: pxToRem(2);
+  height: pxToRem($buttonHeight);
+  line-height: pxToRem($buttonHeight - 1);
+  font-family: $fontBold;
+  font-size: pxToRem(16);
+  border: 0;
+  cursor: pointer;
+}
+
+.button:focus,
+.button:hover {
+  background-color: $colorPriest;
+}
+
+.button:disabled {
+  opacity: .5;
+}
+
+.button.secondary {
+  color: $colorGroom;
+  background-color: transparent;
+  border: pxToRem(2) solid $colorGroom;
+}
+
+.button.secondary:focus,
+.button.secondary:hover {
+  border-color: $colorPriest;
+  color: $colorPriest;
 }

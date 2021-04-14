@@ -2,7 +2,11 @@
 <div>
   <Header class="header" />
   <div class="container_center">
-    <Nav />
+    <Nav
+      :items="navItemsData"
+      :activeNavItem="activeNavItem"
+      @update-active-nav-item="updateActiveNavItem"
+    />
     <main>
         <article>
             <h1 class="title-1" id="anreise">Anreise</h1>
@@ -44,6 +48,7 @@
 
 <script>
 import Nav from '@/components/Nav.vue';
+import navData from '@/data/navItems';
 import InfoPanel from '@/components/InfoPanel.vue';
 import CervoTeaser from '@/components/CervoTeaser.vue';
 import HotelTeasers from '@/components/HotelTeasers.vue';
@@ -67,8 +72,15 @@ export default {
     Wedding,
     Header,
   },
+  methods: {
+    updateActiveNavItem(index) {
+      this.activeNavItem = index;
+    },
+  },
   data() {
     return {
+      activeNavItem: 0,
+      navItemsData: navData,
       contactItemsData: {
         title: 'Kontakt',
         sections: [

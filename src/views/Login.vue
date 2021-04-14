@@ -147,7 +147,7 @@ export default {
   flex-wrap: wrap;
   align-content: flex-start;
   position: relative;
-  background: rgba(30, 76, 106, .03);
+  // background: rgba(30, 76, 106, .03);
 
   @include mq-desktop {
     flex-wrap: nowrap;
