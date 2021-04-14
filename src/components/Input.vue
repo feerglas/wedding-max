@@ -1,8 +1,9 @@
 <template>
-  <div
-    class="form-group"
-    :class="{ 'form-group-error': validation.$error }"
-  >
+  <div>
+    <div
+      class="form-group"
+      :class="{ 'form-group-error': validation.$error }"
+    >
       <input
         :id="id"
         class="input"
@@ -23,6 +24,7 @@
         :name="icon"
          class="icon"
       />
+  </div>
 
     <div
       class="input-error"
