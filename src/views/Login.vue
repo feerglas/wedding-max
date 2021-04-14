@@ -37,6 +37,7 @@
         />
 
         <Input
+          class="text-input"
           type="text"
           icon="userMale"
           :validation="$v.name"
@@ -44,11 +45,11 @@
           label="Benutzername"
           autocomplete="username"
           :required="true"
-          error-empty="Eine E-Mail musst du schon angeben... sonst klappts nicht..."
-          :error-wrong="`Mindestens ${$v.name.$params.minLength.min} Zeichen`"
+          error-empty="Den Benutzernamen musst du schon angeben, sonst klappts nicht..."
         />
 
         <Input
+          class="text-input"
           type="password"
           icon="key2"
           :validation="$v.password"
@@ -60,6 +61,7 @@
         />
 
         <Button
+          class="login-button"
           text="Anmelden"
           type="submit"
           :disable="isLoginPending"
@@ -84,7 +86,7 @@
 <script>
 
 import { validationMixin } from 'vuelidate';
-import { required, minLength } from 'vuelidate/lib/validators';
+import { required } from 'vuelidate/lib/validators';
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
 import Logo from '@/components/Logo.vue';
@@ -116,11 +118,9 @@ export default {
   validations: {
     name: {
       required,
-      minLength: minLength(4),
     },
     password: {
       required,
-      minLength: minLength(4),
     },
   },
   methods: {
@@ -171,10 +171,6 @@ export default {
     margin-bottom: 0;
   }
 
-}
-
-.content-container form {
-  max-width: pxToRem(350);
 }
 
 .header {

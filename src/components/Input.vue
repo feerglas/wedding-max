@@ -1,29 +1,32 @@
 <template>
-  <div
-    class="form-group"
-    :class="{ 'form-group-error': validation.$error }"
-  >
+  <div class="form-wrapper">
+    <div
+      class="form-group"
+      :class="{ 'form-group-error': validation.$error }"
+    >
 
-    <input
-      :id="id"
-      class="input"
-      :autocomplete="autocomplete"
-      :name="id"
-      :label="label"
-      :type="type"
-      :required="required ? true : false"
-      v-model.trim="validation.$model"
-    />
+      <input
+        :id="id"
+        class="input"
+        :autocomplete="autocomplete"
+        :name="id"
+        :label="label"
+        :type="type"
+        :required="required ? true : false"
+        v-model.trim="validation.$model"
+      />
 
-    <label
-      :for="id"
-      class="label"
-    >{{label}}</label>
+      <label
+        :for="id"
+        class="label"
+      >{{label}}</label>
 
-    <Icon
-      :name="icon"
-       class="icon"
-    />
+      <Icon
+        :name="icon"
+         class="icon"
+      />
+
+    </div>
 
     <div
       class="input-error"
@@ -68,6 +71,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.form-wrapper {
+  max-width: pxToRem(350);
+  width: pxToRem(350);
+}
+
 .label,
 .input:focus + label {
   position: absolute;
@@ -82,6 +90,7 @@ export default {
 }
 
 .form-group {
+  width: 100%;
   position: relative;
   padding-left: pxToRem(36);
   margin-bottom: pxToRem($gutterHeight * 2);
@@ -100,10 +109,11 @@ export default {
 .input {
   @include text-2();
   background: transparent;
-  height: pxToRem(18);
-  margin: pxToRem($interElementSpacing) 0;
+  height: pxToRem(20);
+  margin: pxToRem($interElementSpacing) 0 pxToRem($interElementSpacing - 2);
   border: none;
   color: $colorGroom;
+  padding: 0;
 
   @include mq-medium {
     width: auto;
@@ -129,9 +139,9 @@ export default {
 }
 
 .input-error {
+  width: 100%;
   pointer-events: none;
-  position: absolute;
-  bottom: pxToRem(4);
+  margin-bottom: pxToRem(16);
   @include form-error;
 }
 </style>
