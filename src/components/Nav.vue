@@ -60,8 +60,16 @@ a {
 
 @media (max-width: $desktopWidth - 1) {
   nav {
+    position: sticky;
+    top: 0;
     width: 100%;
+    height: pxToRem(59);
+    line-height: pxToRem(59);
     overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    background: $colorBride;
+    z-index: 5;
   }
 
   ul {
@@ -90,6 +98,10 @@ a {
     white-space: nowrap;
   }
 
+  a.is-active {
+    font-family: $fontBold;
+  }
+
   nav > button {
     position: fixed;
     display: block;
@@ -98,6 +110,7 @@ a {
     right: pxToRem(16);
     bottom: pxToRem(12);
     z-index: 2;
+    box-shadow: 0 pxToRem(4) pxToRem(128) rgba(30, 67, 106, 0.08);
   }
 
   svg {

@@ -51,7 +51,7 @@ export default {
     bottom: pxToRem(-$interElementSpacing);
     right: 0;
     width: calc(#{pxToRem(290 + 85)} + #{pxToRem($interElementSpacing)});
-    background: currentColor;
+    // background: currentColor;
     z-index: -1;
   }
 }

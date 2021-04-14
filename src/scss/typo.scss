@@ -1,6 +1,11 @@
 .title-1 {
   @include title-1;
-  scroll-margin-top: pxToRem($interElementSpacing);
+  scroll-margin-top: pxToRem($interModuleSpacing);
+  
+  @include mq-desktop {
+    scroll-margin-top: pxToRem($interElementSpacing);
+  }
+ 
 }
 
 .title-2 {
