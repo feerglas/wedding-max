@@ -12,6 +12,7 @@
 
     <form>
       <Input
+        class="text-input"
         type="text"
         icon="userMale"
         :validation="$v.name"
@@ -105,6 +106,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.text-input {
+
+  @include mq-medium {
+    width: pxToRem(350);
+  }
+}
+
 .step1 {
   margin-bottom: pxToRem($interModuleSpacingMobile);
 }

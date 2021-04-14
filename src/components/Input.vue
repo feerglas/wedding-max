@@ -1,10 +1,8 @@
 <template>
-  <div class="form-wrapper">
-    <div
-      class="form-group"
-      :class="{ 'form-group-error': validation.$error }"
-    >
-
+  <div
+    class="form-group"
+    :class="{ 'form-group-error': validation.$error }"
+  >
       <input
         :id="id"
         class="input"
@@ -25,8 +23,6 @@
         :name="icon"
          class="icon"
       />
-
-    </div>
 
     <div
       class="input-error"
@@ -71,11 +67,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.form-wrapper {
-  max-width: pxToRem(350);
-  width: pxToRem(350);
-}
-
 .label,
 .input:focus + label {
   position: absolute;
