@@ -148,7 +148,16 @@ export default {
 .wrapper {
   height: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: relative;
   background: rgba(30, 76, 106, .03);
+
+  @include mq-desktop {
+    flex-wrap: nowrap;
+  }
+
 }
 
 .content-container {
@@ -160,7 +169,7 @@ export default {
 
   @include mq-desktop {
     float: left;
-    width: 0%;
+    width: 0;
     opacity: 0;
     flex-direction: column;
     min-height: 100vh;

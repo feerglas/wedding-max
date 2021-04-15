@@ -15,22 +15,25 @@
             <dt><Icon name="Agenda" />Anmeldefrist</dt>
             <dd>Bitte gebt uns bis zum 31.05.2021 Bescheid ob ihr kommen könnt.</dd>
         </dl>
-        <router-link to="/registration">
-            <Button text="Anmelden" />
+        <router-link
+          tag="button"
+          type="button"
+          to="/registration"
+          class="button"
+        >
+          Anmelden
         </router-link>
         <InfoPanel text="Good to know: Wir bitten von Reden oder Spielen abzusehen." />
     </article>
 </template>
 
 <script>
-import Button from '@/components/Button.vue';
 import InfoPanel from '@/components/InfoPanel.vue';
 import Icon from '@/components/Icon.vue';
 
 export default {
   name: 'Wedding',
   components: {
-    Button,
     InfoPanel,
     Icon,
   },
@@ -59,6 +62,10 @@ export default {
 
     .event-info-list dd:not(:last-child) {
         margin-bottom: pxToRem($interElementSpacing);
+    }
+
+    .button {
+      @include button();
     }
 
 </style>

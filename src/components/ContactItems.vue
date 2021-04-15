@@ -95,7 +95,7 @@ export default {
       @include title-2;
       padding: 0 pxToRem(6) 0 pxToRem(7);
       color: rgba($colorGroom, .2);
-      background: $colorBride;
+      background: $colorBackground;
       height: pxToRem(28);
       line-height: pxToRem(28);
     }

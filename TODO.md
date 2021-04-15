@@ -1,2 +1,3 @@
 - easter egg
 - moving active state of nav on scoll
+- config manifest file
