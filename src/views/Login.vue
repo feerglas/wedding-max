@@ -213,7 +213,9 @@ export default {
   }
 }
 
-.submit-status {
+.submit-status,
+.form-error {
+  @include form-error;
   padding-top: pxToRem(16);
 }
 
