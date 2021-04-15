@@ -35,8 +35,8 @@ p {
   margin: 0;
 }
 
-p:not(:last-child),
-p:not(:only-child) {
+p:not(:last-child):not(.form-error),
+p:not(:only-child):not(.form-error) {
   margin: 0 0 pxToRem($interElementSpacing) 0;
 }
 

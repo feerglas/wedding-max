@@ -288,7 +288,7 @@ fieldset:not(:first-child) {
   border-top: 1px dashed $colorBridesMaid;
 
   @include mq-medium {
-    padding: 0 pxToRem($interModuleSpacing);
+    padding: 0 pxToRem(70);
   }
 }
 

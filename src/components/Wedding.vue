@@ -1,19 +1,19 @@
 <template>
     <article>
-        <h1 class="title-1" id="hochzeitsfeier">Hochzeitfeier</h1>
+        <h1 class="title-1" id="hochzeitsfeier">Hochzeitsfeier</h1>
         <dl class="event-info-list">
             <dt><Icon name="Clock2" />Datum &amp; Ablauf</dt>
             <dd>Samstag 21.08.2021<br>
                 1500 Trauzeremonie auf der Ferdinand Terrasse<br>
                 1600 Apéro auf der Terrasse<br>
-                ca. 19h Abendessen<br>
+                1900 Abendessen<br>
                 Anschliessende Party</dd>
             <dt><Icon name="MapMarker" />Adresse</dt>
-            <dd>CERVO Mountain Resorts<br>Riedweg 156<br>3920 Zermatt (Schweiz)</dd>
+            <dd>CERVO Mountain Resort<br>Riedweg 156<br>3920 Zermatt (Schweiz)</dd>
             <dt><Icon name="Dress" />Dresscode</dt>
             <dd>Sommerlich festlich</dd>
             <dt><Icon name="Agenda" />Anmeldefrist</dt>
-            <dd>Bitte gebt uns bis zum 15.05.2021 Bescheid ob ihr kommen könnt.</dd>
+            <dd>Bitte gebt uns bis zum 31.05.2021 Bescheid ob ihr kommen könnt.</dd>
         </dl>
         <router-link to="/registration">
             <Button text="Anmelden" />

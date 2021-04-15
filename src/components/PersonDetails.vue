@@ -5,6 +5,7 @@
     <h2 class="title">{{title}}</h2>
 
     <Input
+      class="text-input"
       type="text"
       icon="userMale"
       id="name1"
@@ -116,6 +117,18 @@ export default {
   font-size: pxToRem(18);
   color: $colorGroom;
   margin-bottom: pxToRem(8);
+}
+
+.text-input {
+  width: 100%;
+
+  @include mq-medium {
+    max-width: pxToRem(300);
+  }
+
+  @include mq-desktop {
+    width: 100%;
+  }
 }
 
 .select-food {
