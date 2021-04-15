@@ -70,7 +70,7 @@
         <p
           class="form-error"
           v-if="isLoginError"
-        >Du solltest erst an der Hochzeit trinken! Bier weglegen und eine nochmals versuchen...</p>
+        >Du solltest erst an der Hochzeit trinken! Bier wegstellen und nochmals versuchen.</p>
 
         <p
           class="form-error"

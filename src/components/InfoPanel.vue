@@ -1,7 +1,17 @@
 <template>
     <footer class="info-panel">
         <Icon name="InfoHelp" />
-        <p>{{text}}</p>
+        <p v-if="href">
+          <a
+            :href="href"
+            target="_blank"
+            rel="external noopener nofollow">
+            {{text}}
+          </a>
+        </p>
+        <p v-else>
+          {{text}}
+        </p>
     </footer>
 </template>
 
@@ -15,6 +25,7 @@ export default {
   },
   props: {
     text: String,
+    href: String,
   },
 };
 </script>
