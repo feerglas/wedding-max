@@ -29,14 +29,12 @@
       >{{reservationRequestError}}</p>
 
       <Button
-        class="button"
         text="Ich nehme gerne teil"
         @click="submit"
         :disable="reservationRequestPending"
       />
 
       <Button
-        class="button"
         text="Ich kann leider nicht teilnehmen"
         secondary
         @click="cancel"

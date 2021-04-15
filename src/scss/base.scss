@@ -4,12 +4,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $colorGroomsMan;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: $colorBride;
+  background: $colorBackground;
   text-align: center;
   font-family: $fontRegular;
 }
@@ -25,6 +26,8 @@ a {
 }
 
 img {
+  width: 100%;
+  height: auto;
   border-style: none;
 }
 
@@ -35,10 +38,6 @@ p {
 p:not(:last-child):not(.form-error),
 p:not(:only-child):not(.form-error) {
   margin: 0 0 pxToRem($interElementSpacing) 0;
-}
-
-img {
-  width: 100%
 }
 
 input,
@@ -52,6 +51,14 @@ input {
 }
 
 fieldset {
-    margin: 0;
-    border: none;
+  margin: 0;
+  border: none;
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+  -webkit-appearance: button;
+  box-sizing: border-box;
 }
