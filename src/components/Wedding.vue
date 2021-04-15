@@ -1,6 +1,6 @@
 <template>
     <article>
-        <h1 class="title-1" id="hochzeitsfeier">Hochzeitfeier</h1>
+        <h1 class="title-1" id="hochzeitsfeier">Hochzeitsfeier</h1>
         <dl class="event-info-list">
             <dt><Icon name="Clock2" />Datum &amp; Ablauf</dt>
             <dd>Samstag 21.08.2021<br>
