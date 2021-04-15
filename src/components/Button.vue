@@ -24,4 +24,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  .button {
+    @include button();
+  }
+
+  .button.secondary {
+    @include secondaryButton();
+  }
+
 </style>

@@ -15,20 +15,23 @@
             <dt><Icon name="Agenda" />Anmeldefrist</dt>
             <dd>Bitte gebt uns bis zum 31.05.2021 Bescheid ob ihr kommen könnt.</dd>
         </dl>
-        <router-link to="/registration">
-            <Button text="Anmelden" />
+        <router-link
+          tag="button"
+          type="button"
+          to="/registration"
+          class="button"
+        >
+          Anmelden
         </router-link>
     </article>
 </template>
 
 <script>
-import Button from '@/components/Button.vue';
 import Icon from './Icon.vue';
 
 export default {
   name: 'GetTogether',
   components: {
-    Button,
     Icon,
   },
   props: {},
@@ -56,6 +59,10 @@ export default {
 
     .event-info-list dd:not(:last-child) {
         margin-bottom: pxToRem($interElementSpacing);
+    }
+
+    .button {
+      @include button();
     }
 
 </style>

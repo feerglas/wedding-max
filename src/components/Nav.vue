@@ -58,6 +58,10 @@ a {
   text-decoration: none;
 }
 
+.button {
+  @include button();
+}
+
 @media (max-width: $desktopWidth - 1) {
   nav {
     position: sticky;
