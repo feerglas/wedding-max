@@ -48,7 +48,7 @@ export default {
     }
 
      .event-info-list dt svg {
-        width: pxToRem(15);
+        width: pxToRem(20);
         margin: 0 pxToRem(8) pxToRem(-1) 0;
     }
 

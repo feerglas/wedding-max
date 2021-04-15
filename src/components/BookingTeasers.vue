@@ -56,6 +56,8 @@ export default {
       height: 1.5rem;
       width: auto;
       margin: 0;
+      fill: currentColor;
+      stroke: none;
     }
 
 </style>

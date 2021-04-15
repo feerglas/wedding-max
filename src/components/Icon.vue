@@ -95,7 +95,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-svg {
-  fill: currentColor;
-}
 </style>

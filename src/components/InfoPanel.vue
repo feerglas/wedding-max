@@ -32,7 +32,7 @@ export default {
 
 <style scoped lang="scss">
     $paddingLeft: 32;
-    $iconSize: 23;
+    $iconSize: 24;
 
     .info-panel {
         position: relative;

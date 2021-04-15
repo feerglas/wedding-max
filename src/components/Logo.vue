@@ -35,9 +35,16 @@ export default {
   width: 100%;
   margin-bottom: pxToRem($interModuleSpacingMobile);
   color: $colorGroom;
+
   @include mq-desktop {
     margin-bottom: pxToRem(interModuleSpacingDesktop);
   }
+
+  svg {
+    fill: currentColor;
+    stroke: none;
+  }
+
 }
 
 .text-icon {

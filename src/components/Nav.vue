@@ -76,6 +76,10 @@ a {
     white-space: nowrap;
   }
 
+  svg {
+    fill: currentColor;
+  }
+
 }
 
 @media (min-width: $desktopWidth) {

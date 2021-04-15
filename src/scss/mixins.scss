@@ -48,9 +48,9 @@
 
 @mixin link-icon() {
     float: left;
-    width: pxToRem(15);
+    width: pxToRem(16);
     margin: pxToRem(6) pxToRem(10) pxToRem(-1) 0;
-    fill: currentColor;
+    stroke: currentColor;
 }
 
 @mixin list-reset() {
