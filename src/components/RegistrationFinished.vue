@@ -1,7 +1,7 @@
 <template>
   <div class="step2">
 
-    <h1 class="title-1">Danke schön</h1>
+    <h1 class="title-1">Dankeschön</h1>
 
     <p>
         Du bist somit angemeldet / Ihr seid somit angemeldet.

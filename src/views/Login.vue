@@ -44,7 +44,7 @@
           label="Benutzername"
           autocomplete="username"
           :required="true"
-          error-empty="Eine E-Mail musst du schon angeben... sonst klappts nicht..."
+          error-empty="Einen Benutzernamen musst du schon angeben, sonst klappts nicht."
           :error-wrong="`Mindestens ${$v.name.$params.minLength.min} Zeichen`"
         />
 
@@ -68,7 +68,7 @@
         <p
           class="form-error"
           v-if="isLoginError"
-        >Du solltest erst an der Hochzeit trinken! Bier weglegen und eine nochmals versuchen...</p>
+        >Du solltest erst an der Hochzeit trinken! Bier wegstellen und nochmals versuchen.</p>
 
         <p
           class="form-error"

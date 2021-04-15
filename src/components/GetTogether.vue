@@ -13,7 +13,7 @@
             <dt><Icon name="Dress" />Dresscode</dt>
             <dd>Sommerlich</dd>
             <dt><Icon name="Agenda" />Anmeldefrist</dt>
-            <dd>Bitte gebt uns bis zum 15.05.2021 Bescheid ob ihr kommen könnt.</dd>
+            <dd>Bitte gebt uns bis zum 31.05.2021 Bescheid ob ihr kommen könnt.</dd>
         </dl>
         <router-link to="/registration">
             <Button text="Anmelden" />

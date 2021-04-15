@@ -10,7 +10,7 @@
               Da Zermatt ein autofreies Bergdorf ist, endet die Anreise für Autofahrer
               in Täsch, 5km vor Zermatt. Von dort aus geht es weiter mit dem Zug-Shuttle.</p>
             <InfoPanel text="Parkhausreservierung Täsch sowie genaue Informationen
-            zum Zugshuttle wie Fahrplan und Fahrkartenreservierung" />
+            zum Zugshuttle wie Fahrplan und Fahrkartenreservierung" href="https://www.zermatt.ch/anreise/Matterhorn-Terminal-Taesch"/>
         </article>
         <article>
            <h1 class="title-1" id="uebernachtung">Übernachtung</h1>
