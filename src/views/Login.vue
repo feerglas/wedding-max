@@ -60,12 +60,17 @@
           error-empty="Ohne Passwort kommste hier nicht rein..."
         />
 
-        <Button
-          class="login-button"
-          text="Anmelden"
-          type="submit"
-          :disable="isLoginPending"
-        />
+        <div class="button-group">
+          <Button
+            class="login-button"
+            text="Anmelden"
+            type="submit"
+            :disable="isLoginPending"
+          />
+          <a
+            class="forgot-password"
+            href="mailto:mxhammes@googlemail.com">Passwort unbekannt?</a>
+        </div>
 
         <p
           class="form-error"
@@ -73,8 +78,8 @@
         >Du solltest erst an der Hochzeit trinken! Bier weglegen und eine nochmals versuchen...</p>
 
         <p
-          class="form-error"
-          v-if="isLoginPending"
+          class="submit-status"
+          v-if="!isLoginPending"
         >Moment...</p>
 
       </form>
@@ -171,6 +176,45 @@ export default {
     margin-bottom: 0;
   }
 
+}
+
+.content-container form {
+  @include mq-medium {
+    width: pxToRem(350);
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mq-medium {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.login-button {
+  margin-bottom: pxToRem(16);
+
+  @include mq-medium {
+    margin-bottom: 0;
+  }
+}
+
+.forgot-password {
+  display: block;
+  width: 100%;
+
+  @include mq-medium {
+    width: auto;
+    line-height: pxToRem(48);
+  }
+}
+
+.submit-status {
+  padding-top: pxToRem(16);
 }
 
 .header {
