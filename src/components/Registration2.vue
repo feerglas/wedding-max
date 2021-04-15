@@ -303,6 +303,11 @@ fieldset:not(:first-child) {
 
 .submit {
   margin-top: pxToRem($offsetMobile);
+  width: 100%;
+
+  @include mq-medium {
+    width: unset;
+  }
 }
 
 </style>

@@ -119,6 +119,11 @@ export default {
 
 .button {
   margin-bottom: pxToRem(16);
+  width: 100%;
+
+  @include mq-medium {
+    width: unset;
+  }
 }
 
 .button:first-of-type {
