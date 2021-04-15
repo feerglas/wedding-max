@@ -79,7 +79,7 @@
 
         <p
           class="submit-status"
-          v-if="!isLoginPending"
+          v-if="isLoginPending"
         >Moment...</p>
 
       </form>
