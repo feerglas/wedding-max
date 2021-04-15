@@ -174,7 +174,7 @@ $bgColor: rgb(248, 249, 250);
   flex-wrap: wrap;
   align-content: flex-start;
   position: relative;
-  // background: $bgColor;
+  background: $bgColor;
 
   @include mq-desktop {
     flex-wrap: nowrap;
