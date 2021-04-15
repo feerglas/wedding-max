@@ -58,12 +58,12 @@
   font-size: pxToRem(16);
   border: 0;
   cursor: pointer;
-  
+
   &:focus,
   &:hover {
     background-color: $colorPriest;
   }
-  
+
   &:disabled {
     opacity: .5;
   }
@@ -74,13 +74,14 @@
   color: $colorGroom;
   background-color: transparent;
   border: pxToRem(2) solid $colorGroom;
-  
+
   &:focus,
   &:hover {
     border-color: $colorPriest;
     color: $colorPriest;
+    background-color: transparent;
   }
-  
+
 }
 
 @mixin link-icon() {
