@@ -1,12 +1,3 @@
-- after login, layout is broken
 - easter egg
-- floating cta button on detail page
 - moving active state of nav on scoll
-- add full bleed class for certain buttons on mobile
-- eventually enlarge right column on login page
-- registration page transitions: set overflow hidden before transition to hide scrollbars during transition
-- ics file
-- integrate "Passwort vergessen"
-- login: style for "Moment" after click "Anmelden"
-- safari seems to invert the favicon in dark theme?
-- inputs on iphone are verticall cut (text input not visible)
+- config manifest file

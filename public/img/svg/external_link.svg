@@ -1,11 +1,1 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0)">
-        <path d="M8.5 14.5H15.5V1.5H0.5V6.5" stroke="#5D7EA0" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M6.5 13V8.5M6.5 8.5H2M6.5 8.5L0.5 14.5" stroke="#5D7EA0" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <defs>
-        <clipPath id="clip0">
-            <rect width="16" height="16" fill="white"/>
-        </clipPath>
-    </defs>
-</svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" xml:space="preserve" viewBox="0 0 16 16"><style>.st0{fill:#5d7ea0}</style><path class="st0" d="M15.5 15.2h-7c-.4 0-.8-.3-.8-.8s.3-.8.8-.8h6.2V2.2H1.2v4.2c0 .4-.3.8-.8.8s-.8-.3-.8-.8v-5c0-.4.3-.8.8-.8h15c.4 0 .8.3.8.8v13c0 .5-.3.8-.7.8z"/><path class="st0" d="M.5 15.2c-.2 0-.4-.1-.5-.2-.3-.3-.3-.8 0-1.1l4.7-4.7H2c-.4 0-.8-.3-.8-.8s.4-.6.8-.6h4.5c.1 0 .2 0 .3.1.1-.1.2 0 .2.1s.1.2.2.2c0 .1.1.2.1.3V13c0 .4-.3.8-.8.8s-.7-.4-.7-.8v-2.7L1 15c-.1.2-.3.2-.5.2z"/></svg>

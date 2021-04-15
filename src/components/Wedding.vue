@@ -8,29 +8,32 @@
                 1600 Apéro auf der Terrasse<br>
                 1900 Abendessen<br>
                 Anschliessende Party</dd>
-            <dt><Icon name="MapMarker" />Adresse</dt>
+            <dt><Icon name="Navigation" />Adresse</dt>
             <dd>CERVO Mountain Resort<br>Riedweg 156<br>3920 Zermatt (Schweiz)</dd>
             <dt><Icon name="Dress" />Dresscode</dt>
             <dd>Sommerlich festlich</dd>
             <dt><Icon name="Agenda" />Anmeldefrist</dt>
             <dd>Bitte gebt uns bis zum 31.05.2021 Bescheid ob ihr kommen könnt.</dd>
         </dl>
-        <router-link to="/registration">
-            <Button text="Anmelden" />
+        <router-link
+          tag="button"
+          type="button"
+          to="/registration"
+          class="button"
+        >
+          Anmelden
         </router-link>
         <InfoPanel text="Good to know: Wir bitten von Reden oder Spielen abzusehen." />
     </article>
 </template>
 
 <script>
-import Button from '@/components/Button.vue';
 import InfoPanel from '@/components/InfoPanel.vue';
 import Icon from '@/components/Icon.vue';
 
 export default {
   name: 'Wedding',
   components: {
-    Button,
     InfoPanel,
     Icon,
   },
@@ -49,7 +52,7 @@ export default {
 
      .event-info-list dt svg {
         width: pxToRem(20);
-        margin: 0 pxToRem(8) pxToRem(-1) 0;
+        margin: 0 pxToRem(8) pxToRem(-3) 0;
     }
 
     .event-info-list dd {
@@ -59,6 +62,10 @@ export default {
 
     .event-info-list dd:not(:last-child) {
         margin-bottom: pxToRem($interElementSpacing);
+    }
+
+    .button {
+      @include button();
     }
 
 </style>

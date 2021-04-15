@@ -29,14 +29,12 @@
       >{{reservationRequestError}}</p>
 
       <Button
-        class="button"
         text="Ich nehme gerne teil"
         @click="submit"
         :disable="reservationRequestPending"
       />
 
       <Button
-        class="button"
         text="Ich kann leider nicht teilnehmen"
         secondary
         @click="cancel"
@@ -119,6 +117,11 @@ export default {
 
 .button {
   margin-bottom: pxToRem(16);
+  width: 100%;
+
+  @include mq-medium {
+    width: unset;
+  }
 }
 
 .button:first-of-type {

@@ -46,11 +46,49 @@
     line-height: 1.6;
 }
 
+@mixin button() {
+  display: inline-block;
+  padding: 0 pxToRem(20);
+  color: $colorBride;
+  background-color: $colorGroom;
+  border-radius: pxToRem(2);
+  height: pxToRem($buttonHeight);
+  line-height: pxToRem($buttonHeight - 4);
+  font-family: $fontBold;
+  font-size: pxToRem(16);
+  border: 0;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: $colorPriest;
+  }
+
+  &:disabled {
+    opacity: .5;
+  }
+}
+
+@mixin secondaryButton() {
+  @include button();
+  color: $colorGroom;
+  background-color: transparent;
+  border: pxToRem(2) solid $colorGroom;
+
+  &:focus,
+  &:hover {
+    border-color: $colorPriest;
+    color: $colorPriest;
+    background-color: transparent;
+  }
+
+}
+
 @mixin link-icon() {
     float: left;
-    width: pxToRem(16);
-    margin: pxToRem(6) pxToRem(10) pxToRem(-1) 0;
-    stroke: currentColor;
+    width: pxToRem(20);
+    margin: pxToRem(4) pxToRem(8) pxToRem(-1) 0;
+    fill: currentColor;
 }
 
 @mixin list-reset() {

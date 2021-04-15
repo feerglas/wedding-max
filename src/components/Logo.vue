@@ -40,11 +40,6 @@ export default {
     margin-bottom: pxToRem(interModuleSpacingDesktop);
   }
 
-  svg {
-    fill: currentColor;
-    stroke: none;
-  }
-
 }
 
 .text-icon {

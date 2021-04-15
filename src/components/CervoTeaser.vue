@@ -22,7 +22,7 @@
         </a>
         <br>
         <a href="mailto:info@cervo.swiss">
-          <Icon name="Mail" />
+          <Icon name="Mail" class="icon-mail" />
           info@cervo.swiss
         </a>
       </p>
@@ -53,6 +53,7 @@ export default {
 
     .cervo-teaser svg {
       @include link-icon();
+      width: pxToRem(16);
     }
 
     .cervo-teaser__image_wrapper {
