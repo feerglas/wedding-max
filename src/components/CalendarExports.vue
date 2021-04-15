@@ -9,7 +9,7 @@
       </li>
       <li>
         <a href="/downloads/lappes-wedding-hochzeitfeier-20210821.ics" target="_blank" download>
-          <Icon name="Agenda" />Hochzeitfeier
+          <Icon name="Agenda" />Hochzeitsfeier
         </a>
       </li>
     </ul>
