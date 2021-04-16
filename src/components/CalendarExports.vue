@@ -38,7 +38,12 @@ article {
   @include link-icon();
 }
 
+.list--calendar-exports li:not(:first-child) {
+  margin-top: pxToRem($gutterHeight / 2);
+}
+
 .list--calendar-exports li a {
+  @include text-1();
   color: $colorGroomsMan;
 }
 

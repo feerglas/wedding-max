@@ -135,9 +135,9 @@ article:not(:only-child) {
 .container_center {
   @media (min-width: $desktopWidth) {
     position: relative;
-    width: pxToRem(960);
+    width: pxToRem(1140);
     margin: 0 auto;
-    padding: 0 pxToRem(250);
+    padding: 0 pxToRem(290);
   }
 }
 

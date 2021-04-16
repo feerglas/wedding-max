@@ -79,7 +79,12 @@ export default {
 
     .list--hotels li {
         display: flex;
+        align-items: center;
         margin-bottom: pxToRem($interElementSpacing);
+    }
+
+    .list--hotels p {
+      margin: 0;
     }
 
     .list--hotels img {

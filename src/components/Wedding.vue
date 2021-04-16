@@ -43,25 +43,26 @@ export default {
 
 <style scoped lang="scss">
     .event-info-list {
-        margin-bottom: pxToRem($interElementSpacing);
+      margin-bottom: pxToRem($interElementSpacing);
     }
 
     .event-info-list dt {
-        @include title-3();
+      @include title-3();
+      margin-bottom: pxToRem(4);
     }
 
      .event-info-list dt svg {
-        width: pxToRem(20);
-        margin: 0 pxToRem(8) pxToRem(-3) 0;
+       width: pxToRem(20);
+       margin: 0 pxToRem(8) pxToRem(-3) 0;
     }
 
     .event-info-list dd {
-        @include text-1();
-        margin-left: 0;
+      @include text-1();
+      margin-left: 0;
     }
 
     .event-info-list dd:not(:last-child) {
-        margin-bottom: pxToRem($interElementSpacing);
+      margin-bottom: pxToRem($interElementSpacing);
     }
 
     .button {

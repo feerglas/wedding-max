@@ -128,7 +128,7 @@ a {
     position: fixed;
     width: pxToRem(250);
     margin-top: pxToRem($interElementSpacing);
-    margin-left: pxToRem(-275);
+    margin-left: pxToRem(-315);
     padding-left: pxToRem(25);
   }
 
