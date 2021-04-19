@@ -62,7 +62,7 @@ a {
   @include button();
 }
 
-@media (max-width: $desktopWidth - 1) {
+@include mq-until-desktop {
   nav {
     position: sticky;
     top: 0;
@@ -72,7 +72,7 @@ a {
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    background: $colorBride;
+    background: $colorBackground;
     z-index: 5;
   }
 
@@ -123,7 +123,7 @@ a {
 
 }
 
-@media (min-width: $desktopWidth) {
+@include mq-desktop {
   nav {
     position: fixed;
     width: pxToRem(250);

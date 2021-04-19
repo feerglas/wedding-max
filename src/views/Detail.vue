@@ -26,7 +26,7 @@
             <CervoTeaser/>
             <h2 class="title-2">Weitere Hotelvorschläge in der Nähe</h2>
             <HotelTeasers/>
-            <h3 class="title-3">Ansonsten gibt es noch viele weitere Möglichkeiten:</h3>
+            <h3 class="title-4">Ansonsten gibt es noch viele weitere Möglichkeiten:</h3>
             <BookingTeasers/>
         </article>
         <article>
@@ -123,21 +123,21 @@ main {
 
 article:not(:last-child),
 article:not(:only-child) {
-  @media (max-width: $desktopWidth - 1) {
+  @include mq-until-desktop {
     margin-bottom: pxToRem($interModuleSpacingMobile);
   }
 
-  @media (min-width: $desktopWidth) {
+  @include mq-desktop {
     margin-bottom: pxToRem($interModuleSpacing);
   }
 }
 
 .container_center {
-  @media (min-width: $desktopWidth) {
+  @include mq-desktop {
     position: relative;
-    width: pxToRem(1140);
+    width: pxToRem(960);
     margin: 0 auto;
-    padding: 0 pxToRem(290);
+    padding: 0 pxToRem(250);
   }
 }
 

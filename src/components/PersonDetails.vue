@@ -121,21 +121,13 @@ export default {
 
 .text-input {
   width: 100%;
-
-  @include mq-medium {
-    max-width: pxToRem(300);
-  }
-
-  @include mq-desktop {
-    width: 100%;
-  }
 }
 
 .select-food {
   width: 100%;
 
   @include mq-medium {
-    width: pxToRem(300);
+    width: 50%;
   }
 }
 

@@ -83,7 +83,7 @@ export default {
       transform: translate3d(-50%, -50%, 0);
     }
 
-    @media (min-width: $desktopWidth) {
+    @include mq-desktop {
       .cervo-teaser {
         margin-top: pxToRem($interModuleSpacingMobile);
         margin-right: pxToRem(-$breakOutValueDesktop);

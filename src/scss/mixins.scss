@@ -25,6 +25,7 @@
 @mixin title-4() {
     font-family: $fontBold;
     font-weight: normal;
+    font-size: pxToRem(16);
     color: $colorGroom;
 }
 
@@ -101,6 +102,24 @@
     @include text-4();
     color: $colorError;
 }
+
+@mixin placeholder() {
+  
+  &::-webkit-input-placeholder {
+    color: $colorGroomsMan;
+  }
+  
+  &::-moz-placeholder { // Firefox 19+
+    color: $colorGroomsMan;
+    opacity: 1;
+  }
+  
+  &:-ms-input-placeholder {
+    color: $colorGroomsMan;
+  }
+  
+}
+
 
 @mixin mq-medium {
   @media (min-width: $mediumWidth) {

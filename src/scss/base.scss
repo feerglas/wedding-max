@@ -42,6 +42,11 @@ p.form-error {
 }
 
 input,
+textarea {
+  @include placeholder();
+}
+
+input,
 button {
   font-size: pxToRem(16);
 }

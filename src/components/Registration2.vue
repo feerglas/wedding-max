@@ -284,16 +284,16 @@ fieldset:not(:first-child) {
 }
 
 .persons-wrapper {
-  margin-top: pxToRem($offsetMobile);
-  border-top: 1px dashed $colorBridesMaid;
+  margin-top: pxToRem($interElementSpacing);
+  border-top: pxToRem(1) solid $colorBridesMaid;
 
   @include mq-medium {
-    padding: 0 pxToRem(70);
+    padding-left: pxToRem(70);
   }
 }
 
 .person-details {
-  margin: pxToRem($offsetMobile) 0 0;
+  margin: pxToRem($interElementSpacing) 0 0;
 }
 
 .form-error {
