@@ -32,12 +32,18 @@ img {
 }
 
 p {
+  margin: 0 0 pxToRem($interElementSpacing) 0;
+}
+
+p:only-child,
+p:last-child,
+p.form-error {
   margin: 0;
 }
 
-p:not(:last-child):not(.form-error),
-p:not(:only-child):not(.form-error) {
-  margin: 0 0 pxToRem($interElementSpacing) 0;
+input,
+textarea {
+  @include placeholder();
 }
 
 input,

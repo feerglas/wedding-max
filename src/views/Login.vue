@@ -63,7 +63,7 @@
         <div class="button-group">
           <Button
             class="login-button"
-            text="Anmelden"
+            text="Login"
             type="submit"
             :disable="isLoginPending"
           />
@@ -153,6 +153,7 @@ export default {
 
 .content-container {
   display: flex;
+  padding: 0 pxToRem(32);
   margin: 0;
   margin-bottom: pxToRem($interModuleSpacingMobile * 2);
   overflow: visible;
@@ -179,6 +180,8 @@ export default {
 }
 
 .content-container form {
+  width: 100%;
+
   @include mq-medium {
     width: pxToRem(350);
   }

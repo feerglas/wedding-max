@@ -3,7 +3,7 @@
 
     <h1 class="title-1">Dankeschön</h1>
 
-    <p>
+    <p class="text-1">
         Du bist somit angemeldet / Ihr seid somit angemeldet.
         Wir freuen uns, dass du mit uns feierst / ihr mit uns feiert.
     </p>

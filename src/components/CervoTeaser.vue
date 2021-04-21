@@ -51,6 +51,11 @@ export default {
       margin-bottom: pxToRem($interModuleSpacingMobile);
     }
 
+    .cervo-teaser .title-2 {
+      display: inline-block;
+      margin-bottom: pxToRem($gutterHeight * 1.5);
+    }
+
     .cervo-teaser svg {
       @include link-icon();
       width: pxToRem(16);
@@ -78,10 +83,12 @@ export default {
       transform: translate3d(-50%, -50%, 0);
     }
 
-    @media (min-width: $desktopWidth) {
+    @include mq-desktop {
       .cervo-teaser {
-        margin: 0 pxToRem(-$breakOutValueDesktop);
+        margin-top: pxToRem($interModuleSpacingMobile);
+        margin-right: pxToRem(-$breakOutValueDesktop);
         margin-bottom: pxToRem($interModuleSpacing);
+        margin-left: pxToRem(-$breakOutValueDesktop);
       }
 
       .cervo-teaser__image_wrapper {
@@ -97,6 +104,7 @@ export default {
         right: pxToRem($breakOutValueDesktop);
         bottom: pxToRem(-$gutterHeight * 7);
         padding: pxToRem($gutterHeight * 6);
+        padding-right: pxToRem($gutterHeight * 11);
         background: $colorBride;
         box-shadow: 0 pxToRem(4) pxToRem(128) rgba(30, 67, 106, 0.08);
       }

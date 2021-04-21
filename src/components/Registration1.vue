@@ -1,7 +1,7 @@
 <template>
   <div class="step1">
     <h1 class="title-1">Zur Feier anmelden</h1>
-    <p>
+    <p class="text-1">
       Wir möchten, dass ihr an unserem Hochzeitswochenende mindestens genauso ausgelassen feiern
       könnt wie wir. Wir sind ganz sicher, dass Ihr deswegen die Bitte, die wir an euch haben,
       verstehen werdet: "Nie ohne unsere Kinder ..." gilt an unserem Hochzeitswochenende
@@ -104,11 +104,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.text-input {
+form {
+  display: inline-block;
+}
 
-  @include mq-medium {
-    width: pxToRem(350);
-  }
+.text-input {
+  width: 100%;
 }
 
 .step1 {

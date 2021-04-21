@@ -3,7 +3,7 @@
 
     <h1 class="title-1">Du verpasst was</h1>
 
-    <p>Schade, dass du nicht dabei sein kannst.</p>
+    <p class="text-1">Schade, dass du nicht dabei sein kannst.</p>
 
     <ContactItems :items="contactItemsData" />
 

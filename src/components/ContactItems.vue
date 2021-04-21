@@ -100,7 +100,7 @@ export default {
       line-height: pxToRem(28);
     }
 
-    @media (min-width: $desktopWidth) {
+    @include mq-desktop {
         .list--contact {
           flex-direction: row;
         }
