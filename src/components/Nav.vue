@@ -102,6 +102,10 @@ a {
     white-space: nowrap;
   }
 
+  svg {
+    display: none;
+  }
+
   a.is-active {
     font-family: $fontBold;
   }
@@ -115,10 +119,6 @@ a {
     bottom: pxToRem(12);
     z-index: 2;
     box-shadow: 0 pxToRem(4) pxToRem(128) rgba(30, 67, 106, 0.08);
-  }
-
-  svg {
-    display: none;
   }
 
 }

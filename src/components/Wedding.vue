@@ -8,7 +8,7 @@
                 1600 Apéro auf der Terrasse<br>
                 1900 Abendessen<br>
                 Anschliessende Party</dd>
-            <dt><Icon name="MapMarker" />Adresse</dt>
+            <dt><Icon name="Navigation" />Adresse</dt>
             <dd>CERVO Mountain Resort<br>Riedweg 156<br>3920 Zermatt (Schweiz)</dd>
             <dt><Icon name="Dress" />Dresscode</dt>
             <dd>Sommerlich festlich</dd>
@@ -51,8 +51,8 @@ export default {
     }
 
      .event-info-list dt svg {
-        width: pxToRem(15);
-        margin: 0 pxToRem(8) pxToRem(-1) 0;
+        width: pxToRem(20);
+        margin: 0 pxToRem(8) pxToRem(-3) 0;
     }
 
     .event-info-list dd {

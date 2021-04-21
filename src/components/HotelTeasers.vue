@@ -74,6 +74,7 @@ export default {
 
     .list--hotels svg {
       @include link-icon();
+      width: pxToRem(16);
     }
 
     .list--hotels li {

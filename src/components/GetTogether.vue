@@ -4,7 +4,7 @@
         <dl class="event-info-list">
             <dt><Icon name="Clock2" />Datum</dt>
             <dd>Freitag 20.08.2021, ab 1830</dd>
-            <dt><Icon name="MapMarker" />Adresse</dt>
+            <dt><Icon name="Navigation" />Adresse</dt>
             <dd>Schali Lago by CERVO Zermatt<br>Schalisee<br>3929 Täsch (Schweiz)</dd>
             <dt><Icon name="Autobus" />Transfer Zermatt nach Täsch</dt>
             <dd>Der Transfer zwischen Zermatt und Täsch wird ab dem Parkhaus Urania in
@@ -48,8 +48,8 @@ export default {
     }
 
      .event-info-list dt svg {
-        width: pxToRem(15);
-        margin: 0 pxToRem(8) pxToRem(-1) 0;
+       width: pxToRem(20);
+       margin: 0 pxToRem(8) pxToRem(-3) 0;
     }
 
     .event-info-list dd {

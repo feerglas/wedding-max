@@ -86,8 +86,8 @@
 
 @mixin link-icon() {
     float: left;
-    width: pxToRem(15);
-    margin: pxToRem(6) pxToRem(10) pxToRem(-1) 0;
+    width: pxToRem(20);
+    margin: pxToRem(4) pxToRem(8) pxToRem(-1) 0;
     fill: currentColor;
 }
 
