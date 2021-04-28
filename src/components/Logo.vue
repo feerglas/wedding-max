@@ -75,6 +75,7 @@ export default {
 button {
   display: flex;
   justify-content: center;
+  width: 100%;
   background: none;
   border: 0;
   padding: 0;
