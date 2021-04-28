@@ -7,15 +7,15 @@
 
     <p v-if="error">Bei der Abfrage gab es einen Fehler. Bitte erneut versuchen.</p>
 
-    <h2>Zusammenfassung</h2>
-    <table class="summary-table" v-if="this.summary">
+    <h2 v-if="this.registrations.length > 0">Zusammenfassung</h2>
+    <table class="summary-table" v-if="this.registrations.length > 0">
       <tr v-for="(item, id) in summary" :key="id">
         <td>{{item.description}}</td>
         <td>{{item.value}}</td>
       </tr>
     </table>
 
-    <h2>Details</h2>
+    <h2 v-if="this.registrations.length > 0">Details</h2>
     <table v-if="!error && registrations.length > 0">
       <tr>
           <th>Date</th>
@@ -49,6 +49,8 @@
 
        </tr>
     </table>
+
+    <p v-if="this.registrations.length < 1">Noch keine An- oder Abmeldungen. 🤷‍♂️</p>
   </div>
 </template>
 
