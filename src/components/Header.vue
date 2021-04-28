@@ -1,13 +1,23 @@
 <template>
-  <router-link
-    to="/"
-    class="header-logo"
-  >
+  <div class="header-logo header" v-if="showEasterEgg">
     <Logo
       :heart="true"
-      class="header-logo-icon"
+      :showEasterEgg="showEasterEgg"
+      @show-easter-egg-image="showEasterEggImage"
+      @hide-easter-egg-image="hideEasterEggImage"
     />
-  </router-link>
+  </div>
+  <div v-else>
+    <router-link
+      to="/"
+      class="header-logo"
+    >
+      <Logo
+        :heart="true"
+        class="logo-wrapper header-logo-icon"
+      />
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -15,6 +25,19 @@ import Logo from '@/components/Logo.vue';
 
 export default {
   name: 'Header',
+  props: {
+    showEasterEgg: {
+      type: Boolean,
+    },
+  },
+  methods: {
+    showEasterEggImage() {
+      this.$emit('show-easter-egg-image');
+    },
+    hideEasterEggImage() {
+      this.$emit('hide-easter-egg-image');
+    },
+  },
   components: {
     Logo,
   },
@@ -39,6 +62,20 @@ export default {
     position: fixed;
     top: 0;
     right: 0;
+    transition: opacity .2s ease-in;
+    transition-delay: .2s;
+  }
+
+}
+
+.header-logo:has(button):hover {
+  @include mq-desktop {
+    opacity: 0;
+    transition-delay: 0s;
+  }
+
+  &:before {
+    display: none;
   }
 
 }

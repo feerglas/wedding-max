@@ -1,6 +1,10 @@
 <template>
 <div>
-  <Header class="header" />
+  <Header
+    :showEasterEgg=true
+    @show-easter-egg-image="showEasterEggImage"
+    @hide-easter-egg-image="hideEasterEggImage"
+  />
   <div class="container_center">
     <Nav
       :items="navItemsData"
@@ -43,6 +47,10 @@
         <ContactItems :items="contactItemsData" />
     </main>
   </div>
+  <EasterEgg
+    :items="easterEggData"
+    :activeEasterEggImage="activeEasterEggImage"
+  />
 </div>
 </template>
 
@@ -50,6 +58,8 @@
 import Nav from '@/components/Nav.vue';
 import navData from '@/data/navItems';
 import InfoPanel from '@/components/InfoPanel.vue';
+import EasterEgg from '@/components/EasterEgg.vue';
+import easterEggData from '@/data/easterEggItems';
 import CervoTeaser from '@/components/CervoTeaser.vue';
 import HotelTeasers from '@/components/HotelTeasers.vue';
 import BookingTeasers from '@/components/BookingTeasers.vue';
@@ -65,6 +75,7 @@ export default {
     Nav,
     InfoPanel,
     CervoTeaser,
+    EasterEgg,
     HotelTeasers,
     BookingTeasers,
     ContactItems,
@@ -76,11 +87,22 @@ export default {
     updateActiveNavItem(index) {
       this.activeNavItem = index;
     },
+    showEasterEggImage() {
+      const itemsAmount = easterEggData.easterEggImages.length;
+      const randomNumber = parseInt(Math.random() * (itemsAmount - 0) + 0, 10);
+
+      this.activeEasterEggImage = randomNumber;
+    },
+    hideEasterEggImage() {
+      this.activeEasterEggImage = -1;
+    },
   },
   data() {
     return {
       activeNavItem: 0,
+      activeEasterEggImage: -1,
       navItemsData: navData,
+      easterEggData,
       contactItemsData: {
         title: 'Kontakt',
         sections: [
