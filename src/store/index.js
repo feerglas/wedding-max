@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import router from '@/router';
 import { auth } from '@/firebase/';
+import defaultReservation from './defaultState';
 
 Vue.use(Vuex);
 
@@ -12,24 +13,7 @@ const defaultState = {
   },
   name1: '',
   name2: '',
-  reservation: {
-    name: '',
-    getTogether: {
-      join: false,
-      persons: '1',
-    },
-    wedding: {
-      join: false,
-      persons: '1',
-      food: '',
-      alergics: '',
-      person2: {
-        name: '',
-        food: '',
-        alergics: '',
-      },
-    },
-  },
+  reservation: JSON.parse(JSON.stringify(defaultReservation)),
   reservationRequestPending: false,
   reservationRequestError: '',
 };
