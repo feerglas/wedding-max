@@ -1,19 +1,21 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Anmeldungen</h1>
     <p>
       <router-link to="/">Zurück zur Home</router-link>
     </p>
 
-    <table v-if="this.summary">
+    <p v-if="error">Bei der Abfrage gab es einen Fehler. Bitte erneut versuchen.</p>
+
+    <h2>Zusammenfassung</h2>
+    <table class="summary-table" v-if="this.summary">
       <tr v-for="(item, id) in summary" :key="id">
         <td>{{item.description}}</td>
         <td>{{item.value}}</td>
       </tr>
     </table>
 
-    <p v-if="error">Bei der Abfrage gab es einen Fehler. Bitte erneut versuchen.</p>
-
+    <h2>Details</h2>
     <table v-if="!error && registrations.length > 0">
       <tr>
           <th>Date</th>
@@ -28,7 +30,7 @@
       </tr>
        <tr v-for="reg in registrations" :key="reg.id">
          <td>
-           {{reg.timestamp.toDate().toDateString()}},
+           {{reg.timestamp.toDate().toLocaleDateString()}},
            {{reg.timestamp.toDate().toLocaleTimeString()}}</td>
          <td>{{reg.name}}</td>
          <td>{{reg.getTogether.join ? reg.getTogether.persons : '-'}}</td>
@@ -66,19 +68,19 @@ export default {
     summary() {
       const items = {
         totalInteractions: {
-          description: 'An- & Abmeldungen',
+          description: 'Anzahl ausgefüllter Formulare',
           value: this.registrations.length,
         },
         cancel: {
-          description: 'Abmledungen',
+          description: 'Total Abmledungen',
           value: 0,
         },
         getTogether: {
-          description: 'Get Together',
+          description: 'Personen Get Together',
           value: 0,
         },
         wedding: {
-          description: 'Hochzeitsfeier',
+          description: 'Personen Hochzeitsfeier',
           value: 0,
         },
         fish: {
@@ -153,6 +155,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  padding: 1rem;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -167,5 +173,9 @@ td, th {
 
 tr:nth-child(even) {
   background-color: rgba(1, 1, 1, 0.1);
+}
+
+.summary-table {
+  width: auto;
 }
 </style>
