@@ -58,7 +58,7 @@ import Icon from '@/components/Icon.vue';
 import Header from '@/components/Header.vue';
 import RegistrationFinished from '@/components/RegistrationFinished.vue';
 import RegistrationCancel from '@/components/RegistrationCancel.vue';
-import { registrations } from '@/firebase/';
+import { registrations, firestore } from '@/firebase/';
 import defaultReservation from '../store/defaultState';
 
 export default {
@@ -97,6 +97,9 @@ export default {
 
       reservation.name = name;
 
+      // add timestamp
+      reservation.timestamp = firestore.FieldValue.serverTimestamp();
+
       this.$store.commit('setReservationRequestPending', true);
 
       let add;
@@ -123,6 +126,9 @@ export default {
       // set names
       state.name = this.$store.getters.name1;
       state.wedding.person2.name = this.$store.getters.name2;
+
+      // add timestamp
+      state.timestamp = firestore.FieldValue.serverTimestamp();
 
       let add;
       try {
