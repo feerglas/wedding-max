@@ -5,14 +5,18 @@
       <router-link to="/">Zurück zur Home</router-link>
     </p>
 
-    <p>
-      Total Anmeldungen: {{this.registrations.length}}<br>
-    </p>
+    <table v-if="this.summary">
+      <tr v-for="(item, id) in summary" :key="id">
+        <td>{{item.description}}</td>
+        <td>{{item.value}}</td>
+      </tr>
+    </table>
 
     <p v-if="error">Bei der Abfrage gab es einen Fehler. Bitte erneut versuchen.</p>
 
     <table v-if="!error && registrations.length > 0">
       <tr>
+          <th>Date</th>
           <th>Name</th>
           <th>Get together</th>
           <th>Feier</th>
@@ -23,6 +27,9 @@
           <th>Allergien</th>
       </tr>
        <tr v-for="reg in registrations" :key="reg.id">
+         <td>
+           {{reg.timestamp.toDate().toDateString()}},
+           {{reg.timestamp.toDate().toLocaleTimeString()}}</td>
          <td>{{reg.name}}</td>
          <td>{{reg.getTogether.join ? reg.getTogether.persons : '-'}}</td>
          <td>{{reg.wedding.join ? reg.wedding.persons : '-'}}</td>
@@ -55,19 +62,89 @@ export default {
       registrations: [],
     };
   },
+  computed: {
+    summary() {
+      const items = {
+        totalInteractions: {
+          description: 'An- & Abmeldungen',
+          value: this.registrations.length,
+        },
+        cancel: {
+          description: 'Abmledungen',
+          value: 0,
+        },
+        getTogether: {
+          description: 'Get Together',
+          value: 0,
+        },
+        wedding: {
+          description: 'Hochzeitsfeier',
+          value: 0,
+        },
+        fish: {
+          description: 'Fisch',
+          value: 0,
+        },
+        meat: {
+          description: 'Fleisch',
+          value: 0,
+        },
+        vegi: {
+          description: 'Vegi',
+          value: 0,
+        },
+      };
+
+      this.registrations.forEach((reg) => {
+        if (!reg.getTogether.join && !reg.wedding.join) {
+          items.cancel.value += 1;
+        }
+
+        if (reg.getTogether.join) {
+          items.getTogether.value += parseInt(reg.getTogether.persons, 10);
+        }
+
+        if (reg.wedding.join) {
+          items.wedding.value += parseInt(reg.wedding.persons, 10);
+
+          if (reg.wedding.food === 'Fleisch') {
+            items.meat.value += 1;
+          } else if (reg.wedding.food === 'Fisch') {
+            items.fish.value += 1;
+          } else if (reg.wedding.food === 'Vegetarisch') {
+            items.vegi.value += 1;
+          }
+
+          if (reg.wedding.person2.food.length >= 0) {
+            if (reg.wedding.person2.food === 'Fleisch') {
+              items.meat.value += 1;
+            } else if (reg.wedding.person2.food === 'Fisch') {
+              items.fish.value += 1;
+            } else if (reg.wedding.person2.food === 'Vegetarisch') {
+              items.vegi.value += 1;
+            }
+          }
+        }
+      });
+
+      return items;
+    },
+  },
   created() {
     try {
-      registrations.onSnapshot((data) => {
-        const items = data.docs.map((doc) => {
-          const item = doc.data();
+      registrations
+        .orderBy('timestamp', 'desc')
+        .onSnapshot((data) => {
+          const items = data.docs.map((doc) => {
+            const item = doc.data();
 
-          item.id = doc.id;
+            item.id = doc.id;
 
-          return item;
+            return item;
+          });
+
+          this.registrations = items;
         });
-
-        this.registrations = items;
-      });
     } catch {
       this.error = true;
     }
