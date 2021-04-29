@@ -1,5 +1,22 @@
 <template>
-  <div class="logo-wrapper">
+  <div class="logo-wrapper header-logo-icon" v-if="showEasterEgg">
+    <button
+      type="button"
+      @mouseenter="showEasterEggImage"
+      @mouseleave="hideEasterEggImage"
+    >
+      <Icon
+        name="titleSarahMaxi"
+        class="text-icon"
+      />
+      <Icon
+        v-if="heart"
+        class="heart"
+        name="heartOutline"
+      />
+    </button>
+  </div>
+  <div class="logo-wrapper" v-else>
     <Icon
       name="titleSarahMaxi"
       class="text-icon"
@@ -21,9 +38,20 @@ export default {
     heart: {
       type: Boolean,
     },
+    showEasterEgg: {
+      type: Boolean,
+    },
   },
   components: {
     Icon,
+  },
+  methods: {
+    showEasterEggImage() {
+      this.$emit('show-easter-egg-image');
+    },
+    hideEasterEggImage() {
+      this.$emit('hide-easter-egg-image');
+    },
   },
 };
 </script>
@@ -35,11 +63,23 @@ export default {
   width: 100%;
   margin-bottom: pxToRem($interModuleSpacingMobile);
   color: $colorGroom;
+  background: none;
+  border: 0;
 
   @include mq-desktop {
     margin-bottom: pxToRem(interModuleSpacingDesktop);
   }
 
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: $colorGroom;
 }
 
 .text-icon {
