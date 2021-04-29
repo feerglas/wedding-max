@@ -8,8 +8,8 @@
   <div class="container_center">
     <Nav
       :items="navItemsData"
-      :activeNavItem="activeNavItem"
-      @update-active-nav-item="updateActiveNavItem"
+      :activeMenuItem="activeMenuItem"
+      @scroll-to-id="handleScrollToId"
     />
     <main>
         <article>
@@ -69,6 +69,26 @@ import Wedding from '@/components/Wedding.vue';
 import Header from '@/components/Header.vue';
 import contactData from '@/data/contactItems';
 
+// helper to get kind of a callback when window.scrollTo() is finished
+function scrollTo(offset, callback) {
+  const fixedOffset = offset.toFixed();
+  const onScroll = () => {
+    if (window.pageYOffset.toFixed() === fixedOffset) {
+      window.removeEventListener('scroll', onScroll);
+      callback();
+    }
+  };
+
+  window.addEventListener('scroll', onScroll);
+
+  onScroll();
+
+  window.scrollTo({
+    top: offset,
+    behavior: 'smooth',
+  });
+}
+
 export default {
   name: 'Detail',
   components: {
@@ -82,20 +102,6 @@ export default {
     GetTogether,
     Wedding,
     Header,
-  },
-  methods: {
-    updateActiveNavItem(index) {
-      this.activeNavItem = index;
-    },
-    showEasterEggImage() {
-      const itemsAmount = easterEggData.easterEggImages.length;
-      const randomNumber = parseInt(Math.random() * (itemsAmount - 0) + 0, 10);
-
-      this.activeEasterEggImage = randomNumber;
-    },
-    hideEasterEggImage() {
-      this.activeEasterEggImage = -1;
-    },
   },
   data() {
     return {
@@ -122,7 +128,63 @@ export default {
           },
         ],
       },
+      activeMenuItem: navData.navItems[0].hash,
+      shouldObserve: true,
     };
+  },
+  mounted() {
+    const targets = document.querySelectorAll('.title-1');
+
+    const options = {
+      root: null,
+      rootMargin: '0% 0% -50% 0%',
+      threshold: 1.0,
+    };
+
+    const observer = new IntersectionObserver(this.handleIntersection, options);
+
+    targets.forEach((target) => {
+      observer.observe(target);
+    });
+  },
+  methods: {
+    handleIntersection(entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (this.shouldObserve) {
+            this.activeMenuItem = entry.target.getAttribute('id');
+          }
+        }
+      });
+    },
+    handleScrollToId(id) {
+      this.shouldObserve = false;
+
+      let elementsTop = document.querySelector(`#${id}`).offsetTop;
+
+      // hacky... in real life, we would find a better solution to sync mediaqueries between
+      // css and js
+      if (window.innerWidth < 1140) {
+        elementsTop -= 70;
+      }
+
+      this.activeMenuItem = id;
+      scrollTo(elementsTop, () => {
+        this.shouldObserve = true;
+      });
+    },
+    updateActiveNavItem(index) {
+      this.activeNavItem = index;
+    },
+    showEasterEggImage() {
+      const itemsAmount = easterEggData.easterEggImages.length;
+      const randomNumber = parseInt(Math.random() * (itemsAmount - 0) + 0, 10);
+
+      this.activeEasterEggImage = randomNumber;
+    },
+    hideEasterEggImage() {
+      this.activeEasterEggImage = -1;
+    },
   },
 };
 

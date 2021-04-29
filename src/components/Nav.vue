@@ -1,11 +1,15 @@
 <template>
 <nav>
     <ul class="reset-list">
-      <li v-for="(navItem, index) in items.navItems" :key="index">
+      <li
+        v-for="(navItem, index) in items.navItems"
+        :key="index"
+        :id="`item-${navItem.hash}`"
+        @click="handleClick"
+      >
         <a
-          :href="`#${navItem.hash}`"
-          :class="{'is-active': activeNavItem == index}"
-          @click="setActiveNavItem(index)"
+          :class="{'is-active': activeMenuItem == navItem.hash}"
+          :data-link-id="`${navItem.hash}`"
         >
           <Icon name="HeartOutline" />
           {{navItem.label}}
@@ -33,12 +37,23 @@ export default {
     Icon,
   },
   props: {
-    activeNavItem: Number,
     items: Object,
+    activeMenuItem: String,
   },
   methods: {
-    setActiveNavItem(index) {
-      this.$emit('update-active-nav-item', index);
+    handleClick(e) {
+      e.preventDefault();
+
+      const id = e.path[0].getAttribute('data-link-id');
+
+      this.$emit('scroll-to-id', id);
+    },
+  },
+  watch: {
+    activeMenuItem(newValue) {
+      const element = document.querySelector(`#item-${newValue}`);
+
+      element.scrollIntoView(true);
     },
   },
 };
@@ -56,6 +71,7 @@ a {
   white-space: nowrap;
   color: $colorGroom;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .button {

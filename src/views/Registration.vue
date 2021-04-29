@@ -58,7 +58,8 @@ import Icon from '@/components/Icon.vue';
 import Header from '@/components/Header.vue';
 import RegistrationFinished from '@/components/RegistrationFinished.vue';
 import RegistrationCancel from '@/components/RegistrationCancel.vue';
-import { registrations } from '@/firebase/';
+import { registrations, firestore } from '@/firebase/';
+import defaultReservation from '../store/defaultState';
 
 export default {
   name: 'Registration',
@@ -92,9 +93,12 @@ export default {
     },
     async cancelStep1() {
       const name = this.$store.getters.name1;
-      const { reservation } = this.$store.getters;
+      const reservation = JSON.parse(JSON.stringify(defaultReservation));
 
       reservation.name = name;
+
+      // add timestamp
+      reservation.timestamp = firestore.FieldValue.serverTimestamp();
 
       this.$store.commit('setReservationRequestPending', true);
 
@@ -122,6 +126,9 @@ export default {
       // set names
       state.name = this.$store.getters.name1;
       state.wedding.person2.name = this.$store.getters.name2;
+
+      // add timestamp
+      state.timestamp = firestore.FieldValue.serverTimestamp();
 
       let add;
       try {
