@@ -21,9 +21,9 @@
           Website
         </a>
         <br>
-        <a href="mailto:info@cervo.swiss">
+        <a href="mailto:beyond@cervo.swiss">
           <Icon name="Mail" class="icon-mail" />
-          info@cervo.swiss
+          beyond@cervo.swiss
         </a>
       </p>
     </figcaption>
