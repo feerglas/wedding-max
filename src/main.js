@@ -1,7 +1,7 @@
 import { auth } from '@/firebase/';
 import Vue from 'vue';
 import App from './App.vue';
-import './registerServiceWorker';
+// import './registerServiceWorker';
 import router from './router';
 import store from './store';
 
